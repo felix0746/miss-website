@@ -1,0 +1,43 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 公開內容：任何人都可讀取
+    match /posts/{postId} {
+      allow read: if true;
+      // 只有已認證的使用者可以寫入（簡化規則）
+      allow write: if request.auth != null;
+    }
+
+    match /news/{newsId} {
+      allow read: if true;
+      // 只有已認證的使用者可以寫入（簡化規則）
+      allow write: if request.auth != null;
+    }
+    
+    // 客戶案例也是一樣
+    match /case_studies/{caseId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // 使用者個人資料：只有使用者本人或管理員可以讀寫
+    match /users/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
+    }
+    
+    // --- 安全性輔助函式 ---
+    
+    // 檢查請求的使用者是否為文件擁有者
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+    
+    // 檢查請求的使用者是否為管理員
+    // 我們透過讀取該使用者的 'users' 文件中的 'role' 欄位來判斷
+    function isAdmin() {
+      return request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+  }
+} 

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="探索覓食 (MISS) 的核心服務項目。我們提供從品牌規劃、策略制定、商業模式診斷到專業管理顧問等一站式解決方案，助您的餐飲事業邁向成功。">
+    <title>服務項目 - 覓食 MISS</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Firebase SDKs - 使用最新穩定版本 -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <main>
+        <section class="page-content-wrapper">
+            <div class="page-banner">
+                <picture>
+                    <source srcset="images/planning-banner.webp" type="image/webp">
+                    <img src="images/planning-banner.jpg" alt="服務項目">
+                </picture>
+                <div class="banner-overlay-text">服務項目</div>
+            </div>
+
+            <div class="container">
+                <nav class="page-tabs" id="service-tabs">
+                    <ul>
+                        <li><a href="#planning" class="active" data-tab="planning">品牌規劃</a></li>
+                        <li><a href="#strategy" data-tab="strategy">策略規劃</a></li>
+                        <li><a href="#diagnosis" data-tab="diagnosis">商業模式診斷</a></li>
+                        <li><a href="#consultant" data-tab="consultant">管理顧問</a></li>
+                    </ul>
+                </nav>
+
+                <div class="tab-content-wrapper">
+                    <!-- 品牌規劃內容 -->
+                    <div id="planning" class="tab-pane active">
+                        <article class="planning-article">
+                            <div class="planning-background-swoosh">
+                                <picture>
+                                    <source srcset="images/miss-logo-watermark.webp" type="image/webp">
+                                    <img src="images/miss-logo-watermark.png" alt="">
+                                </picture>
+                            </div>
+                            <div class="planning-intro">
+                                <h2>餐旅商業設計</h2>
+                                <p>對店家進行品牌診斷，給予企業識別規劃、美學意象上的建議與執行。</p>
+                            </div>
+                            <div class="planning-services-grid">
+                                <div class="service-block style-1">
+                                    <picture>
+                                        <source srcset="images/service-icon-system.webp" type="image/webp">
+                                        <img src="images/service-icon-system.jpg" alt="餐旅品牌系統">
+                                    </picture>
+                                    <div class="service-text"><h4>餐旅品牌系統</h4><p>從0到1規劃專屬品牌建立品牌視覺</p></div>
+                                </div>
+                                <div class="service-block style-2">
+                                    <picture>
+                                        <source srcset="images/service-icon-graphic.webp" type="image/webp">
+                                        <img src="images/service-icon-graphic.jpg" alt="商業平面設計">
+                                    </picture>
+                                    <div class="service-text"><h4>商業平面設計</h4><p>菜單、海報、名片設計，面面俱到全方位打造品牌</p></div>
+                                </div>
+                                <div class="service-block style-3">
+                                    <picture>
+                                        <source srcset="images/service-icon-uniform.webp" type="image/webp">
+                                        <img src="images/service-icon-uniform.jpg" alt="制服設計">
+                                    </picture>
+                                    <div class="service-text"><h4>制服設計</h4><p>餐飲人員制服設計建立專業、親切服務形象</p></div>
+                                </div>
+                                <div class="service-block style-4">
+                                    <picture>
+                                        <source srcset="images/service-icon-space.webp" type="image/webp">
+                                        <img src="images/service-icon-space.jpg" alt="空間設計">
+                                    </picture>
+                                    <div class="service-text"><h4>空間設計</h4><p>餐廳、攤車裝潢打造吸睛、舒適實用情境</p></div>
+                                </div>
+                            </div>
+                            <div class="planning-bottom-section">
+                                <div class="bottom-image">
+                                    <picture>
+                                        <source srcset="images/planning-meeting.webp" type="image/webp">
+                                        <img src="images/planning-meeting.jpg" alt="會議討論">
+                                    </picture>
+                                </div>
+                                <div class="bottom-text"><h3>我們會為您的品牌建立獨特的品牌定位，針對您能為消費者所提供的價值建立品牌的核心理念。</h3><h2>讓覓食餐飲陪你一起成長<br>用台灣美食帶給人們笑容</h2></div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- 策略規劃內容 -->
+                    <div id="strategy" class="tab-pane">
+                         <div class="strategy-content">
+                            <div class="strategy-section">
+                                <div class="strategy-image">
+                                    <picture>
+                                        <source srcset="images/strategy-market-need.webp" type="image/webp">
+                                        <img src="images/strategy-market-need.jpg" alt="識別市場需求">
+                                    </picture>
+                                </div>
+                                <div class="strategy-text"><h3>識別市場的需求和機會</h3><p>覓食擁有專業的洞察力和餐飲經驗，致力於尋找顧客尚未被滿足的需求，以及那些隱藏的、未被開發的市場機會。</p></div>
+                            </div>
+                            <div class="strategy-section">
+                                <div class="strategy-image">
+                                    <picture>
+                                        <source srcset="images/strategy-customer-flow.webp" type="image/webp">
+                                        <img src="images/strategy-customer-flow.jpg" alt="打造源源不絕的來客源">
+                                    </picture>
+                                </div>
+                                <div class="strategy-text"><h3>打造源源不絕的來客源</h3><p>藉由精準的商業模式診斷，打造創新的獲客策略，為品牌設計獨特的吸引人流方案，確保餐廳在市場中脫穎而出。</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商業模式診斷內容 -->
+                    <div id="diagnosis" class="tab-pane">
+                        <div class="diagnosis-content">
+                            <div class="diagnosis-header"><h2>圖表客製化</h2><h3>分析品牌優劣勢</h3></div>
+                            <div class="diagnosis-image">
+                                <picture>
+                                    <source srcset="images/service-icon-system.webp" type="image/webp">
+                                    <img src="images/service-icon-system.jpg" alt="商業模式分析圖表">
+                                </picture>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 管理顧問內容 -->
+                    <div id="consultant" class="tab-pane">
+                        <article class="story-article">
+                            <div class="background-logo-watermark">
+                                <picture>
+                                    <source srcset="images/miss-logo-watermark.webp" type="image/webp">
+                                    <img src="images/miss-logo-watermark.png" alt="覓食浮水印">
+                                </picture>
+                            </div>
+                            <div class="consultant-content">
+                                <div class="consultant-intro">
+                                    <p>覓食團隊以專業管理的方式進行作業，透過與餐飲業主的溝通和資訊整合，協助提供餐旅管理問題上的解決方案。</p>
+                                    <div class="contact-info">
+                                        <a href="https://www.facebook.com/wowmiss" target="_blank" rel="noopener noreferrer" class="contact-item">
+                                            <i class="fab fa-facebook-f"></i>
+                                            <span>覓食餐飲</span>
+                                        </a>
+                                        <a href="tel:+886-2-25590960" class="contact-item">
+                                            <i class="fas fa-phone"></i>
+                                            <span>(02)2559-0960</span>
+                                        </a>
+                                        <a href="mailto:service@wowmiss.com" class="contact-item">
+                                            <i class="fas fa-envelope"></i>
+                                            <span>service@wowmiss.com</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="consultant-services">
+                                    <h3>餐旅管理顧問與執行</h3>
+                                    <p>對店家進行經營診斷，給予創意行銷、管理制度上的建議與委託執行。包括：</p>
+                                    <ol>
+                                        <li>創業諮詢與輔導</li>
+                                        <li>老店改造與輔導</li>
+                                        <li>經營模式與策略規劃建言</li>
+                                        <li>管理契約之委託經營</li>
+                                        <li>人力資源規劃與教育訓練系統的設計及執行</li>
+                                        <li>財務成本控制與菜單工程分析與建議</li>
+                                        <li>公關、行銷與媒體露出活動的執行</li>
+                                        <li>協助歇業店家處理善後的SOP 建立</li>
+                                        <li>市場調查與CRM 輔導</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html> 

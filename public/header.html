@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>覓食 MISS</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Firebase SDKs - These are loaded here to be available for the main script -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+<header id="main-header">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html"><img src="images/MISS.png" alt="覓食 MISS Logo"></a>
+        </div>
+        <nav class="main-nav" id="main-nav" data-visible="false">
+            <ul>
+                <li aria-haspopup="true" aria-expanded="false">
+                    <a href="about.html" data-key="nav_about">關於覓食</a>
+                </li>
+                <li>
+                    <a href="services.html" data-key="nav_services">服務項目</a>
+                </li>
+                <li><a href="cases.html" data-key="nav_cases">服務案例</a></li>
+                <li><a href="news.html" data-key="nav_news">覓食消息</a></li>
+                <li><a href="contact.html" data-key="nav_contact">合作諮詢</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="zh-TW">中文</button>
+                <span class="lang-separator">/</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false">
+                <span class="sr-only">Menu</span>
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </div>
+</header>
+</body>
+</html>

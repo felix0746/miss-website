@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理後台 - 覓食 MISS</title>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <script src="https://cdn.tiny.cloud/1/207dsb64e8xn4q156mi0jfggblfc22gvmtx77x5z37p0btgh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- 引入 Cropper.js 的 CSS 和 JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" defer></script>
+</head>
+<body>
+    <div class="admin-header">
+        <h1>覓食 MISS - 內容管理</h1>
+        <button id="logout-btn">登出</button>
+    </div>
+
+    <div class="admin-container">
+        <div class="sidebar">
+            <h2>管理選單</h2>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#dashboard-section" class="nav-link active" data-target="dashboard-section">總覽</a></li>
+                    <li><a href="#posts-section" class="nav-link" data-target="posts-section">工作日誌</a></li>
+                    <li><a href="#news-section" class="nav-link" data-target="news-section">覓食消息</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <section id="dashboard-section" class="content-section">
+                <h2>總覽</h2>
+                <p>歡迎來到覓食 MISS 的內容管理後台。</p>
+                <p>請從左側選單選擇您想管理的項目。</p>
+            </section>
+
+            <section id="posts-section" class="content-section">
+                <h2>工作日誌文章</h2>
+                <button class="add-btn" data-type="post" id="add-post-btn">新增文章</button>
+                <div class="list-header">
+                    <span class="item-title">標題</span>
+                    <span class="item-author">作者</span>
+                    <span class="item-date">日期</span>
+                    <span class="item-actions">操作</span>
+                </div>
+                <div id="posts-list" class="list-container">
+                    <!-- 文章列表將由 JavaScript 動態載入 -->
+                </div>
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="load-more-posts" style="display: none;">載入更多文章</button>
+                </div>
+            </section>
+
+            <section id="news-section" class="content-section">
+                <h2>覓食消息管理</h2>
+                <button class="add-btn" data-modal="news-modal" id="add-news-btn">新增消息</button>
+                <div class="list-header">
+                    <span class="item-title">標題</span>
+                    <span class="item-date">日期</span>
+                    <span class="item-actions">操作</span>
+                </div>
+                <div id="news-list" class="list-container"></div>
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="load-more-news" style="display: none;">載入更多消息</button>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    
+    <!-- 新增/編輯文章的彈出式視窗 -->
+    <div id="post-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" data-modal="post-modal">&times;</span>
+            <h3 id="post-modal-title">新增文章</h3>
+            <form id="post-form" class="modal-form">
+                <input type="hidden" id="post-id">
+                <label for="post-title">標題:</label>
+                <input type="text" id="post-title" required>
+                
+                <label for="post-date">日期:</label>
+                <input type="date" id="post-date" required>
+
+                <label for="post-author">作者:</label>
+                <input type="text" id="post-author" required>
+
+                <label for="post-image-file">列表圖 (顯示在文章列表):</label>
+                <div class="image-cropper-container">
+                    <div class="cropper-wrapper">
+                         <img id="post-image-to-crop" style="display: none; max-width: 100%;">
+                    </div>
+                    <div class="image-preview-container">
+                        <label>最終預覽：</label>
+                        <img id="post-image-preview" src="" alt="列表圖預覽" style="width: 220px; height: 165px; object-fit: cover; border: 1px solid #ddd; display: none;">
+                        <button type="button" id="post-preview-crop-btn" class="preview-btn">預覽裁切</button>
+                    </div>
+                </div>
+
+                <input type="file" id="post-image-file" accept="image/*">
+                <input type="hidden" id="post-original-image-url">
+
+                <label for="post-excerpt">摘要:</label>
+                <textarea id="post-excerpt" rows="3" required></textarea>
+
+                <label for="post-content">完整內容 (支援 HTML):</label>
+                <textarea id="post-content" rows="10"></textarea>
+                
+                <button type="submit">儲存</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 新增/編輯新聞的彈出式視窗 -->
+    <div id="news-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" data-modal="news-modal">&times;</span>
+            <h3 id="news-modal-title">新增消息</h3>
+            <form id="news-form" class="modal-form">
+                <input type="hidden" id="news-id">
+                <label for="news-title">標題:</label>
+                <input type="text" id="news-title" required>
+                
+                <label for="news-date">日期:</label>
+                <input type="date" id="news-date" required>
+
+                <label for="news-image-file">圖片:</label>
+                 <div class="image-cropper-container">
+                    <div class="cropper-wrapper">
+                         <img id="news-image-to-crop" style="display: none; max-width: 100%;">
+                    </div>
+                    <div class="image-preview-container">
+                        <label>最終預覽：</label>
+                        <img id="news-image-preview" src="" alt="列表圖預覽">
+                        <button type="button" id="news-preview-crop-btn" class="preview-btn">預覽裁切</button>
+                    </div>
+                </div>
+                <input type="file" id="news-image-file" accept="image/*">
+                <input type="hidden" id="news-original-image-url">
+                
+                <label for="news-link">外部連結:</label>
+                <input type="url" id="news-link" required>
+                
+                <label for="news-youtubeLink">YouTube 影片連結 (選填):</label>
+                <input type="url" id="news-youtubeLink">
+
+                <label for="news-excerpt">摘要:</label>
+                <textarea id="news-excerpt" rows="3" required></textarea>
+                
+                <button type="submit">儲存</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase 核心服務 - 升級到與前端一致的版本 -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+    <!-- 我們的全域腳本 (必須在 admin.js 之前) -->
+    <script src="script.js?v=1.0.3"></script>
+    
+    <!-- 這個頁面專用的腳本 -->
+    <script src="admin.js?v=1.0.3"></script>
+</body>
+</html> 

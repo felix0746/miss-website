@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="深入了解覓食 (MISS) 的一切。從我們的緣起、品牌故事、使命到願景，探索我們如何致力於推廣與傳承台灣在地美食文化。">
+    <title>關於覓食 - 覓食 MISS</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Firebase SDKs - 使用最新穩定版本 -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <main>
+        <section class="page-content-wrapper">
+            <div class="page-banner">
+                <picture>
+                    <source srcset="images/story-banner.webp" type="image/webp">
+                    <img src="images/story-banner.png" alt="覓食團隊">
+                </picture>
+                <div class="banner-overlay-text">關於覓食</div>
+            </div>
+
+            <div class="container">
+                <nav class="page-tabs" id="about-tabs">
+                    <ul>
+                        <li><a href="#origin" class="active" data-tab="origin">覓食緣起</a></li>
+                        <li><a href="#story" data-tab="story">品牌故事</a></li>
+                        <li><a href="#mission" data-tab="mission">品牌使命</a></li>
+                        <li><a href="#vision" data-tab="vision">品牌願景</a></li>
+                    </ul>
+                </nav>
+
+                <div class="tab-content-wrapper">
+                    <!-- 覓食緣起 -->
+                    <div id="origin" class="tab-pane active">
+                        <article class="story-article">
+                            <div class="background-logo-watermark">
+                                <picture>
+                                    <source srcset="images/miss-logo-watermark.webp" type="image/webp">
+                                    <img src="images/miss-logo-watermark.png" alt="覓食浮水印">
+                                </picture>
+                            </div>
+                            <div class="origin-grid-section"><div class="grid-text"><p>創辦人 潘威達原先為寧夏夜市老店「香連鐵板燒」的第二代，但當時遇上金融危機，家中負債千萬元差點倒閉。</p><p>當時還在念餐飲學校的威達，學以致用，用精準的SOP及創新的行銷及熱情，成功在逆境中改革老店，讓老店起死回生，扭轉命運。</p></div><div class="grid-image">
+                                <picture>
+                                    <source srcset="images/origin-teppanyaki.webp" type="image/webp">
+                                    <img src="images/origin-teppanyaki.jpg" alt="香連鐵板燒">
+                                </picture>
+                            </div></div>
+                            <div class="origin-grid-section"><div class="grid-image">
+                                <picture>
+                                    <source srcset="images/brand-story-team.webp" type="image/webp">
+                                    <img src="images/brand-story-team.png" alt="覓食核心團隊">
+                                </picture>
+                            </div><div class="grid-text"><p>威達深感台灣許多美食老店都面臨傳承與變革的問題，因而在民國九十九年四月，與另外兩位同樣對於餐飲事業有高度熱忱的高雄餐旅大學同學：蔡志建與彭柏瑀，一同成立了「覓食國際餐飲企業有限公司」，希望藉由一個專業的團隊，協助這些餐飲老店進行傳承與推廣。</p></div></div>
+                        </article>
+                    </div>
+
+                    <!-- 品牌故事 -->
+                    <div id="story" class="tab-pane">
+                        <article class="story-article">
+                            <div class="background-logo-watermark">
+                                <picture>
+                                    <source srcset="images/miss-logo-watermark.webp" type="image/webp">
+                                    <img src="images/miss-logo-watermark.png" alt="覓食浮水印">
+                                </picture>
+                            </div>
+                            <h2 class="story-title">覓食國際餐飲企業有限公司</h2>
+                            <div class="story-body"><p>乃是由一群對餐旅事業有高度熱忱的青年所組成。</p><p>而「覓食」的命名乃是以英文 Miss 的諧音作為發想，其意涵有想念、饗宴、回味無窮之意。</p><p>「覓食」成立的使命是以台灣的本土化美食為依歸，推廣與行銷在地美食，提高台灣美食能見度，傳承好味道並讓傳統文化延續。</p><p>「覓食」藉此激發顧客對台灣美食文化的熱愛，亦引領餐飲從業人員對餐飲服務之重視。</p></div>
+                        </article>
+                    </div>
+
+                    <!-- 品牌使命 -->
+                    <div id="mission" class="tab-pane">
+                        <article class="story-article">
+                            <div class="background-logo-watermark">
+                                <picture>
+                                    <source srcset="images/miss-logo-watermark.webp" type="image/webp">
+                                    <img src="images/miss-logo-watermark.png" alt="覓食浮水印">
+                                </picture>
+                            </div>
+                            <div class="mission-content"><div class="mission-image">
+                                <picture>
+                                    <source srcset="images/banner.webp" type="image/webp">
+                                    <img src="images/banner.png" alt="覓食團隊與標語">
+                                </picture>
+                            </div><div class="mission-text"><p>「覓食」承諾將會借助過去集團品牌及成功案例推行的經驗，協助想轉型、想創業，或是已有不錯的成果，但想更進一步的店家做改善。</p><p>也行銷團隊在地美食，讓台灣美食走出去，為客戶提供高品質的餐飲體驗。</p></div></div>
+                        </article>
+                    </div>
+
+                    <!-- 品牌願景 -->
+                    <div id="vision" class="tab-pane">
+                        <article class="story-article">
+                            <div class="background-logo-watermark">
+                                <picture>
+                                    <source srcset="images/miss-logo-watermark.webp" type="image/webp">
+                                    <img src="images/miss-logo-watermark.png" alt="覓食浮水印">
+                                </picture>
+                            </div>
+                            <div class="vision-content"><div class="vision-image">
+                                <picture>
+                                    <source srcset="images/philosophy-image.webp" type="image/webp">
+                                    <img src="images/philosophy-image.png" alt="台灣美食文化">
+                                </picture>
+                            </div><div class="vision-text"><p>「覓食」致力於傳承並發展台灣美食文化，透過不斷創新和品牌管理，協助微型餐飲店家延續其傳統文化，繼續將台灣的美食文化發揚光大。</p></div></div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html> 

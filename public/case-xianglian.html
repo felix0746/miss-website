@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香連鐵板料理 - 服務案例 - 覓食 MISS</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Firebase SDKs - 使用最新穩定版本 -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+    <header id="main-header"></header>
+
+    <main>
+        <section class="page-content-wrapper">
+            <div class="page-banner">
+                <img src="images/planning-banner.jpg" alt="香蓮鐵板料理案例">
+            </div>
+
+            <div class="container">
+                <article class="case-study-article">
+                    
+                    <div class="case-study-title-wrapper">
+                        <h2 class="case-study-title">香連鐵板料理</h2>
+                    </div>
+
+                    <section class="case-section about-section">
+                        <div class="case-section-title-wrapper">
+                            <h3 class="case-section-title">關於香連</h3>
+                        </div>
+                        <div class="about-content">
+                            <p>香連鐵板料理是一家位於台北石牌的日本鐵板料理，店內強調嚴選當季食材，並以創新的料理方式呈現給顧客。</p>
+                            <img src="images/xianglian-chopsticks.jpg" alt="香連店內">
+                        </div>
+                        <div class="about-slogan">
+                            <p>覓食團隊以第一代經營者，來自台北石牌商圈人與新竹竹東客家人的待客豪情文化結合，導入創意設計，塑造核心文化。</p>
+                        </div>
+                    </section>
+
+                    <section class="case-section logo-section">
+                        <div class="case-section-title-wrapper">
+                            <h3 class="case-section-title">LOGO 設計</h3>
+                        </div>
+                        <div class="logo-design-content">
+                            <div class="logo-image">
+                                <img src="images/xianglian-logo-large.jpg" alt="香連 Logo">
+                            </div>
+                            <div class="logo-description">
+                                <ul>
+                                    <li>結合鐵板料理不可或缺的兩個鍋鏟做為發想。</li>
+                                    <li>鍋鏟面設計成圓形，讓整體視覺較為圓潤，增加品牌識別度。</li>
+                                    <li>字體設計上，特別將「香」字融入鍋鏟的形象，並將「蓮」字設計的較有中國風，象徵著傳承與創新。</li>
+                                    <li>LOGO 整體以黑色與紅色為主，除了是鐵板燒的顏色，更能呈現品牌沉穩、專業與熱情的形象。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="case-section renovation-section">
+                         <div class="case-section-title-wrapper">
+                            <h3 class="case-section-title">餐廳改造</h3>
+                            <img src="images/peony-graphic.png" class="title-decoration" alt="牡丹花圖樣">
+                        </div>
+                        <p class="renovation-intro">以外觀的設計為例，我們將原本單調的店面設計成較有日式風格的餐廳，並將香蓮的 Logo 與牡丹花做結合，讓顧客在用餐時能感受到品牌的用心。搭配溫暖的黃光與木紋，打造更舒適的用餐環境。</p>
+                        <div class="renovation-images">
+                            <img src="images/xianglian-before.jpg" alt="改造前">
+                            <img src="images/xianglian-after.jpg" alt="改造後">
+                        </div>
+                    </section>
+
+                    <section class="case-section media-section">
+                        <div class="case-section-title-wrapper">
+                            <h3 class="case-section-title">媒體報導</h3>
+                        </div>
+                        <div class="media-grid">
+                            <img src="images/xianglian-media-1.jpg" alt="媒體報導1">
+                            <img src="images/xianglian-media-2.jpg" alt="媒體報導2">
+                        </div>
+                        <div class="video-grid">
+                           <a href="https://youtu.be/BdupZbUjj1E?si=S9--gcbk9h1JiBSc" target="_blank" class="video-thumbnail">
+                               <img src="images/xianglian-youtube-1.jpg" alt="YouTube 影片1">
+                           </a>
+                           <a href="https://youtu.be/pXTkKlzsHro?si=zhMveBk-_1agxuDG" target="_blank" class="video-thumbnail">
+                               <img src="images/xianglian-youtube-2.jpg" alt="YouTube 影片2">
+                           </a>
+                        </div>
+                    </section>
+
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    
+    <script src="script.js" type="module"></script>
+</body>
+</html>

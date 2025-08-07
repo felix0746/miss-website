@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "miss-blog-backend-92eb6"
+  },
+  "targets": {
+    "miss-blog-backend-92eb6": {
+      "hosting": {
+        "wowmiss-website": [
+          "miss-blog-backend-92eb6"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

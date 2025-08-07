@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://miss-blog-backend-92eb6.web.app/sitemap.xml 
