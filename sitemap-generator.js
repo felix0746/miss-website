@@ -41,7 +41,7 @@ async function generateSitemap() {
     const postsSnapshot = await db.collection('posts').get();
     postsSnapshot.forEach(doc => {
       const post = doc.data();
-      const loc = `${baseUrl}/post.html?id=${doc.id}`;
+      const loc = `${baseUrl}/posts/${doc.id}.html`; // Changed this line
       // Use post's last updated date if available, otherwise use now
       const lastmod = post.lastUpdated ? new Date(post.lastUpdated.seconds * 1000).toISOString() : new Date().toISOString();
       urls.push(`
@@ -49,6 +49,7 @@ async function generateSitemap() {
     <loc>${loc}</loc>
     <lastmod>${lastmod}</lastmod>
     <priority>0.6</priority>
+    <changefreq>monthly</changefreq> 
   </url>`);
     });
     console.log(`Added ${postsSnapshot.size} dynamic URLs from 'posts' collection.`);

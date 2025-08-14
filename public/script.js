@@ -741,10 +741,12 @@ async function loadBlogPosts(containerSelector = '.blog-post-list') {
             } catch (e) { /* 保持未知 */ }
 
             const excerpt = post.excerpt || (post.content ? post.content.substring(0, 100).replace(/<[^>]+>/g, '') + '...' : '點此閱讀更多內容...');
+            
+            const postUrl = `/posts/${post.id}.html`; // NEW: Use static-like URL
 
             const imageBlock = post.imageUrl ? `
                 <div class="post-image">
-                    <a href="post.html?id=${post.id}">
+                    <a href="${postUrl}">
                         <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="${escapeHTML(post.imageUrl)}" alt="${escapeHTML(post.title)}" class="lazy-load" loading="lazy">
                     </a>
                 </div>
@@ -756,13 +758,13 @@ async function loadBlogPosts(containerSelector = '.blog-post-list') {
                 ${imageBlock}
                 <div class="post-content">
                     <h3 class="post-title">
-                        <a href="post.html?id=${post.id}">${escapeHTML(post.title)}</a>
+                        <a href="${postUrl}">${escapeHTML(post.title)}</a>
                     </h3>
                     <div class="post-meta">
                         <span class="post-date">${postDate}</span>
                     </div>
                     <p class="post-excerpt">${escapeHTML(excerpt)}</p>
-                    <a href="post.html?id=${post.id}" class="read-more-link">Read more</a>
+                    <a href="${postUrl}" class="read-more-link">Read more</a>
                 </div>
             `;
             container.appendChild(postElement);
@@ -793,8 +795,8 @@ async function loadBlogPosts(containerSelector = '.blog-post-list') {
 async function loadSinglePost() {
     logger.debug('嘗試載入單篇文章...');
     const postContainer = document.getElementById('post-content-container');
-    const params = new URLSearchParams(window.location.search);
-    const postId = params.get('id');
+    // NEW: Use the globally resolved post ID from post.html's inline script
+    const postId = window.postId;
 
     if (!postContainer) {
         logger.debug('不在文章頁面，跳過載入單篇文章。');

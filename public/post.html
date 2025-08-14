@@ -32,6 +32,39 @@
 
     <div id="footer-placeholder"></div>
     
+    <script>
+        // --- Post ID Resolution Logic ---
+        // This script runs before the main 'script.js' to determine the post ID from the URL.
+        // It supports both new static-like URLs (e.g., /posts/post-id.html) and legacy query URLs (e.g., /post.html?id=post-id).
+        (function() {
+            try {
+                const path = window.location.pathname;
+                const searchParams = new URLSearchParams(window.location.search);
+                let postId = null;
+
+                // 1. Try to extract from a static-like path first (e.g., /posts/some-id.html)
+                const staticMatch = path.match(/^\/posts\/(.+)\.html$/);
+                if (staticMatch && staticMatch[1]) {
+                    postId = staticMatch[1];
+                }
+
+                // 2. If not found, fall back to the legacy query parameter (e.g., ?id=some-id)
+                if (!postId && searchParams.has('id')) {
+                    postId = searchParams.get('id');
+                }
+
+                if (postId) {
+                    console.log(`Resolved post ID: ${postId}`);
+                    // Store the resolved post ID on the window object so it can be accessed by script.js
+                    window.postId = postId;
+                } else {
+                    console.warn("Could not resolve post ID from URL.");
+                }
+            } catch (error) {
+                console.error("Error resolving post ID:", error);
+            }
+        })();
+    </script>
     <script src="script.js" type="module"></script>
 </body>
 </html>

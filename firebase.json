@@ -76,6 +76,10 @@
     ],
     "rewrites": [
       {
+        "source": "/posts/**",
+        "destination": "/post.html"
+      },
+      {
         "source": "/sitemap.xml",
         "destination": "/sitemap.xml"
       },
