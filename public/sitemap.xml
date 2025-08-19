@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://miss-blog-backend-92eb6.web.app</loc>
+    <loc>https://miss-blog-backend-92eb6.web.app/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://miss-blog-backend-92eb6.web.app/about.html</loc>
+    <loc>https://miss-blog-backend-92eb6.web.app/about</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://miss-blog-backend-92eb6.web.app/services.html</loc>
+    <loc>https://miss-blog-backend-92eb6.web.app/services</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://miss-blog-backend-92eb6.web.app/cases.html</loc>
+    <loc>https://miss-blog-backend-92eb6.web.app/cases</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://miss-blog-backend-92eb6.web.app/news.html</loc>
+    <loc>https://miss-blog-backend-92eb6.web.app/news</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://miss-blog-backend-92eb6.web.app/contact.html</loc>
+    <loc>https://miss-blog-backend-92eb6.web.app/contact</loc>
     <priority>0.8</priority>
   </url>
   <url>
