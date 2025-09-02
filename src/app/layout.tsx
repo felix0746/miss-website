@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 
   // Google Search Console 驗證
   verification: {
-    google: 'CfkGRGCzoLRHKrj1PkdQCZ0Y0zoReg8jrmdHu7GOGLs', // 維持不變
+    google: 'wry9ix6DEHAyH4l-rcrpVhbVGC8mXgO_hFMEOj412BI',
   },
 
   // 讓 PWA (漸進式網路應用) 體驗更好
