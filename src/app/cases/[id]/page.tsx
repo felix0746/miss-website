@@ -215,7 +215,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function CaseDetail({ params }: { params: { id: string } }) {
+export default function CaseDetail({ params }: { params: { id: string } }) {
   const id = params.id as keyof typeof cases;
   
   // 將頁面資料移至函數外部

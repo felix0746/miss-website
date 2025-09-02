@@ -125,7 +125,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function NewsDetail({ params }: { params: { id: string } }) {
+export default function NewsDetail({ params }: { params: { id: string } }) {
   const id = params.id as keyof typeof news;
 
   // 將頁面資料移至函數外部
