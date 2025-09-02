@@ -18,10 +18,10 @@ export default function Header() {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center py-3 sm:py-4">
+        <div className="flex justify-between items-center py-3 md:py-2">
           {/* Logo - 更顯眼的設計 */}
           <Link href="/" className="flex items-center group">
-            <div className="w-20 h-16 sm:w-24 sm:h-20 relative transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-1">
+            <div className="w-20 h-16 md:w-18 md:h-14 relative transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-1">
               <Image
                 src="/images/MISS.webp"
                 alt="覓食 MISS Logo"
@@ -39,7 +39,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-red-600 transition-colors duration-200 font-medium text-xs sm:text-sm whitespace-nowrap"
+                className="text-gray-700 hover:text-red-600 transition-colors duration-200 font-medium text-sm whitespace-nowrap"
               >
                 {item.name}
               </Link>
@@ -47,7 +47,7 @@ export default function Header() {
             <div className="ml-2">
               <Link
                 href="/contact"
-                className="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-md transition-colors duration-200 font-medium text-xs sm:text-sm whitespace-nowrap"
+                className="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-md transition-colors duration-200 font-medium text-sm whitespace-nowrap"
               >
                 立即諮詢
               </Link>
