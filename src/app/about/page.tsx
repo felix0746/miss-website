@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: '關於我們 | 覓食 MISS',
+  description: '了解覓食 (MISS) 的品牌故事、經營理念與專業團隊。我們致力於為餐飲業者提供最專業的顧問服務，與您一同成長。',
+};
 
 export default function About() {
   return (

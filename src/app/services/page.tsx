@@ -1,5 +1,12 @@
+import { Metadata } from 'next';
 import Image from 'next/image'
 import Link from 'next/link'
+import { Briefcase, Lightbulb, Users, BarChart, HardHat, UtensilsCrossed } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: '服務項目 | 覓食 MISS',
+  description: '探索覓食 (MISS) 提供的四大核心服務：品牌規劃、策略佈局、營運診斷、管理顧問。我們為您的餐飲事業提供全方位的解決方案。',
+};
 
 export default function Services() {
   return (

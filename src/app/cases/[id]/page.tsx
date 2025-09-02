@@ -1,184 +1,229 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { Metadata, ResolvingMetadata } from 'next';
 
-export default async function CaseDetail({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-  const cases = {
-    kenting: {
-      title: '肯特西餐廳',
-      subtitle: '品牌重塑與空間改造',
-      description: '協助肯特西餐廳進行品牌重塑與空間改造，從老舊西餐廳轉型為現代化美式餐廳，打造家的味道與懷舊氛圍。',
-      fullDescription: '肯特西餐廳是老闆於民國六十四年創立的肯特西餐牛排館，曾經是台北東區唯一有駐唱的西餐廳，充滿濃厚的懷舊氛圍。經歷世代變遷，老舊西餐廳面臨歇業危機，但老闆秉持初衷，希望以「家」為本，用最美式的方式料理，把店內所有的餐點都賦予家的味道。我們協助其進行品牌重塑與空間改造，包括LOGO設計、菜單規劃、餐廳裝潢設計等，成功轉型為現代化美式餐廳。',
-      image: '/images/case-logo-kenting.webp',
-      category: '西餐廳',
-      services: ['LOGO設計', '菜單規劃', '空間設計'],
-      year: '2023',
-      results: [
-        '品牌形象現代化提升 80%',
-        '顧客滿意度提升至 90%',
-        '營收成長 35%',
-        '年輕客群增加 60%'
-      ],
-      challenges: [
-        '老舊西餐廳風格過時',
-        '無法吸引年輕族群',
-        '空間設計昏暗老舊',
-        '品牌識別度不足'
-      ],
-      solutions: [
-        '設計現代化LOGO，融合蜂巢、心型、家徽等元素',
-        '重新規劃菜單設計與視覺SOP',
-        '全面改造餐廳裝潢，營造活潑熱鬧氛圍',
-        '建立品牌一致性與現代化形象'
-      ]
-    },
-    lanting: {
-      title: '蘭亭餐廳',
-      subtitle: '空間設計與品牌識別',
-      description: '為蘭亭餐廳打造獨特的空間設計與品牌識別系統，創造優雅的用餐環境與品牌形象。',
-      fullDescription: '蘭亭餐廳是一家主打精緻中餐的高級餐廳，希望透過空間設計與品牌識別系統的整合，創造獨特的用餐體驗。我們從品牌理念出發，設計了完整的視覺識別系統，並規劃了優雅的用餐空間，成功打造了蘭亭的品牌特色。',
-      image: '/images/case-logo-lanting.webp',
-      category: '餐廳',
-      services: ['空間設計', '品牌識別', '視覺設計'],
-      year: '2023',
-      results: [
-        '顧客回流率提升 60%',
-        '平均消費金額提升 30%',
-        '品牌識別度提升 80%',
-        '空間利用率提升 25%'
-      ],
-      challenges: [
-        '品牌特色不明顯',
-        '空間設計缺乏一致性',
-        '視覺元素雜亂',
-        '顧客體驗不佳'
-      ],
-      solutions: [
-        '建立完整的品牌識別系統',
-        '設計統一的空間風格',
-        '整合視覺元素與空間設計',
-        '優化顧客用餐流程'
-      ]
-    },
-    laojiang: {
-      title: '老江紅茶牛奶',
-      subtitle: '品牌升級與連鎖擴展',
-      description: '協助老江紅茶牛奶進行品牌升級，制定連鎖擴展策略，提升品牌價值與市場份額。',
-      fullDescription: '老江紅茶牛奶是高雄地區知名的傳統飲料店，希望透過品牌升級與連鎖擴展，擴大市場影響力。我們協助其進行品牌現代化改造，制定標準化的營運流程，並規劃連鎖擴展策略，成功幫助老江從單店經營轉型為連鎖品牌。',
-      image: '/images/case-logo-laojiang.webp',
-      category: '飲料業',
-      services: ['品牌升級', '連鎖策略', '營運規劃'],
-      year: '2023',
-      results: [
-        '連鎖店數從 1 家擴展至 8 家',
-        '品牌價值提升 200%',
-        '營收成長 150%',
-        '市場覆蓋率提升 300%'
-      ],
-      challenges: [
-        '品牌形象傳統',
-        '缺乏標準化流程',
-        '擴展經驗不足',
-        '管理體系不完善'
-      ],
-      solutions: [
-        '設計現代化的品牌形象',
-        '建立標準化營運流程',
-        '制定連鎖擴展策略',
-        '建立完善的管理體系'
-      ]
-    },
-    xianglian: {
-      title: '香連鐵板料理',
-      subtitle: '品牌重塑與餐廳改造',
-      description: '協助香連鐵板料理進行品牌重塑與餐廳改造，結合台北石牌商圈文化與新竹竹東客家人待客豪情，打造獨特的日式鐵板料理品牌。',
-      fullDescription: '香連鐵板料理是一家位於台北石牌的日本鐵板料理，店內強調嚴選當季食材，並以創新的料理方式呈現給顧客。覓食團隊以第一代經營者，來自台北石牌商圈人與新竹竹東客家人的待客豪情文化結合，導入創意設計，塑造核心文化。我們協助其進行品牌重塑與餐廳改造，包括LOGO設計、餐廳外觀改造等，成功打造獨特的日式鐵板料理品牌形象。',
-      image: '/images/xianglian-logo-large.webp',
-      category: '鐵板燒',
-      services: ['LOGO設計', '餐廳改造', '品牌重塑'],
-      year: '2023',
-      results: [
-        '品牌識別度提升 85%',
-        '顧客滿意度提升至 92%',
-        '營收成長 40%',
-        '媒體曝光度增加 200%'
-      ],
-      challenges: [
-        '店面設計單調缺乏特色',
-        '品牌識別度不足',
-        '無法體現文化底蘊',
-        '缺乏日式風格氛圍'
-      ],
-      solutions: [
-        '設計獨特LOGO，結合鐵板料理鍋鏟元素與中國風字體',
-        '改造餐廳外觀，融入日式風格與牡丹花圖樣',
-        '結合台北石牌商圈文化與新竹竹東客家人待客豪情',
-        '搭配溫暖黃光與木紋，打造舒適用餐環境'
-      ]
-    },
-    sansan: {
-      title: '三三燒肉',
-      subtitle: '商業模式優化',
-      description: '為三三燒肉進行商業模式診斷與優化，提升營運效率與顧客滿意度。',
-      fullDescription: '三三燒肉是一家新興的日式燒肉店，希望透過商業模式優化來提升營運效率與顧客滿意度。我們協助其進行全面的商業診斷，包括營運流程分析、成本結構優化、服務流程改善等，成功提升了整體營運效能。',
-      image: '/images/case-logo-sansan.webp',
-      category: '燒肉店',
-      services: ['商業診斷', '營運優化', '流程改善'],
-      year: '2023',
-      results: [
-        '營運效率提升 45%',
-        '顧客滿意度提升至 88%',
-        '成本控制改善 25%',
-        '翻桌率提升 30%'
-      ],
-      challenges: [
-        '營運流程不順暢',
-        '成本控制不佳',
-        '服務效率有待提升',
-        '缺乏標準化作業'
-      ],
-      solutions: [
-        '建立標準化營運流程',
-        '優化成本結構與採購策略',
-        '改善服務流程與人員配置',
-        '導入數位化營運管理系統'
-      ]
-    },
-    tianyuan: {
-      title: '天元茶業',
-      subtitle: '品牌定位與行銷推廣',
-      description: '協助天元茶業建立清晰的品牌定位，制定有效的行銷推廣策略，擴大市場影響力。',
-      fullDescription: '天元茶業是一家傳統茶葉品牌，希望透過品牌定位與行銷推廣策略的制定，擴大市場影響力。我們協助其建立清晰的品牌定位，制定有效的行銷推廣策略，包括品牌故事塑造、目標客群分析、行銷通路規劃等，成功提升了品牌知名度與市場份額。',
-      image: '/images/case-logo-tianyuan.webp',
-      category: '茶業',
-      services: ['品牌定位', '行銷推廣', '市場策略'],
-      year: '2023',
-      results: [
-        '品牌知名度提升 70%',
-        '市場份額成長 40%',
-        '線上銷售成長 120%',
-        '客戶忠誠度提升 55%'
-      ],
-      challenges: [
-        '品牌定位不明確',
-        '行銷策略缺乏系統性',
-        '目標客群模糊',
-        '數位化程度不足'
-      ],
-      solutions: [
-        '建立清晰的品牌定位與價值主張',
-        '制定系統性的行銷推廣策略',
-        '精準定位目標客群',
-        '導入數位行銷工具與平台'
-      ]
-    }
+// 頁面資料
+const cases = {
+  kenting: {
+    title: '肯特西餐廳',
+    subtitle: '品牌重塑與空間改造',
+    description: '協助肯特西餐廳進行品牌重塑與空間改造，從老舊西餐廳轉型為現代化美式餐廳，打造家的味道與懷舊氛圍。',
+    fullDescription: '肯特西餐廳是老闆於民國六十四年創立的肯特西餐牛排館，曾經是台北東區唯一有駐唱的西餐廳，充滿濃厚的懷舊氛圍。經歷世代變遷，老舊西餐廳面臨歇業危機，但老闆秉持初衷，希望以「家」為本，用最美式的方式料理，把店內所有的餐點都賦予家的味道。我們協助其進行品牌重塑與空間改造，包括LOGO設計、菜單規劃、餐廳裝潢設計等，成功轉型為現代化美式餐廳。',
+    image: '/images/case-logo-kenting.webp',
+    category: '西餐廳',
+    services: ['LOGO設計', '菜單規劃', '空間設計'],
+    year: '2023',
+    results: [
+      '品牌形象現代化提升 80%',
+      '顧客滿意度提升至 90%',
+      '營收成長 35%',
+      '年輕客群增加 60%'
+    ],
+    challenges: [
+      '老舊西餐廳風格過時',
+      '無法吸引年輕族群',
+      '空間設計昏暗老舊',
+      '品牌識別度不足'
+    ],
+    solutions: [
+      '設計現代化LOGO，融合蜂巢、心型、家徽等元素',
+      '重新規劃菜單設計與視覺SOP',
+      '全面改造餐廳裝潢，營造活潑熱鬧氛圍',
+      '建立品牌一致性與現代化形象'
+    ]
+  },
+  lanting: {
+    title: '蘭亭餐廳',
+    subtitle: '空間設計與品牌識別',
+    description: '為蘭亭餐廳打造獨特的空間設計與品牌識別系統，創造優雅的用餐環境與品牌形象。',
+    fullDescription: '蘭亭餐廳是一家主打精緻中餐的高級餐廳，希望透過空間設計與品牌識別系統的整合，創造獨特的用餐體驗。我們從品牌理念出發，設計了完整的視覺識別系統，並規劃了優雅的用餐空間，成功打造了蘭亭的品牌特色。',
+    image: '/images/case-logo-lanting.webp',
+    category: '餐廳',
+    services: ['空間設計', '品牌識別', '視覺設計'],
+    year: '2023',
+    results: [
+      '顧客回流率提升 60%',
+      '平均消費金額提升 30%',
+      '品牌識別度提升 80%',
+      '空間利用率提升 25%'
+    ],
+    challenges: [
+      '品牌特色不明顯',
+      '空間設計缺乏一致性',
+      '視覺元素雜亂',
+      '顧客體驗不佳'
+    ],
+    solutions: [
+      '建立完整的品牌識別系統',
+      '設計統一的空間風格',
+      '整合視覺元素與空間設計',
+      '優化顧客用餐流程'
+    ]
+  },
+  laojiang: {
+    title: '老江紅茶牛奶',
+    subtitle: '品牌升級與連鎖擴展',
+    description: '協助老江紅茶牛奶進行品牌升級，制定連鎖擴展策略，提升品牌價值與市場份額。',
+    fullDescription: '老江紅茶牛奶是高雄地區知名的傳統飲料店，希望透過品牌升級與連鎖擴展，擴大市場影響力。我們協助其進行品牌現代化改造，制定標準化的營運流程，並規劃連鎖擴展策略，成功幫助老江從單店經營轉型為連鎖品牌。',
+    image: '/images/case-logo-laojiang.webp',
+    category: '飲料業',
+    services: ['品牌升級', '連鎖策略', '營運規劃'],
+    year: '2023',
+    results: [
+      '連鎖店數從 1 家擴展至 8 家',
+      '品牌價值提升 200%',
+      '營收成長 150%',
+      '市場覆蓋率提升 300%'
+    ],
+    challenges: [
+      '品牌形象傳統',
+      '缺乏標準化流程',
+      '擴展經驗不足',
+      '管理體系不完善'
+    ],
+    solutions: [
+      '設計現代化的品牌形象',
+      '建立標準化營運流程',
+      '制定連鎖擴展策略',
+      '建立完善的管理體系'
+    ]
+  },
+  xianglian: {
+    title: '香連鐵板料理',
+    subtitle: '品牌重塑與餐廳改造',
+    description: '協助香連鐵板料理進行品牌重塑與餐廳改造，結合台北石牌商圈文化與新竹竹東客家人待客豪情，打造獨特的日式鐵板料理品牌。',
+    fullDescription: '香連鐵板料理是一家位於台北石牌的日本鐵板料理，店內強調嚴選當季食材，並以創新的料理方式呈現給顧客。覓食團隊以第一代經營者，來自台北石牌商圈人與新竹竹東客家人的待客豪情文化結合，導入創意設計，塑造核心文化。我們協助其進行品牌重塑與餐廳改造，包括LOGO設計、餐廳外觀改造等，成功打造獨特的日式鐵板料理品牌形象。',
+    image: '/images/xianglian-logo-large.webp',
+    category: '鐵板燒',
+    services: ['LOGO設計', '餐廳改造', '品牌重塑'],
+    year: '2023',
+    results: [
+      '品牌識別度提升 85%',
+      '顧客滿意度提升至 92%',
+      '營收成長 40%',
+      '媒體曝光度增加 200%'
+    ],
+    challenges: [
+      '店面設計單調缺乏特色',
+      '品牌識別度不足',
+      '無法體現文化底蘊',
+      '缺乏日式風格氛圍'
+    ],
+    solutions: [
+      '設計獨特LOGO，結合鐵板料理鍋鏟元素與中國風字體',
+      '改造餐廳外觀，融入日式風格與牡丹花圖樣',
+      '結合台北石牌商圈文化與新竹竹東客家人待客豪情',
+      '搭配溫暖黃光與木紋，打造舒適用餐環境'
+    ]
+  },
+  sansan: {
+    title: '三三燒肉',
+    subtitle: '商業模式優化',
+    description: '為三三燒肉進行商業模式診斷與優化，提升營運效率與顧客滿意度。',
+    fullDescription: '三三燒肉是一家新興的日式燒肉店，希望透過商業模式優化來提升營運效率與顧客滿意度。我們協助其進行全面的商業診斷，包括營運流程分析、成本結構優化、服務流程改善等，成功提升了整體營運效能。',
+    image: '/images/case-logo-sansan.webp',
+    category: '燒肉店',
+    services: ['商業診斷', '營運優化', '流程改善'],
+    year: '2023',
+    results: [
+      '營運效率提升 45%',
+      '顧客滿意度提升至 88%',
+      '成本控制改善 25%',
+      '翻桌率提升 30%'
+    ],
+    challenges: [
+      '營運流程不順暢',
+      '成本控制不佳',
+      '服務效率有待提升',
+      '缺乏標準化作業'
+    ],
+    solutions: [
+      '建立標準化營運流程',
+      '優化成本結構與採購策略',
+      '改善服務流程與人員配置',
+      '導入數位化營運管理系統'
+    ]
+  },
+  tianyuan: {
+    title: '天元茶業',
+    subtitle: '品牌定位與行銷推廣',
+    description: '協助天元茶業建立清晰的品牌定位，制定有效的行銷推廣策略，擴大市場影響力。',
+    fullDescription: '天元茶業是一家傳統茶葉品牌，希望透過品牌定位與行銷推廣策略的制定，擴大市場影響力。我們協助其建立清晰的品牌定位，制定有效的行銷推廣策略，包括品牌故事塑造、目標客群分析、行銷通路規劃等，成功提升了品牌知名度與市場份額。',
+    image: '/images/case-logo-tianyuan.webp',
+    category: '茶業',
+    services: ['品牌定位', '行銷推廣', '市場策略'],
+    year: '2023',
+    results: [
+      '品牌知名度提升 70%',
+      '市場份額成長 40%',
+      '線上銷售成長 120%',
+      '客戶忠誠度提升 55%'
+    ],
+    challenges: [
+      '品牌定位不明確',
+      '行銷策略缺乏系統性',
+      '目標客群模糊',
+      '數位化程度不足'
+    ],
+    solutions: [
+      '建立清晰的品牌定位與價值主張',
+      '制定系統性的行銷推廣策略',
+      '精準定位目標客群',
+      '導入數位行銷工具與平台'
+    ]
   }
+}
 
-  const caseData = cases[id as keyof typeof cases]
+type Props = {
+  params: { id: string };
+};
+
+// 動態生成 metadata
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const id = params.id as keyof typeof cases;
+  const caseData = cases[id];
 
   if (!caseData) {
-    notFound()
+    return {
+      title: '案例不存在 | 覓食 MISS',
+    };
+  }
+
+  return {
+    title: `${caseData.title} | 成功案例`,
+    description: caseData.description,
+    openGraph: {
+      title: `${caseData.title} | 覓食 MISS 成功案例`,
+      description: caseData.description,
+      images: [
+        {
+          url: `https://miss-website-nextjs-psi.vercel.app${caseData.image}`,
+          width: 800,
+          height: 600,
+          alt: caseData.title,
+        },
+      ],
+    },
+    twitter: {
+      title: `${caseData.title} | 覓食 MISS 成功案例`,
+      description: caseData.description,
+      images: [`https://miss-website-nextjs-psi.vercel.app${caseData.image}`],
+    },
+  };
+}
+
+export default async function CaseDetail({ params }: { params: { id: string } }) {
+  const id = params.id as keyof typeof cases;
+  
+  // 將頁面資料移至函數外部
+  const caseData = cases[id];
+
+  if (!caseData) {
+    notFound();
   }
 
   return (

@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: '聯絡我們 | 覓食 MISS',
+  description: '立即與覓食 (MISS) 取得聯繫，讓我們了解您的需求。您可以透過電話、電子郵件或填寫表單與我們聯繫，我們期待與您合作。',
+};
 
 export default function Contact() {
   return (

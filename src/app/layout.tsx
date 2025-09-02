@@ -7,47 +7,118 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '覓食 MISS - 餐飲顧問｜品牌規劃｜商業設計｜整合行銷',
+  // 標題範本，%s 會被子頁面的標題取代
+  title: {
+    template: '%s | 覓食 MISS - 您的餐飲事業最佳夥伴',
+    default: '覓食 MISS - 餐飲顧問｜品牌規劃｜商業設計｜整合行銷', // 預設標題
+  },
   description: '覓食 (MISS) - 您的餐飲事業最佳夥伴。我們提供專業的餐飲顧問、品牌規劃、商業設計與整合行銷服務，協助您的品牌從理想到落地，創造無限可能。',
-  keywords: '餐飲顧問,品牌規劃,商業設計,整合行銷,餐廳管理,台灣美食,覓食,MISS',
-  authors: [{ name: '覓食國際餐飲企業有限公司' }],
-  robots: 'index, follow',
+  keywords: ['餐飲顧問', '品牌規劃', '商業設計', '整合行銷', '餐廳管理', '菜單設計', '空間設計', '人力資源', '覓食', 'MISS'],
+  authors: [{ name: '覓食國際餐飲企業有限公司', url: 'https://miss-website-nextjs-psi.vercel.app/' }],
+  creator: '覓食國際餐飲企業有限公司',
+  publisher: '覓食國際餐飲企業有限公司',
+
+  // 網站圖示
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+  
+  // Open Graph (社群分享)
   openGraph: {
     type: 'website',
-    url: 'https://miss-blog-backend-92eb6.web.app/',
-    title: '覓食 MISS - 餐飲顧問專家',
+    url: 'https://miss-website-nextjs-psi.vercel.app/', // 您的新網站 URL
+    title: '覓食 MISS - 您的餐飲事業最佳夥伴',
     description: '專業餐飲顧問服務，提供品牌規劃、商業設計與整合行銷，助您的餐飲事業邁向成功。',
     siteName: '覓食 MISS',
     locale: 'zh_TW',
+    images: [
+      {
+        url: 'https://miss-website-nextjs-psi.vercel.app/og-image.png', // 建議建立一個 1200x630 的圖片
+        width: 1200,
+        height: 630,
+        alt: '覓食 MISS - 餐飲顧問',
+      },
+    ],
   },
+
+  // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: '覓食 MISS - 餐飲顧問專家',
+    title: '覓食 MISS - 您的餐飲事業最佳夥伴',
     description: '專業餐飲顧問服務，提供品牌規劃、商業設計與整合行銷，助您的餐飲事業邁向成功。',
+    images: ['https://miss-website-nextjs-psi.vercel.app/twitter-image.png'], // 建議建立一個 1200x675 的圖片
+    creator: '@MISS_Consulting', // 您的 Twitter 帳號
   },
-  alternates: {
-    canonical: 'https://miss-blog-backend-92eb6.web.app/',
-    languages: {
-      'zh-TW': 'https://miss-blog-backend-92eb6.web.app/',
+
+  // 搜尋引擎指令
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'CfkGRGCzoLRHKrj1PkdQCZ0Y0zoReg8jrmdHu7GOGLs',
+
+  // 標準 URL
+  alternates: {
+    canonical: 'https://miss-website-nextjs-psi.vercel.app/',
+    languages: {
+      'zh-TW': 'https://miss-website-nextjs-psi.vercel.app/',
+    },
   },
-}
+
+  // Google Search Console 驗證
+  verification: {
+    google: 'CfkGRGCzoLRHKrj1PkdQCZ0Y0zoReg8jrmdHu7GOGLs', // 維持不變
+  },
+
+  // 讓 PWA (漸進式網路應用) 體驗更好
+  manifest: '/site.webmanifest',
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="zh-TW">
+    <html lang="zh-TW" className="scroll-smooth">
+      <head>
+        {/* JSON-LD 結構化資料 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "覓食 MISS - 餐飲顧問",
+              "url": "https://miss-website-nextjs-psi.vercel.app/",
+              "logo": "https://miss-website-nextjs-psi.vercel.app/images/MISS.webp",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+886-937-618-817",
+                "contactType": "Customer Service"
+              },
+              "sameAs": [
+                // "https://www.facebook.com/your-profile",
+                // "https://www.instagram.com/your-profile/",
+                // "https://www.linkedin.com/company/your-profile"
+              ]
+            })
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
-  )
+  );
 }

@@ -3,6 +3,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { Metadata } from 'next';
+
+// 註：在 'use client' 組件中無法直接導出 metadata
 
 export default function News() {
   const [selectedCategory, setSelectedCategory] = useState('全部')

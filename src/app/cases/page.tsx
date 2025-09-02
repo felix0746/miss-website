@@ -3,6 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { Metadata } from 'next';
+
+// 註：在 'use client' 組件中無法直接導出 metadata
+// SEO 資訊建議在父層的 layout.tsx 或 page.tsx (Server Component) 中設定
+// 這裡我們先為頁面內容做準備，SEO 資訊可以在 `cases/layout.tsx` 中補上
 
 export default function Cases() {
   const [selectedCategory, setSelectedCategory] = useState('全部')
