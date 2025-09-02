@@ -181,8 +181,7 @@ type Props = {
 
 // 動態生成 metadata
 export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
+  { params }: Props
 ): Promise<Metadata> {
   const id = params.id as keyof typeof cases;
   const caseData = cases[id];
@@ -216,11 +215,11 @@ export async function generateMetadata(
   };
 }
 
-export default async function CaseDetail({ params }: { params: { id: string } }) {
-  const id = params.id as keyof typeof cases;
+export default async function CaseDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   
   // 將頁面資料移至函數外部
-  const caseData = cases[id];
+  const caseData = cases[id as keyof typeof cases];
 
   if (!caseData) {
     notFound();

@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image'
 import Link from 'next/link'
-import { Briefcase, Lightbulb, Users, BarChart } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: '首頁 | 覓食 MISS - 餐飲顧問｜品牌規劃｜商業設計｜整合行銷',

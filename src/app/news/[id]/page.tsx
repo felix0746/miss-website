@@ -91,8 +91,7 @@ type Props = {
 
 // 動態生成 metadata
 export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
+  { params }: Props
 ): Promise<Metadata> {
   const id = params.id as keyof typeof news;
   const newsData = news[id];

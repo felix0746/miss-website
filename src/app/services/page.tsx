@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image'
 import Link from 'next/link'
-import { Briefcase, Lightbulb, Users, BarChart, HardHat, UtensilsCrossed } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: '服務項目 | 覓食 MISS',
