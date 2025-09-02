@@ -2,7 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-export default function CaseDetail({ params }: { params: { id: string } }) {
+export default async function CaseDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const cases = {
     kenting: {
       title: '肯特西餐廳',
@@ -174,7 +175,7 @@ export default function CaseDetail({ params }: { params: { id: string } }) {
     }
   }
 
-  const caseData = cases[params.id as keyof typeof cases]
+  const caseData = cases[id as keyof typeof cases]
 
   if (!caseData) {
     notFound()
@@ -318,7 +319,7 @@ export default function CaseDetail({ params }: { params: { id: string } }) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {Object.entries(cases)
-              .filter(([id]) => id !== params.id)
+              .filter(([caseId]) => caseId !== id)
               .slice(0, 3)
               .map(([id, caseItem]) => (
                 <Link

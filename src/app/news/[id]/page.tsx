@@ -2,7 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-export default function NewsDetail({ params }: { params: { id: string } }) {
+export default async function NewsDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const news = {
     'news-1': {
       title: '覓食 (MISS) 榮獲2024年台灣餐飲顧問服務優質獎',
@@ -84,7 +85,7 @@ export default function NewsDetail({ params }: { params: { id: string } }) {
     }
   }
 
-  const newsData = news[params.id as keyof typeof news]
+  const newsData = news[id as keyof typeof news]
 
   if (!newsData) {
     notFound()
@@ -247,7 +248,7 @@ export default function NewsDetail({ params }: { params: { id: string } }) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {Object.entries(news)
-              .filter(([id]) => id !== params.id)
+              .filter(([newsId]) => newsId !== id)
               .slice(0, 3)
               .map(([id, newsItem]) => (
                 <Link
