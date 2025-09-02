@@ -85,16 +85,17 @@ const news = {
   }
 }
 
-type MetadataProps = {
-  params: { id: string };
+type Props = {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 // 動態生成 metadata
 export async function generateMetadata(
-  { params }: MetadataProps
+  { params }: Props
 ): Promise<Metadata> {
-  const id = params.id as keyof typeof news;
-  const newsData = news[id];
+  const { id } = await params;
+  const newsData = news[id as keyof typeof news];
 
   if (!newsData) {
     return {
@@ -127,9 +128,7 @@ export async function generateMetadata(
 
 export default async function NewsDetail({
   params
-}: {
-  params: Promise<{ id: string }>;
-}) {
+}: Props) {
   const { id } = await params;
 
   // 將頁面資料移至函數外部

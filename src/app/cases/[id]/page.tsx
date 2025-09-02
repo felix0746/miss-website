@@ -175,16 +175,17 @@ const cases = {
   }
 }
 
-type MetadataProps = {
-  params: { id: string };
+type Props = {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 // 動態生成 metadata
 export async function generateMetadata(
-  { params }: MetadataProps
+  { params }: Props
 ): Promise<Metadata> {
-  const id = params.id as keyof typeof cases;
-  const caseData = cases[id];
+  const { id } = await params;
+  const caseData = cases[id as keyof typeof cases];
 
   if (!caseData) {
     return {
@@ -217,9 +218,7 @@ export async function generateMetadata(
 
 export default async function CaseDetail({ 
   params 
-}: { 
-  params: Promise<{ id: string }>;
-}) {
+}: Props) {
   const { id } = await params;
   
   // 將頁面資料移至函數外部
