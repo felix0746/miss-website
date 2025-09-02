@@ -18,7 +18,7 @@ export default function Footer() {
                   src="/images/MISS.webp"
                   alt="覓食國際餐飲企業有限公司 Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain brightness-0 invert drop-shadow-lg"
                 />
               </div>
               <span className="text-lg sm:text-xl font-bold">覓食 MISS</span>
