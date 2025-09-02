@@ -13,12 +13,12 @@ export default function Footer() {
           {/* Company Info */}
           <div className="sm:col-span-2">
             <div className="flex items-center space-x-2 mb-4 sm:mb-6">
-              <div className="w-12 h-10 sm:w-14 sm:h-12 relative bg-white rounded-lg p-2 shadow-lg">
+              <div className="w-12 h-10 sm:w-14 sm:h-12 relative">
                 <Image
                   src="/images/MISS.webp"
                   alt="覓食國際餐飲企業有限公司 Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain drop-shadow-lg"
                 />
               </div>
               <span className="text-lg sm:text-xl font-bold">覓食 MISS</span>
