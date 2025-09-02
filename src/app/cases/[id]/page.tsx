@@ -215,16 +215,16 @@ export async function generateMetadata(
   };
 }
 
-export default function CaseDetail({ 
+export default async function CaseDetail({ 
   params 
 }: { 
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const id = params.id as keyof typeof cases;
+  const { id } = await params;
   
   // 將頁面資料移至函數外部
-  const caseData = cases[id];
+  const caseData = cases[id as keyof typeof cases];
 
   if (!caseData) {
     notFound();

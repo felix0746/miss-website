@@ -125,16 +125,16 @@ export async function generateMetadata(
   };
 }
 
-export default function NewsDetail({
+export default async function NewsDetail({
   params
 }: {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const id = params.id as keyof typeof news;
+  const { id } = await params;
 
   // 將頁面資料移至函數外部
-  const newsData = news[id];
+  const newsData = news[id as keyof typeof news];
 
   if (!newsData) {
     notFound();
