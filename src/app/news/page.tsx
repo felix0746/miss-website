@@ -420,42 +420,54 @@ export default function News() {
       </section>
 
       {/* Newsletter Subscription */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
-        <div className="container text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-            訂閱覓食消息
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-white mb-6 sm:mb-8 max-w-2xl mx-auto">
-            第一時間掌握最新消息、服務更新與市場趨勢，讓您的餐飲事業與時俱進
-          </p>
-          <div className="max-w-md mx-auto">
-            <form onSubmit={handleSubscribe} className="space-y-3">
-              <div className="flex gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="輸入您的電子郵件"
-                  className="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-                  disabled={isSubscribing}
-                />
-                <button 
-                  type="submit"
-                  disabled={isSubscribing}
-                  className="bg-white text-primary-600 hover:bg-gray-100 disabled:bg-gray-300 disabled:text-gray-500 px-6 py-3 rounded-lg font-semibold transition-colors min-h-[44px] sm:min-h-[48px] whitespace-nowrap"
-                >
-                  {isSubscribing ? '訂閱中...' : '訂閱'}
-                </button>
-              </div>
-              {subscriptionMessage && (
-                <p className={`text-sm ${subscriptionMessage.includes('成功') ? 'text-green-200' : 'text-red-200'}`}>
-                  {subscriptionMessage}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 sm:p-12 lg:p-16">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                  訂閱覓食消息
+                </h2>
+                <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                  第一時間掌握最新消息、服務更新與市場趨勢，讓您的餐飲事業與時俱進
                 </p>
-              )}
-              <p className="text-xs text-primary-100">
-                我們尊重您的隱私，不會向第三方分享您的資訊
-              </p>
-            </form>
+                
+                <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
+                  <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="輸入您的電子郵件"
+                      className="flex-1 px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      disabled={isSubscribing}
+                    />
+                    <button 
+                      type="submit"
+                      disabled={isSubscribing}
+                      className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 disabled:from-gray-400 disabled:to-gray-400 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:scale-100 whitespace-nowrap shadow-lg"
+                    >
+                      {isSubscribing ? '訂閱中...' : '立即訂閱'}
+                    </button>
+                  </div>
+                  
+                  {subscriptionMessage && (
+                    <div className={`p-3 rounded-lg mb-4 ${subscriptionMessage.includes('成功') ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+                      {subscriptionMessage}
+                    </div>
+                  )}
+                  
+                  <p className="text-xs text-gray-500">
+                    我們尊重您的隱私，不會向第三方分享您的資訊
+                  </p>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </section>
