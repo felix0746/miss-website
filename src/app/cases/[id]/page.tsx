@@ -215,7 +215,12 @@ export async function generateMetadata(
   };
 }
 
-export default function CaseDetail({ params }: { params: { id: string } }) {
+export default function CaseDetail({ 
+  params 
+}: { 
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   const id = params.id as keyof typeof cases;
   
   // 將頁面資料移至函數外部
