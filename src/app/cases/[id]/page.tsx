@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 
 // 頁面資料
 const cases = {
@@ -175,13 +175,13 @@ const cases = {
   }
 }
 
-type Props = {
+type MetadataProps = {
   params: { id: string };
 };
 
 // 動態生成 metadata
 export async function generateMetadata(
-  { params }: Props
+  { params }: MetadataProps
 ): Promise<Metadata> {
   const id = params.id as keyof typeof cases;
   const caseData = cases[id];
@@ -215,11 +215,11 @@ export async function generateMetadata(
   };
 }
 
-export default async function CaseDetail({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function CaseDetail({ params }: { params: { id: string } }) {
+  const id = params.id as keyof typeof cases;
   
   // 將頁面資料移至函數外部
-  const caseData = cases[id as keyof typeof cases];
+  const caseData = cases[id];
 
   if (!caseData) {
     notFound();

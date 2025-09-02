@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 
 // 頁面資料
 const news = {
@@ -85,13 +85,13 @@ const news = {
   }
 }
 
-type Props = {
+type MetadataProps = {
   params: { id: string };
 };
 
 // 動態生成 metadata
 export async function generateMetadata(
-  { params }: Props
+  { params }: MetadataProps
 ): Promise<Metadata> {
   const id = params.id as keyof typeof news;
   const newsData = news[id];
