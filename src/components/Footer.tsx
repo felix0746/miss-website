@@ -12,15 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="sm:col-span-2">
-            <div className="flex items-center space-x-2 mb-4 sm:mb-6">
-              <div className="w-12 h-10 sm:w-14 sm:h-12 relative">
-                <Image
-                  src="/images/MISS.webp"
-                  alt="覓食國際餐飲企業有限公司 Logo"
-                  fill
-                  className="object-contain drop-shadow-lg"
-                />
-              </div>
+            <div className="mb-4 sm:mb-6">
               <span className="text-lg sm:text-xl font-bold">覓食 MISS</span>
             </div>
             <p className="text-gray-300 mb-4 sm:mb-6 max-w-md text-sm sm:text-base leading-relaxed">
