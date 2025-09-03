@@ -281,26 +281,26 @@ export default function Cases() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="container text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-            準備好開始您的成功故事了嗎？
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+            {t('home.cta.title')}
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-white mb-6 sm:mb-8 max-w-2xl mx-auto">
-            聯絡我們，讓我們一起討論如何協助您的餐飲事業成長，創造屬於您的成功案例
+          <p className="text-base sm:text-lg md:text-xl text-white mb-5 sm:mb-6 max-w-2xl mx-auto px-4">
+            {t('home.cta.description')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 relative z-10">
             <Link
               href="/contact"
-              className="bg-white text-primary-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center"
+              className="bg-white text-primary-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
             >
-              立即諮詢
+              {t('home.cta.cta1')}
             </Link>
             <Link
               href="/services"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
             >
-              查看服務
+              {t('home.cta.cta2')}
             </Link>
           </div>
         </div>
