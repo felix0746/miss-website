@@ -242,14 +242,14 @@ export default function News() {
           {filteredNews.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {filteredNews.filter(item => !item.featured).map((newsItem) => (
-              <article key={newsItem.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
+              <article key={newsItem.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl active:shadow-xl transition-all duration-300 group active:scale-95 sm:active:scale-100">
                 {/* News Image */}
                 <div className="relative h-48 sm:h-56 overflow-hidden">
                   <Image
                     src={newsItem.image}
                     alt={newsItem.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 group-active:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="inline-block bg-primary-600 text-white px-2 py-1 rounded text-xs font-medium">
@@ -266,7 +266,7 @@ export default function News() {
                     <span>{newsItem.readTime}</span>
                   </div>
                   
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors leading-tight">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 group-active:text-primary-600 transition-colors leading-tight">
                     {newsItem.title}
                   </h3>
                   

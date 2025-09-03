@@ -152,43 +152,43 @@ export default function Home() {
         <div className="container">
           <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">{t('home.services.title')}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
-            <a href="/services#planning" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center group">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <a href="/services#planning" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                 <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">{t('home.services.brandPlanning')}</h3>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.brandPlanning')}</h3>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.brandPlanningDescription')}</p>
             </a>
             
-            <a href="/services#strategy" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center group">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <a href="/services#strategy" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                 <svg className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">{t('home.services.strategyPlanning')}</h3>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.strategyPlanning')}</h3>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.strategyPlanningDescription')}</p>
             </a>
             
-            <a href="/services#diagnosis" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center group">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <a href="/services#diagnosis" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                 <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">{t('home.services.businessDiagnosis')}</h3>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.businessDiagnosis')}</h3>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.businessDiagnosisDescription')}</p>
             </a>
             
-            <a href="https://believe-in-goodness-website.vercel.app/" target="_blank" rel="noopener noreferrer" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center group">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <a href="https://believe-in-goodness-website.vercel.app/" target="_blank" rel="noopener noreferrer" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                 <svg className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">{t('home.services.hrDevelopment')}</h3>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.hrDevelopment')}</h3>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.hrDevelopmentDescription')}</p>
             </a>
           </div>
@@ -200,8 +200,8 @@ export default function Home() {
         <div className="container">
           <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">{t('home.relatedEnterprises.title')}</h2>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-3 sm:gap-4 md:gap-6 max-w-6xl mx-auto">
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 transition-transform duration-300">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                 <Image
                   src="/images/MISS.webp"
                   alt="覓食國際餐飲企業有限公司 Logo"
@@ -211,8 +211,8 @@ export default function Home() {
               </div>
             </a>
             
-            <a href="http://www.sltpanyaki.com.tw/front/bin/home.phtml" target="_blank" rel="noopener noreferrer" className="text-center group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 transition-transform duration-300">
+            <a href="http://www.sltpanyaki.com.tw/front/bin/home.phtml" target="_blank" rel="noopener noreferrer" className="text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                 <Image
                   src="/images/SLT.webp"
                   alt="香連鐵板燒 Logo"
@@ -222,8 +222,8 @@ export default function Home() {
               </div>
             </a>
             
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 transition-transform duration-300">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                 <Image
                   src="/images/CCT.webp"
                   alt="周照子 Logo"
@@ -234,8 +234,8 @@ export default function Home() {
 
             </a>
             
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 transition-transform duration-300">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                 <Image
                   src="/images/GM.webp"
                   alt="甘妹弄堂 Logo"
@@ -246,8 +246,8 @@ export default function Home() {
 
             </a>
             
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 transition-transform duration-300">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                 <Image
                   src="/images/FW.webp"
                   alt="扶旺號 Logo"
@@ -258,8 +258,8 @@ export default function Home() {
 
             </a>
             
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 transition-transform duration-300">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                 <Image
                   src="/images/SW.webp"
                   alt="小旺號 Logo"
@@ -270,8 +270,8 @@ export default function Home() {
 
             </a>
             
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 transition-transform duration-300">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
           <Image
                   src="/images/WY.webp"
                   alt="威宇 Logo"
@@ -282,8 +282,8 @@ export default function Home() {
 
             </a>
             
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 transition-transform duration-300">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
           <Image
                   src="/images/CY.webp"
                   alt="喫尤 Logo"
@@ -294,8 +294,8 @@ export default function Home() {
 
             </a>
             
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 transition-transform duration-300">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group active:scale-95 sm:active:scale-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
           <Image
                   src="/images/MAZU.webp"
                   alt="麻煮 Logo"
