@@ -92,72 +92,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Development History */}
-      <section className="py-12 sm:py-16 lg:py-20">
-        <div className="container">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-12 sm:mb-16">
-            {t('about.history.title')}
-          </h2>
-          <div className="space-y-8 max-w-4xl mx-auto">
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                  2021
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('about.history.event1.title')}</h3>
-                <p className="text-gray-600 text-sm sm:text-base">
-                  {t('about.history.event1.description')}
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-secondary-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                  2022
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('about.history.event2.title')}</h3>
-                <p className="text-gray-600 text-sm sm:text-base">
-                  {t('about.history.event2.description')}
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                  2023
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('about.history.event3.title')}</h3>
-                <p className="text-gray-600 text-sm sm:text-base">
-                  {t('about.history.event3.description')}
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-secondary-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                  2024
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('about.history.event4.title')}</h3>
-                <p className="text-gray-600 text-sm sm:text-base">
-                  {t('about.history.event4.description')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Team Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="container">
@@ -222,12 +156,20 @@ export default function About() {
           <p className="text-base sm:text-lg lg:text-xl text-white mb-5 sm:mb-6 max-w-2xl mx-auto">
             {t('about.cta.subtitle')}
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-primary-600 hover:bg-gray-100 px-8 sm:px-10 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors text-base sm:text-lg"
-          >
-            {t('nav.consultation')}
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="bg-white text-primary-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
+            >
+              {t('nav.consultation')}
+            </Link>
+            <Link
+              href="/services"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
+            >
+              {t('home.cta.cta2')}
+            </Link>
+          </div>
         </div>
       </section>
     </main>
