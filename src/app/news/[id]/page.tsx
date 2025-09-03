@@ -21,11 +21,14 @@ interface NewsDetailData {
   featured: boolean;
 }
 
+interface PageProps {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
 export default function NewsDetail({
   params
-}: {
-  params: { id: string }
-}) {
+}: PageProps) {
   const { id } = params;
   const { languageData, currentLanguage, isLoading, t } = useTranslation();
   const [newsData, setNewsData] = useState<NewsDetailData | null>(null);
