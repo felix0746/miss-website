@@ -1,6 +1,5 @@
 'use client'
 
-import { Metadata } from 'next';
 import Image from 'next/image'
 import { useTranslation } from '@/contexts/TranslationContext';
 import Link from 'next/link';

@@ -56,10 +56,11 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
 
     try {
       // Use reduce to safely traverse the nested object path
-      const value = key.split('.').reduce((obj, k) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const value = key.split('.').reduce((obj: any, k: string) => {
         if (obj && typeof obj === 'object' && k in obj) {
           // Move to the next level in the object
-          return (obj as any)[k];
+          return obj[k];
         }
         // If at any point the key is not found, throw an error to exit
         throw new Error(`Translation key not found: ${key}`);
@@ -67,7 +68,7 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
 
       // If the final value is a string, return it, otherwise return the key
       return typeof value === 'string' ? value : key;
-    } catch (error) {
+    } catch {
       // If the key path is invalid, return the original key
       return key;
     }

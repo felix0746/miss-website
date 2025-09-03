@@ -32,7 +32,7 @@ export default function CaseDetail({
   useEffect(() => {
     if (!isLoading && languageData[currentLanguage]?.case_data) {
       const allCases = languageData[currentLanguage].case_data;
-      const currentCase = allCases.find((c: any) => c.id === id);
+      const currentCase = allCases.find((c: CaseDetailData & { id: string }) => c.id === id);
       if (currentCase) {
         setCaseData(currentCase);
       } else {
@@ -185,9 +185,9 @@ export default function CaseDetail({
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {allCases
-              .filter((c: any) => c.id !== id)
+              .filter((c: CaseDetailData & { id: string }) => c.id !== id)
               .slice(0, 3)
-              .map((caseItem: any) => (
+              .map((caseItem: CaseDetailData & { id: string }) => (
                 <Link
                   key={caseItem.id}
                   href={`/cases/${caseItem.id}`}

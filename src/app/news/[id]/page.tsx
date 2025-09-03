@@ -33,7 +33,7 @@ export default function NewsDetail({
   useEffect(() => {
     if (!isLoading && languageData[currentLanguage]?.news_data) {
       const allNews = languageData[currentLanguage].news_data;
-      const currentNews = allNews.find((n: any) => n.id === id);
+      const currentNews = allNews.find((n: NewsDetailData) => n.id === id);
       if (currentNews) {
         setNewsData(currentNews);
       } else {

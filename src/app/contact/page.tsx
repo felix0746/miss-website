@@ -1,8 +1,8 @@
 'use client'
 
-import { Metadata } from 'next';
-import Link from 'next/link'
 import { useTranslation } from '@/contexts/TranslationContext';
+import { useState, ChangeEvent, FormEvent } from 'react';
+import Link from 'next/link';
 
 export default function Contact() {
   const { t } = useTranslation();
