@@ -1,7 +1,6 @@
 'use client'
 
 import { useTranslation } from '@/contexts/TranslationContext';
-import { useState, ChangeEvent, FormEvent } from 'react';
 import Link from 'next/link';
 
 export default function Contact() {

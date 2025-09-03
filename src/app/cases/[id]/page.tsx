@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from '@/contexts/TranslationContext';
 
 interface CaseDetailData {
+  id: string;
   title: string;
   subtitle: string;
   description: string;
@@ -20,19 +21,19 @@ interface CaseDetailData {
   solutions: string[];
 }
 
-export default function CaseDetail({ 
-  params 
-}: {
-  params: { id: string }
-}) {
+interface PageProps {
+  params: { id: string };
+}
+
+export default function CaseDetail({ params }: PageProps) {
   const { id } = params;
   const { languageData, currentLanguage, isLoading, t } = useTranslation();
   const [caseData, setCaseData] = useState<CaseDetailData | null>(null);
   
   useEffect(() => {
     if (!isLoading && languageData[currentLanguage]?.case_data) {
-      const allCases = languageData[currentLanguage].case_data;
-      const currentCase = allCases.find((c: CaseDetailData & { id: string }) => c.id === id);
+      const allCases = languageData[currentLanguage].case_data as (CaseDetailData & { id: string })[];
+      const currentCase = allCases.find((c) => c.id === id);
       if (currentCase) {
         setCaseData(currentCase);
       } else {
@@ -45,7 +46,7 @@ export default function CaseDetail({
     return <div>Loading...</div>; // 或者一個更美觀的加載畫面
   }
 
-  const allCases = languageData[currentLanguage]?.case_data || [];
+  const allCases = (languageData[currentLanguage]?.case_data || []) as CaseDetailData[];
 
   return (
     <main className="min-h-screen bg-white">
@@ -185,9 +186,9 @@ export default function CaseDetail({
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {allCases
-              .filter((c: CaseDetailData & { id: string }) => c.id !== id)
+              .filter((c) => c.id !== id)
               .slice(0, 3)
-              .map((caseItem: CaseDetailData & { id: string }) => (
+              .map((caseItem) => (
                 <Link
                   key={caseItem.id}
                   href={`/cases/${caseItem.id}`}
