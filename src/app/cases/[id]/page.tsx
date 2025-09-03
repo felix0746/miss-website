@@ -22,17 +22,24 @@ interface CaseDetailData {
 }
 
 interface PageProps {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export default function CaseDetail({ params }: PageProps) {
-  const { id } = params;
   const { languageData, currentLanguage, isLoading, t } = useTranslation();
   const [caseData, setCaseData] = useState<CaseDetailData | null>(null);
+  const [id, setId] = useState<string | null>(null);
   
   useEffect(() => {
-    if (!isLoading && languageData[currentLanguage]?.case_data) {
+    // Handle async params
+    params.then(({ id: paramId }) => {
+      setId(paramId);
+    });
+  }, [params]);
+  
+  useEffect(() => {
+    if (!isLoading && languageData[currentLanguage]?.case_data && id) {
       const allCases = languageData[currentLanguage].case_data as (CaseDetailData & { id: string })[];
       const currentCase = allCases.find((c) => c.id === id);
       if (currentCase) {

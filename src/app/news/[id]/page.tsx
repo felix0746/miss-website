@@ -22,19 +22,26 @@ interface NewsDetailData {
 }
 
 interface PageProps {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export default function NewsDetail({
   params
 }: PageProps) {
-  const { id } = params;
   const { languageData, currentLanguage, isLoading, t } = useTranslation();
   const [newsData, setNewsData] = useState<NewsDetailData | null>(null);
+  const [id, setId] = useState<string | null>(null);
+  
+  useEffect(() => {
+    // Handle async params
+    params.then(({ id: paramId }) => {
+      setId(paramId);
+    });
+  }, [params]);
 
   useEffect(() => {
-    if (!isLoading && languageData[currentLanguage]?.news_data) {
+    if (!isLoading && languageData[currentLanguage]?.news_data && id) {
       const allNews = languageData[currentLanguage].news_data;
       const currentNews = allNews.find((n: NewsDetailData) => n.id === id);
       if (currentNews) {
