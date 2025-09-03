@@ -459,7 +459,7 @@
     },
     "about": {
       "title": "關於覓食 MISS",
-      "subtitle": "我們是一群對餐旅事業充滿熱情的專業團隊，致力於協助餐飲品牌從理想到落地，創造無限可能。",
+      "subtitle": "我們是對餐旅事業充滿熱情的專業團隊，致力於協助餐飲品牌從理想到落地，<br />創造無限可能。",
       "introduction": {
         "title": "公司簡介",
         "p1": "覓食國際餐飲企業有限公司成立於2021年，由一群對餐旅事業有高度熱忱的青年所組成。",
@@ -522,7 +522,7 @@
     },
     "contact": {
       "title": "聯絡我們",
-      "subtitle": "有任何問題或想要諮詢我們的服務嗎？歡迎隨時與我們聯絡，我們很樂意為您提供協助。",
+      "subtitle": "有任何問題或想要諮詢我們的服務嗎？歡迎隨時聯絡我們，我們很樂意為您提供協助。",
       "form": {
         "title": "聯絡表單",
         "subtitle": "填寫下方表單，我們將盡快與您聯繫",
@@ -1056,7 +1056,7 @@
     },
     "about": {
       "title": "About MISS",
-      "subtitle": "We are a passionate team dedicated to helping F&B brands turn their vision into reality.",
+      "subtitle": "We are a passionate professional team dedicated to helping F&B brands turn their vision into reality,<br />creating endless possibilities.",
       "introduction": {
         "title": "Company Introduction",
         "p1": "MISS International F&B Co., Ltd. was established in 2021 by a group of young professionals with a high passion for the hospitality industry.",
@@ -1119,7 +1119,7 @@
     },
     "contact": {
       "title": "Contact Us",
-      "subtitle": "Let us help your F&B business",
+      "subtitle": "Have any questions or want to consult our services? Feel free to contact us anytime, we're happy to help.",
       "form": {
         "title": "Contact Form",
         "subtitle": "Fill out the form below and we will get back to you as soon as possible",
