@@ -60,73 +60,88 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 -mr-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
+            className="md:hidden p-3 rounded-xl hover:bg-primary-50 transition-all duration-300 group"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? (
-              <X className="w-6 h-6 text-gray-700" />
-            ) : (
-              <Menu className="w-6 h-6 text-gray-700" />
-            )}
+            <div className="relative w-6 h-6">
+              {isMenuOpen ? (
+                <X className="w-6 h-6 text-primary-600 transition-all duration-300 group-hover:scale-110" />
+              ) : (
+                <Menu className="w-6 h-6 text-gray-700 transition-all duration-300 group-hover:text-primary-600 group-hover:scale-110" />
+              )}
+            </div>
           </button>
         </div>
 
-        {/* Mobile Menu - 優化美編設計 */}
+        {/* Mobile Menu - 現代化設計 */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-gradient-to-b from-white to-gray-50">
-            <nav className="px-4 py-6 space-y-4">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-gray-100 z-40">
+            <div className="px-5 py-6 space-y-5">
               {/* 導覽連結 */}
-              <div className="space-y-2">
+              <div className="space-y-1">
                 {navigation.map((item, index) => (
                   <Link
                     key={item.nameKey}
                     href={item.href}
-                    className="block text-gray-700 hover:text-red-600 transition-all duration-300 font-medium px-4 py-3 rounded-xl hover:bg-white hover:shadow-md text-base border border-transparent hover:border-red-100"
+                    className="group block text-gray-800 hover:text-primary-600 transition-all duration-300 font-medium px-3 py-3 rounded-xl hover:bg-primary-50 text-base border border-transparent hover:border-primary-100"
                     onClick={() => setIsMenuOpen(false)}
-                    style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <span className="flex items-center">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                      {t(item.nameKey)}
-                    </span>
+                    <div className="flex items-center">
+                      <div className="w-1 h-6 bg-primary-500 rounded-full mr-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
+                        {t(item.nameKey)}
+                      </span>
+                    </div>
                   </Link>
                 ))}
               </div>
               
               {/* 語言切換器區域 */}
-              <div className="pt-4 border-t border-gray-200">
-                <div 
-                  className="flex items-center justify-between px-4 py-3 bg-white rounded-xl shadow-sm border border-gray-100 cursor-pointer hover:shadow-md transition-all duration-200"
-                  onClick={() => {
-                    // 直接切換語言
-                    const nextLanguage = currentLanguage === 'zh-TW' ? 'en' : 'zh-TW';
-                    setCurrentLanguage(nextLanguage);
-                  }}
-                >
-                  <span className="text-sm font-medium text-gray-600">語言 / Language</span>
-                  <div className="flex items-center justify-center w-8 h-8 text-gray-700 hover:text-red-600 transition-colors duration-200 rounded-md hover:bg-gray-50">
-                    <Globe className="w-4 h-4" />
+              <div className="pt-4 border-t border-gray-100">
+                <div className="bg-gray-50 rounded-xl p-3">
+                  <div className="text-xs font-medium text-gray-500 mb-2 px-1">語言選擇</div>
+                  <div className="flex gap-2">
+                    {[
+                      { code: 'zh-TW', name: '繁體中文', flag: '🇹🇼' },
+                      { code: 'en', name: 'English', flag: '🇺🇸' }
+                    ].map((language) => (
+                      <button
+                        key={language.code}
+                        onClick={() => {
+                          setCurrentLanguage(language.code);
+                          setIsMenuOpen(false);
+                        }}
+                        className={`flex-1 flex items-center justify-center px-3 py-2.5 rounded-lg transition-all duration-200 ${
+                          currentLanguage === language.code 
+                            ? 'bg-primary-600 text-white shadow-sm' 
+                            : 'bg-white text-gray-700 hover:bg-primary-50 hover:text-primary-600'
+                        }`}
+                      >
+                        <span className="mr-1.5 text-sm">{language.flag}</span>
+                        <span className="font-medium text-xs">{language.name}</span>
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
               
               {/* CTA 按鈕 */}
-              <div className="pt-4">
+              <div className="pt-3">
                 <Link
                   href="/contact"
-                  className="block w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-4 rounded-xl transition-all duration-300 font-semibold text-center text-base shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
+                  className="block w-full bg-primary-600 hover:bg-primary-700 text-white px-5 py-3.5 rounded-xl transition-all duration-300 font-semibold text-center text-base shadow-md hover:shadow-lg transform hover:scale-[1.01] active:scale-[0.99]"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <span className="flex items-center justify-center">
-                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center justify-center">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                     </svg>
                     {t('nav.consultation')}
-                  </span>
+                  </div>
                 </Link>
               </div>
-            </nav>
+            </div>
           </div>
         )}
       </div>

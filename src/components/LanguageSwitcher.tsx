@@ -13,8 +13,8 @@ export default function LanguageSwitcher({ isMobile = false }: LanguageSwitcherP
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
-    { code: 'zh-TW', name: '繁體中文', flag: '🇹🇼' },
-    { code: 'en', name: 'English', flag: '🇺🇸' }
+    { code: 'zh-TW', name: '繁體中文', countryCode: 'TW', flag: '🇹🇼' },
+    { code: 'en', name: 'English', countryCode: 'US', flag: '🇺🇸' }
   ];
 
   const handleLanguageChange = (langCode: string) => {
@@ -53,17 +53,21 @@ export default function LanguageSwitcher({ isMobile = false }: LanguageSwitcherP
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-1 w-32 bg-white rounded-lg shadow-xl border border-gray-200 z-50 overflow-hidden">
+        <div className="absolute right-0 top-full mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-200 z-50 overflow-hidden">
           {languages.map((language) => (
             <button
               key={language.code}
               onClick={() => handleLanguageChange(language.code)}
-              className={`w-full px-3 py-2 text-left text-sm hover:bg-red-50 transition-colors duration-200 ${
-                currentLanguage === language.code ? 'bg-red-50 text-red-600' : 'text-gray-700'
+              className={`w-full px-3 py-2 text-left text-sm transition-colors duration-200 ${
+                currentLanguage === language.code 
+                  ? 'bg-primary-50 text-primary-600' 
+                  : 'text-gray-700 hover:bg-gray-50'
               }`}
             >
-              <span className="mr-2">{language.flag}</span>
-              {language.name}
+              <div className="flex items-center">
+                <span className="mr-2">{language.flag}</span>
+                <span className="font-medium">{language.name}</span>
+              </div>
             </button>
           ))}
         </div>
