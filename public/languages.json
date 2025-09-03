@@ -56,27 +56,68 @@
     },
     "services": {
       "title": "服務項目",
-      "subtitle": "全方位的餐飲顧問服務",
+      "subtitle": "我們提供全方位的餐飲顧問服務，從品牌建立到營運管理，協助您的事業茁壯成長。",
       "brandPlanning": {
         "title": "品牌規劃",
-        "description": "協助您建立獨特的品牌識別與定位"
+        "description": "協助您建立獨特的品牌識別與定位，從0到1規劃專屬品牌，建立完整的品牌視覺。",
+        "item1": {
+          "title": "品牌規劃",
+          "description": "從0到1規劃專屬品牌建立品牌視覺"
+        },
+        "item2": {
+          "title": "商業平面設計",
+          "description": "菜單、海報、名片設計，面面俱到全方位打造品牌"
+        },
+        "item3": {
+          "title": "制服設計",
+          "description": "餐飲人員制服設計建立專業、親切服務形象"
+        },
+        "item4": {
+          "title": "空間設計",
+          "description": "餐廳、攤車裝潢打造吸睛、舒適實用情境"
+        },
+        "bottom": {
+          "p1": "我們會為您的品牌建立獨特的品牌定位，針對您能為消費者所提供的價值建立品牌的核心理念。",
+          "p2": {
+            "line1": "讓覓食餐飲陪你一起成長",
+            "line2": "用台灣美食帶給人們笑容"
+          }
+        }
       },
       "strategyPlanning": {
         "title": "策略規劃",
-        "description": "制定完整的商業策略與發展藍圖"
+        "description": "深入分析市場趨勢與競爭環境，制定適合的商業策略，協助您的餐飲事業在競爭中脫穎而出。",
+        "listItem1": "市場分析與競爭研究",
+        "listItem2": "商業模式設計",
+        "listItem3": "營運策略制定",
+        "listItem4": "成長路徑規劃",
+        "cardDescription": "專業的商業策略制定與執行"
       },
       "businessDiagnosis": {
         "title": "商業模式診斷",
-        "description": "分析現有營運模式，提供改善建議"
+        "description": "全面檢視您的餐飲事業，找出問題點與改善機會，提供具體的改善建議與執行方案。",
+        "listItem1": "營運流程分析",
+        "listItem2": "財務結構檢視",
+        "listItem3": "客戶體驗評估",
+        "listItem4": "改善方案制定",
+        "cardDescription": "全面檢視與改善建議"
       },
       "hrDevelopment": {
         "title": "人才育成",
-        "description": "建立完善的人力資源管理體系"
+        "description": "建立完善的人才培訓體系，提升團隊專業能力，為您的餐飲事業培養優秀的人才隊伍。",
+        "listItem1": "員工培訓計畫",
+        "listItem2": "管理技能提升",
+        "listItem3": "團隊文化建立",
+        "listItem4": "績效管理系統",
+        "cardDescription": "專業團隊培訓與管理"
       },
       "comingSoon": "更多服務即將推出",
-      "cta": "立即諮詢",
-      "relatedEnterprises": {
-        "title": "Related Enterprises"
+      "comingSoonDescription": "我們正在開發更多專業的餐飲顧問服務，包括數位轉型、國際化策略、供應鏈管理等，為您的餐飲事業提供更全面的支援！",
+      "cta": {
+        "title": "準備好開始了嗎？",
+        "description": "聯絡我們，讓我們一起討論如何協助您的餐飲事業成長",
+        "cta1": "立即諮詢",
+        "cta2": "查看案例"
       }
     },
     "cases": {
