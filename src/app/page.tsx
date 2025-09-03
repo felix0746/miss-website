@@ -1,13 +1,12 @@
-import { Metadata } from 'next';
+'use client';
+
 import Image from 'next/image'
 import Link from 'next/link'
-
-export const metadata: Metadata = {
-  title: '首頁 | 覓食 MISS - 餐飲顧問｜品牌規劃｜商業設計｜整合行銷',
-  description: '覓食 (MISS) - 您的餐飲事業最佳夥伴。我們提供全方位的餐飲顧問、品牌規劃、商業設計與整合行銷服務，協助您的品牌從理想到落地。',
-};
+import { useTranslation } from '@/contexts/TranslationContext'
 
 export default function Home() {
+  const { t } = useTranslation();
+  
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section with Background Image */}
@@ -54,24 +53,24 @@ export default function Home() {
             </div>
           </div>
           <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-3 md:mb-4 leading-tight">
-            追求你所熱愛
-            <span className="block text-gradient mt-2 sm:mt-1">努力不懈</span>
+            {t('home.hero.title_line1')}
+            <span className="block text-gradient mt-2 sm:mt-1">{t('home.hero.title_line2')}</span>
           </h1>
           <p className="text-base sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-4 md:mb-6 max-w-3xl mx-auto leading-relaxed px-1">
-            覓食 (MISS) - 您的餐飲事業最佳夥伴。我們提供專業的餐飲顧問、品牌規劃、商業設計與整合行銷服務，協助您的品牌從理想到落地，創造無限可能。
+            {t('home.hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-3 justify-center px-2 sm:px-4">
             <Link
               href="/contact"
               className="bg-primary-600 hover:bg-primary-700 text-white font-semibold text-base sm:text-base px-8 sm:px-6 py-4 sm:py-3 rounded-xl transition-colors w-full sm:w-32 min-h-[48px] sm:min-h-[44px] inline-flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl"
             >
-              立即諮詢
+              {t('home.hero.cta1')}
             </Link>
             <Link
               href="/services"
               className="bg-white hover:bg-gray-100 text-gray-900 font-semibold text-base sm:text-base px-8 sm:px-6 py-4 sm:py-3 rounded-xl transition-colors w-full sm:w-32 min-h-[48px] sm:min-h-[44px] inline-flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl"
             >
-              了解更多
+              {t('home.hero.cta2')}
             </Link>
           </div>
         </div>
@@ -80,24 +79,24 @@ export default function Home() {
       {/* Brand Story Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="container">
-          <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">品牌故事</h2>
+          <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">{t('home.brandStory.title')}</h2>
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             <div className="space-y-3 sm:space-y-4 md:space-y-6 order-2 lg:order-1">
-              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">覓食國際餐飲企業有限公司</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">{t('footer.companyName')}</h3>
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                乃是由一群對餐旅事業有高度熱忱的青年所組成。
+                {t('home.brandStory.content_p1')}
               </p>
-              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                「覓食」的命名乃是以英文 Miss 的諧音作為發想，其意涵有想念、饗宴、回味無窮之意。
+               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+                {t('home.brandStory.content_p2')}
               </p>
-              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                「覓食」成立的使命是以台灣的本土化美食為依歸，推廣與行銷在地美食，提高台灣美食能見度。
+               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+                {t('home.brandStory.content_p3')}
               </p>
-              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                傳承好味道並讓傳統文化延續。
+               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+                {t('home.brandStory.content_p4')}
               </p>
-              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                「覓食」藉此激發顧客對台灣美食文化的熱愛，亦引領餐飲從業人員對餐飲服務之重視。
+               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+                {t('home.brandStory.content_p5')}
               </p>
             </div>
             
@@ -115,7 +114,7 @@ export default function Home() {
           <div className="mt-8 sm:mt-12">
             <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md max-w-4xl mx-auto">
               <p className="text-gray-700 italic text-sm sm:text-base md:text-lg text-center">
-                「覓食」承諾將會借助過去集團品牌及成功案例推行的經驗，協助想轉型、想創業，或是已有不錯的成果，但想更進一步的店家做改善。也行銷團隊在地美食，讓台灣美食走出去，為客戶提供高品質的餐飲體驗。
+                {t('home.brandStory.quote')}
               </p>
             </div>
           </div>
@@ -127,11 +126,11 @@ export default function Home() {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             <div className="space-y-4 sm:space-y-6 text-center lg:text-left">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">品牌願景</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">{t('home.brandVision.title')}</h2>
               <p className="text-gray-600 text-lg sm:text-xl md:text-2xl leading-relaxed">
-                「覓食」致力於發掘台灣美食，<br className="hidden sm:block"/>
-                透過不斷創新和品牌管理，<br className="hidden sm:block"/>
-                將臺灣的美食文化發揚光大。
+                {t('home.brandVision.line1')}<br className="hidden sm:block"/>
+                {t('home.brandVision.line2')}<br className="hidden sm:block"/>
+                {t('home.brandVision.line3')}
               </p>
             </div>
             
@@ -151,7 +150,7 @@ export default function Home() {
       {/* Services Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="container">
-          <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">我們的服務</h2>
+          <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">{t('home.services.title')}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
             <a href="/services#planning" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center group">
               <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -159,8 +158,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">品牌規劃</h3>
-              <p className="text-gray-600 text-xs sm:text-sm md:text-base">專業的餐飲品牌規劃與設計服務</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">{t('home.services.brandPlanning')}</h3>
+              <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.brandPlanningDescription')}</p>
             </a>
             
             <a href="/services#strategy" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center group">
@@ -169,8 +168,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">策略規劃</h3>
-              <p className="text-gray-600 text-xs sm:text-sm md:text-base">餐飲事業策略制定與市場分析</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">{t('home.services.strategyPlanning')}</h3>
+              <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.strategyPlanningDescription')}</p>
             </a>
             
             <a href="/services#diagnosis" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center group">
@@ -179,8 +178,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">商業模式診斷</h3>
-              <p className="text-gray-600 text-xs sm:text-sm md:text-base">深度分析現有商業模式並提供改善建議</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">{t('home.services.businessDiagnosis')}</h3>
+              <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.businessDiagnosisDescription')}</p>
             </a>
             
             <a href="https://believe-in-goodness-website.vercel.app/" target="_blank" rel="noopener noreferrer" className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center group">
@@ -189,8 +188,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">人才育成</h3>
-              <p className="text-gray-600 text-xs sm:text-sm md:text-base">專業的餐飲人才培訓與發展</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">{t('home.services.hrDevelopment')}</h3>
+              <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.hrDevelopmentDescription')}</p>
             </a>
           </div>
         </div>
@@ -199,7 +198,7 @@ export default function Home() {
       {/* Related Enterprises Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="container">
-          <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">相關企業</h2>
+          <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">{t('home.relatedEnterprises.title')}</h2>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-3 sm:gap-4 md:gap-6 max-w-6xl mx-auto">
             <a href="#" target="_blank" rel="noopener noreferrer" className="text-center group">
               <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto relative group-hover:scale-110 transition-transform duration-300">
@@ -311,26 +310,26 @@ export default function Home() {
       </section>
 
                   {/* CTA Section */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="container text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 md:mb-6 px-4">
-            準備好開始您的餐飲事業了嗎？
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+            {t('home.cta.title')}
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-white mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-            讓我們一起打造屬於您的成功故事。立即聯絡我們，獲得專業的餐飲顧問服務。
+          <p className="text-base sm:text-lg md:text-xl text-white mb-5 sm:mb-6 max-w-2xl mx-auto px-4">
+            {t('home.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 relative z-10">
             <Link
               href="/contact"
-              className="bg-white text-primary-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
+              className="bg-white text-primary-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
             >
-              立即諮詢
+              {t('home.cta.cta1')}
             </Link>
             <Link
               href="/services"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
             >
-              了解更多
+              {t('home.cta.cta2')}
             </Link>
           </div>
     </div>

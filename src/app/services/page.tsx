@@ -1,23 +1,22 @@
-import { Metadata } from 'next';
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
-
-export const metadata: Metadata = {
-  title: '服務項目 | 覓食 MISS',
-  description: '探索覓食 (MISS) 提供的四大核心服務：品牌規劃、策略佈局、營運診斷、管理顧問。我們為您的餐飲事業提供全方位的解決方案。',
-};
+import { useTranslation } from '@/contexts/TranslationContext';
 
 export default function Services() {
+  const { t } = useTranslation();
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="container text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            服務項目
+            {t('services.title')}
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            探索覓食 (MISS) 的核心服務項目。我們提供從品牌規劃、策略制定、商業模式診斷到專業管理顧問等一站式解決方案，助您的餐飲事業邁向成功。
+            {t('services.subtitle')}
           </p>
         </div>
       </section>
@@ -41,9 +40,9 @@ export default function Services() {
               
               <div className="relative z-10">
                 <div className="text-center mb-8 sm:mb-12">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">餐旅商業設計</h2>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('services.brandPlanning.title')}</h2>
                   <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
-                    對店家進行品牌診斷，給予企業識別規劃、美學意象上的建議與執行。
+                    {t('services.brandPlanning.description')}
                   </p>
                 </div>
 
@@ -55,8 +54,8 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
                     </div>
-                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">餐旅品牌系統</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">從0到1規劃專屬品牌建立品牌視覺</p>
+                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('services.brandPlanning.item1.title')}</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">{t('services.brandPlanning.item1.description')}</p>
                   </div>
                   
                   <div className="bg-gray-50 p-4 sm:p-6 rounded-lg text-center">
@@ -65,8 +64,8 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                       </svg>
                     </div>
-                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">商業平面設計</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">菜單、海報、名片設計，面面俱到全方位打造品牌</p>
+                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('services.brandPlanning.item2.title')}</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">{t('services.brandPlanning.item2.description')}</p>
                   </div>
                   
                   <div className="bg-gray-50 p-4 sm:p-6 rounded-lg text-center">
@@ -75,8 +74,8 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                       </svg>
                     </div>
-                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">制服設計</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">餐飲人員制服設計建立專業、親切服務形象</p>
+                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('services.brandPlanning.item3.title')}</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">{t('services.brandPlanning.item3.description')}</p>
                   </div>
                   
                   <div className="bg-gray-50 p-4 sm:p-6 rounded-lg text-center">
@@ -85,8 +84,8 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
                     </div>
-                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">空間設計</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">餐廳、攤車裝潢打造吸睛、舒適實用情境</p>
+                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('services.brandPlanning.item4.title')}</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">{t('services.brandPlanning.item4.description')}</p>
                   </div>
                 </div>
 
@@ -103,11 +102,11 @@ export default function Services() {
                   </div>
                   <div className="space-y-4 sm:space-y-6">
                     <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 leading-relaxed">
-                      我們會為您的品牌建立獨特的品牌定位，針對您能為消費者所提供的價值建立品牌的核心理念。
+                      {t('services.brandPlanning.bottom.p1')}
                     </h3>
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-600 leading-relaxed">
-                      讓覓食餐飲陪你一起成長<br/>
-                      用台灣美食帶給人們笑容
+                      {t('services.brandPlanning.bottom.p2.line1')}<br/>
+                      {t('services.brandPlanning.bottom.p2.line2')}
                     </h2>
                   </div>
                 </div>
@@ -119,9 +118,9 @@ export default function Services() {
           <div id="strategy" className="mb-16 sm:mb-20">
             <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 md:p-12">
               <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">策略規劃</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('services.strategyPlanning.title')}</h2>
                 <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
-                  深入分析市場趨勢與競爭環境，制定適合的商業策略，協助您的餐飲事業在競爭中脫穎而出。
+                  {t('services.strategyPlanning.description')}
                 </p>
               </div>
               
@@ -133,27 +132,27 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">策略規劃</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">{t('services.strategyPlanning.title')}</h3>
                   </div>
                   <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                    深入分析市場趨勢與競爭環境，制定適合的商業策略，協助您的餐飲事業在競爭中脫穎而出。
+                    {t('services.strategyPlanning.description')}
                   </p>
                   <ul className="space-y-2 text-gray-600 text-sm sm:text-base">
                     <li className="flex items-start gap-2">
                       <span className="text-secondary-600 mt-1">✓</span>
-                      市場分析與競爭研究
+                      {t('services.strategyPlanning.listItem1')}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-secondary-600 mt-1">✓</span>
-                      商業模式設計
+                      {t('services.strategyPlanning.listItem2')}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-secondary-600 mt-1">✓</span>
-                      營運策略制定
+                      {t('services.strategyPlanning.listItem3')}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-secondary-600 mt-1">✓</span>
-                      成長路徑規劃
+                      {t('services.strategyPlanning.listItem4')}
                     </li>
                   </ul>
                 </div>
@@ -165,8 +164,8 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">策略規劃</h3>
-                    <p className="text-gray-600">專業的商業策略制定與執行</p>
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{t('services.strategyPlanning.title')}</h3>
+                    <p className="text-gray-600">{t('services.strategyPlanning.cardDescription')}</p>
                   </div>
                 </div>
               </div>
@@ -177,9 +176,9 @@ export default function Services() {
           <div id="diagnosis" className="mb-16 sm:mb-20">
             <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 md:p-12">
               <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">商業模式診斷</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('services.businessDiagnosis.title')}</h2>
                 <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
-                  全面檢視您的餐飲事業，找出問題點與改善機會，提供具體的改善建議與執行方案。
+                  {t('services.businessDiagnosis.description')}
                 </p>
               </div>
               
@@ -191,27 +190,27 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">商業模式診斷</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">{t('services.businessDiagnosis.title')}</h3>
                   </div>
                   <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                    全面檢視您的餐飲事業，找出問題點與改善機會，提供具體的改善建議與執行方案。
+                    {t('services.businessDiagnosis.description')}
                   </p>
                   <ul className="space-y-2 text-gray-600 text-sm sm:text-base">
                     <li className="flex items-start gap-2">
                       <span className="text-primary-600 mt-1">✓</span>
-                      營運流程分析
+                      {t('services.businessDiagnosis.listItem1')}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary-600 mt-1">✓</span>
-                      財務結構檢視
+                      {t('services.businessDiagnosis.listItem2')}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary-600 mt-1">✓</span>
-                      客戶體驗評估
+                      {t('services.businessDiagnosis.listItem3')}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary-600 mt-1">✓</span>
-                      改善方案制定
+                      {t('services.businessDiagnosis.listItem4')}
                     </li>
                   </ul>
                 </div>
@@ -223,8 +222,8 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">商業診斷</h3>
-                    <p className="text-gray-600">全面檢視與改善建議</p>
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{t('services.businessDiagnosis.title')}</h3>
+                    <p className="text-gray-600">{t('services.businessDiagnosis.cardDescription')}</p>
                   </div>
                 </div>
               </div>
@@ -235,9 +234,9 @@ export default function Services() {
           <div id="consultant" className="mb-16 sm:mb-20">
             <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 md:p-12">
               <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">管理顧問</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('services.hrDevelopment.title')}</h2>
                 <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
-                  建立完善的人才培訓體系，提升團隊專業能力，為您的餐飲事業培養優秀的人才隊伍。
+                  {t('services.hrDevelopment.description')}
                 </p>
               </div>
               
@@ -249,8 +248,8 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">人才育成</h3>
-                    <p className="text-gray-600">專業團隊培訓與管理</p>
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{t('services.hrDevelopment.title')}</h3>
+                    <p className="text-gray-600">{t('services.hrDevelopment.cardDescription')}</p>
                   </div>
                 </div>
                 
@@ -261,27 +260,27 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">人才育成</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">{t('services.hrDevelopment.title')}</h3>
                   </div>
                   <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                    建立完善的人才培訓體系，提升團隊專業能力，為您的餐飲事業培養優秀的人才隊伍。
+                    {t('services.hrDevelopment.description')}
                   </p>
                   <ul className="space-y-2 text-gray-600 text-sm sm:text-base">
                     <li className="flex items-start gap-2">
                       <span className="text-secondary-600 mt-1">✓</span>
-                      員工培訓計畫
+                      {t('services.hrDevelopment.listItem1')}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-secondary-600 mt-1">✓</span>
-                      管理技能提升
+                      {t('services.hrDevelopment.listItem2')}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-secondary-600 mt-1">✓</span>
-                      團隊文化建立
+                      {t('services.hrDevelopment.listItem3')}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-secondary-600 mt-1">✓</span>
-                      績效管理系統
+                      {t('services.hrDevelopment.listItem4')}
                     </li>
                   </ul>
                 </div>
@@ -302,10 +301,10 @@ export default function Services() {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
-                更多專業服務即將推出
+                {t('services.comingSoon')}
               </h3>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                我們正在開發更多專業的餐飲顧問服務，包括數位轉型、國際化策略、供應鏈管理等，為您的餐飲事業提供更全面的支援！
+                {t('services.comingSoonDescription')}
               </p>
             </div>
           </div>
@@ -313,26 +312,26 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="container text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
-            準備好開始了嗎？
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
+            {t('services.cta.title')}
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-white mb-6 sm:mb-8 max-w-2xl mx-auto">
-            聯絡我們，讓我們一起討論如何協助您的餐飲事業成長
+          <p className="text-base sm:text-lg lg:text-xl text-white mb-5 sm:mb-6 max-w-2xl mx-auto">
+            {t('services.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-white text-primary-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
+              className="bg-white text-primary-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
             >
-              立即諮詢
+              {t('services.cta.cta1')}
             </Link>
             <Link
               href="/cases"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
             >
-              查看案例
+              {t('services.cta.cta2')}
             </Link>
           </div>
         </div>

@@ -3,83 +3,34 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useTranslation } from '@/contexts/TranslationContext'
 
-// 註：在 'use client' 組件中無法直接導出 metadata
-// SEO 資訊建議在父層的 layout.tsx 或 page.tsx (Server Component) 中設定
-// 這裡我們先為頁面內容做準備，SEO 資訊可以在 `cases/layout.tsx` 中補上
+// Define a type for a single case
+interface Case {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  category: string;
+  services: string[];
+  year: string;
+}
 
 export default function Cases() {
+  const { t, languageData, currentLanguage, isLoading } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('全部')
   const [selectedService, setSelectedService] = useState('')
 
-  const cases = [
-    {
-      id: 'kenting',
-      title: '肯特西餐廳',
-      subtitle: '品牌重塑與空間改造',
-      description: '協助肯特西餐廳進行品牌重塑與空間改造，從老舊西餐廳轉型為現代化美式餐廳，打造家的味道與懷舊氛圍。',
-      image: '/images/case-logo-kenting.webp',
-      category: '西餐廳',
-      services: ['LOGO設計', '菜單規劃', '空間設計'],
-      year: '2023'
-    },
-    {
-      id: 'lanting',
-      title: '蘭亭餐廳',
-      subtitle: '空間設計與品牌識別',
-      description: '為蘭亭餐廳打造獨特的空間設計與品牌識別系統，創造優雅的用餐環境與品牌形象。',
-      image: '/images/case-logo-lanting.webp',
-      category: '餐廳',
-      services: ['空間設計', '品牌識別', '視覺設計'],
-      year: '2023'
-    },
-    {
-      id: 'laojiang',
-      title: '老江紅茶牛奶',
-      subtitle: '品牌升級與連鎖擴展',
-      description: '協助老江紅茶牛奶進行品牌升級，制定連鎖擴展策略，提升品牌價值與市場份額。',
-      image: '/images/case-logo-laojiang.webp',
-      category: '飲料業',
-      services: ['品牌升級', '連鎖策略', '營運規劃'],
-      year: '2023'
-    },
-    {
-      id: 'sansan',
-      title: '三三燒肉',
-      subtitle: '商業模式優化',
-      description: '為三三燒肉進行商業模式診斷與優化，提升營運效率與顧客滿意度。',
-      image: '/images/case-logo-sansan.webp',
-      category: '燒肉店',
-      services: ['商業診斷', '營運優化', '流程改善'],
-      year: '2023'
-    },
-    {
-      id: 'tianyuan',
-      title: '天元茶業',
-      subtitle: '品牌定位與行銷推廣',
-      description: '協助天元茶業建立清晰的品牌定位，制定有效的行銷推廣策略，擴大市場影響力。',
-      image: '/images/case-logo-tianyuan.webp',
-      category: '茶業',
-      services: ['品牌定位', '行銷推廣', '市場策略'],
-      year: '2023'
-    },
-    {
-      id: 'xianglian',
-      title: '香連鐵板料理',
-      subtitle: '品牌重塑與餐廳改造',
-      description: '協助香連鐵板料理進行品牌重塑與餐廳改造，結合台北石牌商圈文化與新竹竹東客家人待客豪情，打造獨特的日式鐵板料理品牌。',
-      image: '/images/xianglian-logo-large.webp',
-      category: '鐵板燒',
-      services: ['LOGO設計', '餐廳改造', '品牌重塑'],
-      year: '2023'
-    }
-  ]
+  const cases: Case[] = !isLoading && languageData[currentLanguage]?.case_data 
+    ? (languageData[currentLanguage].case_data as Case[]) 
+    : [];
 
-  const categories = ['全部', '西餐廳', '餐廳', '飲料業', '燒肉店', '茶業', '鐵板燒']
-  const services = ['品牌規劃', '行銷策略', '視覺設計', '空間設計', '品牌識別', '品牌升級', '連鎖策略', '營運規劃', '商業診斷', '營運優化', '流程改善', '品牌定位', '市場策略', '品牌重塑', '空間改造', 'LOGO設計', '菜單規劃', '餐廳改造']
+  const categories = ['全部', ...new Set(cases.map((c: Case) => c.category))];
+  const services = [...new Set(cases.flatMap((c: Case) => c.services))];
 
   // 篩選邏輯
-  const filteredCases = cases.filter(caseItem => {
+  const filteredCases = cases.filter((caseItem: Case) => {
     const categoryMatch = selectedCategory === '全部' || caseItem.category === selectedCategory
     const serviceMatch = selectedService === '' || caseItem.services.includes(selectedService)
     return categoryMatch && serviceMatch
@@ -91,10 +42,10 @@ export default function Cases() {
       <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="container text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            案例展示
+            {t('cases.title')}
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            探索覓食 (MISS) 的成功案例，了解我們如何協助餐飲品牌從理想到落地，創造無限可能。
+            {t('cases.subtitle')}
           </p>
         </div>
       </section>
@@ -252,7 +203,7 @@ export default function Cases() {
                     href={`/cases/${caseItem.id}`}
                     className="inline-block w-full bg-primary-600 hover:bg-primary-700 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors text-sm sm:text-base"
                   >
-                    查看詳情
+                    {t('cases.viewDetails')}
                   </Link>
                 </div>
               </div>
@@ -266,7 +217,7 @@ export default function Cases() {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                找不到符合條件的案例
+                {t('cases.noResults')}
               </h3>
               <p className="text-gray-600 text-sm sm:text-base mb-4">
                 請嘗試調整篩選條件，或瀏覽其他類型的案例
@@ -290,7 +241,7 @@ export default function Cases() {
         <div className="container">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              我們的成就
+              {t('cases.statistics.title')}
             </h2>
             <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
               透過專業的服務與豐富的經驗，我們已成功協助眾多餐飲品牌實現夢想
@@ -302,21 +253,21 @@ export default function Cases() {
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-600 mb-2">
                 50+
               </div>
-              <p className="text-gray-600 text-sm sm:text-base">成功案例</p>
+              <p className="text-gray-600 text-sm sm:text-base">{t('cases.statistics.projects')}</p>
             </div>
             
             <div className="text-center">
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary-600 mb-2">
                 95%
               </div>
-              <p className="text-gray-600 text-sm sm:text-base">客戶滿意度</p>
+              <p className="text-gray-600 text-sm sm:text-base">{t('cases.statistics.satisfaction')}</p>
             </div>
             
             <div className="text-center">
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-600 mb-2">
                 3年+
               </div>
-              <p className="text-gray-600 text-sm sm:text-base">服務經驗</p>
+              <p className="text-gray-600 text-sm sm:text-base">{t('cases.statistics.years')}</p>
             </div>
             
             <div className="text-center">

@@ -3,105 +3,38 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useTranslation } from '@/contexts/TranslationContext'
 
-// 註：在 'use client' 組件中無法直接導出 metadata
+// Define a type for a single news item
+interface News {
+  id: string;
+  title: string;
+  subtitle: string;
+  excerpt: string;
+  content: string;
+  image: string;
+  category: string;
+  tags: string[];
+  author: string;
+  publishDate: string;
+  readTime: string;
+  featured: boolean;
+}
 
 export default function News() {
+  const { t, languageData, currentLanguage, isLoading } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('全部')
   const [selectedTag, setSelectedTag] = useState('')
   const [email, setEmail] = useState('')
   const [isSubscribing, setIsSubscribing] = useState(false)
   const [subscriptionMessage, setSubscriptionMessage] = useState('')
 
-  const news = [
-    {
-      id: 'news-1',
-      title: '覓食 (MISS) 榮獲2024年台灣餐飲顧問服務優質獎',
-      subtitle: '專業服務獲得肯定，持續為餐飲業者提供優質顧問服務',
-      excerpt: '覓食國際餐飲企業有限公司憑藉專業的餐飲顧問服務與優異的客戶滿意度，榮獲2024年台灣餐飲顧問服務優質獎。這項殊榮肯定了我們在品牌規劃、商業設計與整合行銷等領域的專業能力...',
-      content: '覓食國際餐飲企業有限公司憑藉專業的餐飲顧問服務與優異的客戶滿意度，榮獲2024年台灣餐飲顧問服務優質獎。這項殊榮肯定了我們在品牌規劃、商業設計與整合行銷等領域的專業能力。\n\n我們將持續秉持「讓覓食餐飲陪你一起成長，用台灣美食帶給人們笑容」的理念，為更多餐飲品牌提供專業服務，協助他們在競爭激烈的市場中脫穎而出。\n\n未來，覓食將繼續投入研發創新服務模式，結合數位科技與傳統餐飲智慧，為客戶創造更大的價值。',
-      image: '/images/brand-story-team.webp',
-      category: '公司榮譽',
-      tags: ['獎項', '肯定', '專業服務'],
-      author: '覓食團隊',
-      publishDate: '2024-01-15',
-      readTime: '3 分鐘',
-      featured: true
-    },
-    {
-      id: 'news-2',
-      title: '新服務上線：餐飲品牌數位轉型顧問服務',
-      subtitle: '協助傳統餐飲業者擁抱數位時代，提升競爭力',
-      excerpt: '隨著數位化時代來臨，傳統餐飲業者面臨轉型挑戰。覓食推出全新的「餐飲品牌數位轉型顧問服務」，協助業者建立線上訂餐系統、社群媒體行銷策略...',
-      content: '隨著數位化時代來臨，傳統餐飲業者面臨轉型挑戰。覓食推出全新的「餐飲品牌數位轉型顧問服務」，協助業者建立線上訂餐系統、社群媒體行銷策略、客戶關係管理等數位化營運模式。\n\n這項服務包含：\n• 數位化營運診斷\n• 線上訂餐系統建置\n• 社群媒體行銷策略\n• 客戶數據分析\n• 數位化員工培訓\n\n我們相信，透過數位轉型，傳統餐飲業者能夠在保持原有特色的同時，提升營運效率與客戶體驗。',
-      image: '/images/service-planning.webp',
-      category: '服務更新',
-      tags: ['數位轉型', '新服務', '科技應用'],
-      author: '產品團隊',
-      publishDate: '2024-01-10',
-      readTime: '5 分鐘',
-      featured: false
-    },
-    {
-      id: 'news-3',
-      title: '成功案例分享：老江紅茶牛奶品牌升級成果',
-      subtitle: '從單店經營到連鎖品牌的成功轉型之路',
-      excerpt: '老江紅茶牛奶是我們近期完成的品牌升級專案。透過系統性的品牌重塑、視覺識別更新與連鎖擴展策略制定，成功協助老江從高雄地區的單店...',
-      content: '老江紅茶牛奶是我們近期完成的品牌升級專案。透過系統性的品牌重塑、視覺識別更新與連鎖擴展策略制定，成功協助老江從高雄地區的單店經營轉型為連鎖品牌。\n\n專案成果：\n• 連鎖店數從 1 家擴展至 8 家\n• 品牌價值提升 200%\n• 營收成長 150%\n• 市場覆蓋率提升 300%\n\n這個成功案例展現了覓食在品牌升級與連鎖擴展方面的專業能力，也為其他傳統餐飲業者提供了寶貴的參考經驗。',
-      image: '/images/case-logo-laojiang.webp',
-      category: '成功案例',
-      tags: ['品牌升級', '連鎖擴展', '成功案例'],
-      author: '顧問團隊',
-      publishDate: '2024-01-05',
-      readTime: '4 分鐘',
-      featured: false
-    },
-    {
-      id: 'news-4',
-      title: '2024年餐飲趨勢預測：健康飲食與永續發展',
-      subtitle: '洞察未來餐飲市場發展方向，協助客戶提前布局',
-      excerpt: '根據市場研究與消費者行為分析，2024年餐飲業將呈現健康飲食與永續發展兩大趨勢。消費者越來越重視食材來源、營養價值與環境影響...',
-      content: '根據市場研究與消費者行為分析，2024年餐飲業將呈現健康飲食與永續發展兩大趨勢。消費者越來越重視食材來源、營養價值與環境影響。\n\n主要趨勢包括：\n• 植物性飲食需求增長\n• 有機與無添加食材\n• 低碳足跡餐飲\n• 包裝環保化\n• 營養標示透明化\n\n覓食將協助客戶順應這些趨勢，調整產品策略與行銷方向，在競爭中取得優勢。',
-      image: '/images/service-strategy.webp',
-      category: '市場趨勢',
-      tags: ['趨勢預測', '健康飲食', '永續發展'],
-      author: '研究團隊',
-      publishDate: '2023-12-28',
-      readTime: '6 分鐘',
-      featured: false
-    },
-    {
-      id: 'news-5',
-      title: '覓食團隊擴編：歡迎新成員加入',
-      subtitle: '強化服務能力，為客戶提供更全面的解決方案',
-      excerpt: '為了提供更優質的服務，覓食近期擴編了設計團隊與顧問團隊。新成員來自知名設計公司與餐飲集團，擁有豐富的實務經驗...',
-      content: '為了提供更優質的服務，覓食近期擴編了設計團隊與顧問團隊。新成員來自知名設計公司與餐飲集團，擁有豐富的實務經驗。\n\n新增團隊成員：\n• 資深品牌設計師 2 名\n• 餐飲營運顧問 1 名\n• 數位行銷專員 1 名\n• 客戶服務專員 1 名\n\n團隊擴編後，我們將能夠同時處理更多專案，為客戶提供更快速、更專業的服務。同時，多元化的專業背景也讓我們能夠從不同角度為客戶解決問題。',
-      image: '/images/brand-story-team.webp',
-      category: '團隊動態',
-      tags: ['團隊擴編', '新成員', '服務升級'],
-      author: '人資團隊',
-      publishDate: '2023-12-20',
-      readTime: '3 分鐘',
-      featured: false
-    },
-    {
-      id: 'news-6',
-      title: '客戶回饋：蘭亭餐廳空間改造專案滿意度調查',
-      subtitle: '客戶高度肯定我們的專業服務與執行能力',
-      excerpt: '蘭亭餐廳空間改造專案完成後，我們進行了客戶滿意度調查。結果顯示，客戶對我們的服務給予了高度評價，特別是在設計創意...',
-      content: '蘭亭餐廳空間改造專案完成後，我們進行了客戶滿意度調查。結果顯示，客戶對我們的服務給予了高度評價，特別是在設計創意、施工品質與時程控制方面。\n\n滿意度調查結果：\n• 整體滿意度：96%\n• 設計創意：98%\n• 施工品質：95%\n• 時程控制：94%\n• 溝通協調：97%\n\n這些正面回饋激勵我們持續精進服務品質，為更多客戶創造滿意的成果。',
-      image: '/images/case-logo-lanting.webp',
-      category: '客戶回饋',
-      tags: ['客戶滿意', '回饋調查', '服務品質'],
-      author: '客戶服務團隊',
-      publishDate: '2023-12-15',
-      readTime: '4 分鐘',
-      featured: false
-    }
-  ]
+  const news: News[] = !isLoading && languageData[currentLanguage]?.news_data 
+    ? (languageData[currentLanguage].news_data as News[]) 
+    : [];
 
-  const categories = ['全部', '公司榮譽', '服務更新', '成功案例', '市場趨勢', '團隊動態', '客戶回饋']
-  const tags = ['獎項', '肯定', '專業服務', '數位轉型', '新服務', '科技應用', '品牌升級', '連鎖擴展', '成功案例', '趨勢預測', '健康飲食', '永續發展', '團隊擴編', '新成員', '服務升級', '客戶滿意', '回饋調查', '服務品質']
+  const categories = ['全部', ...new Set(news.map(item => item.category))];
+  const tags = [...new Set(news.flatMap(item => item.tags))];
 
   // 篩選邏輯
   const filteredNews = news.filter(newsItem => {
@@ -135,10 +68,10 @@ export default function News() {
       <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="container text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            覓食消息
+            {t('news.title')}
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            掌握覓食 (MISS) 的最新動態、服務更新、成功案例與市場趨勢，了解餐飲產業的最新發展
+            {t('news.subtitle')}
           </p>
         </div>
       </section>
@@ -164,7 +97,7 @@ export default function News() {
                   <div className="space-y-4 sm:space-y-6">
                     <div className="flex items-center gap-3">
                       <span className="inline-block bg-primary-600 text-white px-3 py-1 rounded-full text-xs font-medium">
-                        精選消息
+                        {t('news.featured')}
                       </span>
                       <span className="text-sm text-gray-600">{featuredNews.publishDate}</span>
                     </div>
@@ -186,7 +119,7 @@ export default function News() {
                       href={`/news/${featuredNews.id}`}
                       className="inline-block bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-base sm:text-lg min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                     >
-                      閱讀全文
+                      {t('news.readMore')}
                     </Link>
                   </div>
                   
@@ -212,7 +145,7 @@ export default function News() {
           <div className="space-y-6">
             {/* Category Filter */}
             <div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">依分類篩選</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">{t('news.filter.byCategory')}</h3>
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 {categories.map((category) => (
                   <button
@@ -232,7 +165,7 @@ export default function News() {
 
             {/* Tags Filter */}
             <div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">依標籤篩選</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">{t('news.filter.byTag')}</h3>
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 <button
                   onClick={() => setSelectedTag('')}
@@ -242,7 +175,7 @@ export default function News() {
                       : 'bg-gray-100 text-gray-700 hover:bg-secondary-100 hover:text-secondary-700 hover:shadow-sm'
                   }`}
                 >
-                  全部
+                  {t('news.filter.all')}
                 </button>
                 {tags.map((tag) => (
                   <button
@@ -270,7 +203,7 @@ export default function News() {
           {(selectedCategory !== '全部' || selectedTag !== '') && (
             <div className="mb-6 sm:mb-8">
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-sm sm:text-base">
-                <span className="text-gray-600">目前篩選：</span>
+                <span className="text-gray-600">{t('news.filter.current')}:</span>
                 {selectedCategory !== '全部' && (
                   <span className="inline-flex items-center gap-1 bg-primary-500 text-white px-3 py-1 rounded-full text-xs sm:text-sm shadow-sm">
                     {selectedCategory}
@@ -300,13 +233,13 @@ export default function News() {
                   }}
                   className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1 rounded-full text-xs sm:text-sm transition-colors"
                 >
-                  清除所有篩選
+                  {t('news.filter.clear')}
                 </button>
               </div>
             </div>
           )}
           
-          {filteredNews.filter(item => !item.featured).length > 0 ? (
+          {filteredNews.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {filteredNews.filter(item => !item.featured).map((newsItem) => (
               <article key={newsItem.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
@@ -364,7 +297,7 @@ export default function News() {
                       href={`/news/${newsItem.id}`}
                       className="text-primary-600 hover:text-primary-700 font-medium text-sm sm:text-base transition-colors"
                     >
-                      閱讀全文 →
+                      {t('news.readMore')} →
                     </Link>
                   </div>
                 </div>
@@ -379,10 +312,10 @@ export default function News() {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                找不到符合條件的消息
+                {t('news.noResults')}
               </h3>
               <p className="text-gray-600 text-sm sm:text-base mb-4">
-                請嘗試調整篩選條件，或瀏覽其他類型的消息
+                {t('news.noResultsDescription')}
               </p>
               <button
                 onClick={() => {
@@ -391,7 +324,7 @@ export default function News() {
                 }}
                 className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
               >
-                清除篩選
+                {t('news.filter.clear')}
               </button>
             </div>
           )}
@@ -409,10 +342,10 @@ export default function News() {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
-                更多精彩內容即將推出
+                {t('news.comingSoon.title')}
               </h3>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                我們正在準備更多有價值的餐飲業資訊、成功案例分享與市場趨勢分析，敬請期待！
+                {t('news.comingSoon.subtitle')}
               </p>
             </div>
           </div>
@@ -431,10 +364,10 @@ export default function News() {
                   </svg>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                  訂閱覓食消息
+                  {t('news.subscription.title')}
                 </h2>
                 <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                  第一時間掌握最新消息、服務更新與市場趨勢，讓您的餐飲事業與時俱進
+                  {t('news.subscription.subtitle')}
                 </p>
                 
                 <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
@@ -443,7 +376,7 @@ export default function News() {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="輸入您的電子郵件"
+                      placeholder={t('news.subscription.placeholder')}
                       className="flex-1 px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                       disabled={isSubscribing}
                     />
@@ -452,18 +385,18 @@ export default function News() {
                       disabled={isSubscribing}
                       className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 disabled:from-gray-400 disabled:to-gray-400 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:scale-100 whitespace-nowrap shadow-lg"
                     >
-                      {isSubscribing ? '訂閱中...' : '立即訂閱'}
+                      {isSubscribing ? '訂閱中...' : t('news.subscription.button')}
                     </button>
                   </div>
                   
                   {subscriptionMessage && (
-                    <div className={`p-3 rounded-lg mb-4 ${subscriptionMessage.includes('成功') ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+                    <div className={`p-3 rounded-lg mb-4 ${subscriptionMessage.includes('成功') || subscriptionMessage.includes('Success') ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
                       {subscriptionMessage}
                     </div>
                   )}
                   
                   <p className="text-xs text-gray-500">
-                    我們尊重您的隱私，不會向第三方分享您的資訊
+                    {t('news.subscription.privacy')}
                   </p>
                 </form>
               </div>

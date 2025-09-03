@@ -1,0 +1,1155 @@
+{
+  "zh-TW": {
+    "nav": {
+      "about": "關於我們",
+      "services": "服務項目",
+      "cases": "案例展示",
+      "news": "覓食消息",
+      "contact": "聯絡我們",
+      "consultation": "立即諮詢"
+    },
+    "home": {
+      "hero": {
+        "title": "您的餐飲事業最佳夥伴",
+        "title_line1": "追求你所熱愛",
+        "title_line2": "努力不懈",
+        "subtitle": "專業餐飲顧問服務，協助您的品牌從理想到落地",
+        "cta1": "立即諮詢",
+        "cta2": "了解更多"
+      },
+      "brandStory": {
+        "title": "品牌故事",
+        "subtitle": "覓食的由來與理念",
+        "content_p1": "乃是由一群對餐旅事業有高度熱忱的青年所組成。",
+        "content_p2": "「覓食」的命名乃是以英文 Miss 的諧音作為發想，其意涵有想念、饗宴、回味無窮之意。",
+        "content_p3": "「覓食」成立的使命是以台灣的本土化美食為依歸，推廣與行銷在地美食，提高台灣美食能見度。",
+        "content_p4": "傳承好味道並讓傳統文化延續。",
+        "content_p5": "「覓食」藉此激發顧客對台灣美食文化的熱愛，亦引領餐飲從業人員對餐飲服務之重視。",
+        "quote": "從「心」出發，秉持著「取之於社會，用之於社會」的觀念，推廣台灣在地美食。"
+      },
+      "brandVision": {
+        "title": "品牌願景",
+        "line1": "「覓食」致力於發掘台灣美食，",
+        "line2": "透過不斷創新和品牌管理，",
+        "line3": "將臺灣的美食文化發揚光大。"
+      },
+      "services": {
+        "title": "我們的服務",
+        "brandPlanning": "品牌規劃",
+        "brandPlanningDescription": "專業的餐飲品牌規劃與設計服務",
+        "strategyPlanning": "策略規劃",
+        "strategyPlanningDescription": "餐飲事業策略制定與市場分析",
+        "businessDiagnosis": "商業模式診斷",
+        "businessDiagnosisDescription": "深度分析現有商業模式並提供改善建議",
+        "hrDevelopment": "人才育成",
+        "hrDevelopmentDescription": "專業的餐飲人才培訓與發展"
+      },
+      "relatedEnterprises": {
+        "title": "相關企業"
+      },
+      "cta": {
+        "title": "準備好開始您的餐飲事業了嗎？",
+        "description": "讓我們一起打造屬於您的成功故事。立即聯絡我們，獲得專業的餐飲顧問服務。",
+        "cta1": "立即諮詢",
+        "cta2": "了解更多"
+      }
+    },
+    "services": {
+      "title": "服務項目",
+      "subtitle": "全方位的餐飲顧問服務",
+      "brandPlanning": {
+        "title": "品牌規劃",
+        "description": "協助您建立獨特的品牌識別與定位"
+      },
+      "strategyPlanning": {
+        "title": "策略規劃",
+        "description": "制定完整的商業策略與發展藍圖"
+      },
+      "businessDiagnosis": {
+        "title": "商業模式診斷",
+        "description": "分析現有營運模式，提供改善建議"
+      },
+      "hrDevelopment": {
+        "title": "人才育成",
+        "description": "建立完善的人力資源管理體系"
+      },
+      "comingSoon": "更多服務即將推出",
+      "cta": "立即諮詢",
+      "relatedEnterprises": {
+        "title": "Related Enterprises"
+      }
+    },
+    "cases": {
+      "title": "案例展示",
+      "subtitle": "成功案例分享",
+      "all": "全部",
+      "restaurant": "餐廳",
+      "cafe": "咖啡廳",
+      "bar": "酒吧",
+      "bakery": "烘焙",
+      "filterResults": "篩選結果",
+      "noResults": "沒有找到符合條件的案例",
+      "viewDetails": "查看詳情",
+      "statistics": {
+        "title": "服務統計",
+        "projects": "完成專案",
+        "clients": "服務客戶",
+        "satisfaction": "客戶滿意度",
+        "years": "服務年資"
+      },
+      "details": {
+        "back": "返回案例列表",
+        "title": "案例詳情",
+        "services": "服務項目",
+        "challenges": "面臨挑戰",
+        "solutions": "解決方案",
+        "results": "專案成果",
+        "related": "其他成功案例"
+      },
+      "comingSoon": "More Services Coming Soon",
+      "cta": "Get Consultation"
+    },
+    "case_data": [
+      {
+        "id": "kenting",
+        "title": "肯特西餐廳",
+        "subtitle": "品牌重塑與空間改造",
+        "description": "協助肯特西餐廳進行品牌重塑與空間改造，從老舊西餐廳轉型為現代化美式餐廳，打造家的味道與懷舊氛圍。",
+        "image": "/images/case-logo-kenting.webp",
+        "category": "西餐廳",
+        "services": ["LOGO設計", "菜單規劃", "空間設計"],
+        "year": "2023",
+        "fullDescription": "肯特西餐廳是老闆於民國六十四年創立的肯特西餐牛排館，曾經是台北東區唯一有駐唱的西餐廳，充滿濃厚的懷舊氛圍。經歷世代變遷，老舊西餐廳面臨歇業危機，但老闆秉持初衷，希望以「家」為本，用最美式的方式料理，把店內所有的餐點都賦予家的味道。我們協助其進行品牌重塑與空間改造，包括LOGO設計、菜單規劃、餐廳裝潢設計等，成功轉型為現代化美式餐廳。",
+        "results": [
+          "品牌形象現代化提升 80%",
+          "顧客滿意度提升至 90%",
+          "營收成長 35%",
+          "年輕客群增加 60%"
+        ],
+        "challenges": [
+          "老舊西餐廳風格過時",
+          "無法吸引年輕族群",
+          "空間設計昏暗老舊",
+          "品牌識別度不足"
+        ],
+        "solutions": [
+          "設計現代化LOGO，融合蜂巢、心型、家徽等元素",
+          "重新規劃菜單設計與視覺SOP",
+          "全面改造餐廳裝潢，營造活潑熱鬧氛圍",
+          "建立品牌一致性與現代化形象"
+        ]
+      },
+      {
+        "id": "lanting",
+        "title": "蘭亭餐廳",
+        "subtitle": "空間設計與品牌識別",
+        "description": "為蘭亭餐廳打造獨特的空間設計與品牌識別系統，創造優雅的用餐環境與品牌形象。",
+        "image": "/images/case-logo-lanting.webp",
+        "category": "餐廳",
+        "services": ["空間設計", "品牌識別", "視覺設計"],
+        "year": "2023",
+        "fullDescription": "蘭亭餐廳是一家主打精緻中餐的高級餐廳，希望透過空間設計與品牌識別系統的整合，創造獨特的用餐體驗。我們從品牌理念出發，設計了完整的視覺識別系統，並規劃了優雅的用餐空間，成功打造了蘭亭的品牌特色。",
+        "results": [
+          "顧客回流率提升 60%",
+          "平均消費金額提升 30%",
+          "品牌識別度提升 80%",
+          "空間利用率提升 25%"
+        ],
+        "challenges": [
+          "品牌特色不明顯",
+          "空間設計缺乏一致性",
+          "視覺元素雜亂",
+          "顧客體驗不佳"
+        ],
+        "solutions": [
+          "建立完整的品牌識別系統",
+          "設計統一的空間風格",
+          "整合視覺元素與空間設計",
+          "優化顧客用餐流程"
+        ]
+      },
+      {
+        "id": "laojiang",
+        "title": "老江紅茶牛奶",
+        "subtitle": "品牌升級與連鎖擴展",
+        "description": "協助老江紅茶牛奶進行品牌升級，制定連鎖擴展策略，提升品牌價值與市場份額。",
+        "image": "/images/case-logo-laojiang.webp",
+        "category": "飲料業",
+        "services": ["品牌升級", "連鎖策略", "營運規劃"],
+        "year": "2023",
+        "fullDescription": "老江紅茶牛奶是高雄地區知名的傳統飲料店，希望透過品牌升級與連鎖擴展，擴大市場影響力。我們協助其進行品牌現代化改造，制定標準化的營運流程，並規劃連鎖擴展策略，成功幫助老江從單店經營轉型為連鎖品牌。",
+        "results": [
+          "連鎖店數從 1 家擴展至 8 家",
+          "品牌價值提升 200%",
+          "營收成長 150%",
+          "市場覆蓋率提升 300%"
+        ],
+        "challenges": [
+          "品牌形象傳統",
+          "缺乏標準化流程",
+          "擴展經驗不足",
+          "管理體系不完善"
+        ],
+        "solutions": [
+          "設計現代化的品牌形象",
+          "建立標準化營運流程",
+          "制定連鎖擴展策略",
+          "建立完善的管理體系"
+        ]
+      },
+      {
+        "id": "sansan",
+        "title": "三三燒肉",
+        "subtitle": "商業模式優化",
+        "description": "為三三燒肉進行商業模式診斷與優化，提升營運效率與顧客滿意度。",
+        "image": "/images/case-logo-sansan.webp",
+        "category": "燒肉店",
+        "services": ["商業診斷", "營運優化", "流程改善"],
+        "year": "2023",
+        "fullDescription": "三三燒肉是一家新興的日式燒肉店，希望透過商業模式優化來提升營運效率與顧客滿意度。我們協助其進行全面的商業診斷，包括營運流程分析、成本結構優化、服務流程改善等，成功提升了整體營運效能。",
+        "results": [
+          "營運效率提升 45%",
+          "顧客滿意度提升至 88%",
+          "成本控制改善 25%",
+          "翻桌率提升 30%"
+        ],
+        "challenges": [
+          "營運流程不順暢",
+          "成本控制不佳",
+          "服務效率有待提升",
+          "缺乏標準化作業"
+        ],
+        "solutions": [
+          "建立標準化營運流程",
+          "優化成本結構與採購策略",
+          "改善服務流程與人員配置",
+          "導入數位化營運管理系統"
+        ]
+      },
+      {
+        "id": "tianyuan",
+        "title": "天元茶業",
+        "subtitle": "品牌定位與行銷推廣",
+        "description": "協助天元茶業建立清晰的品牌定位，制定有效的行銷推廣策略，擴大市場影響力。",
+        "image": "/images/case-logo-tianyuan.webp",
+        "category": "茶業",
+        "services": ["品牌定位", "行銷推廣", "市場策略"],
+        "year": "2023",
+        "fullDescription": "天元茶業是一家傳統茶葉品牌，希望透過品牌定位與行銷推廣策略的制定，擴大市場影響力。我們協助其建立清晰的品牌定位，制定有效的行銷推廣策略，包括品牌故事塑造、目標客群分析、行銷通路規劃等，成功提升了品牌知名度與市場份額。",
+        "results": [
+          "品牌知名度提升 70%",
+          "市場份額成長 40%",
+          "線上銷售成長 120%",
+          "客戶忠誠度提升 55%"
+        ],
+        "challenges": [
+          "品牌定位不明確",
+          "行銷策略缺乏系統性",
+          "目標客群模糊",
+          "數位化程度不足"
+        ],
+        "solutions": [
+          "建立清晰的品牌定位與價值主張",
+          "制定系統性的行銷推廣策略",
+          "精準定位目標客群",
+          "導入數位行銷工具與平台"
+        ]
+      },
+      {
+        "id": "xianglian",
+        "title": "香連鐵板料理",
+        "subtitle": "品牌重塑與餐廳改造",
+        "description": "協助香連鐵板料理進行品牌重塑與餐廳改造，結合台北石牌商圈文化與新竹竹東客家人待客豪情，打造獨特的日式鐵板料理品牌。",
+        "image": "/images/xianglian-logo-large.webp",
+        "category": "鐵板燒",
+        "services": ["LOGO設計", "餐廳改造", "品牌重塑"],
+        "year": "2023",
+        "fullDescription": "香連鐵板料理是一家位於台北石牌的日本鐵板料理，店內強調嚴選當季食材，並以創新的料理方式呈現給顧客。覓食團隊以第一代經營者，來自台北石牌商圈人與新竹竹東客家人待客豪情文化結合，導入創意設計，塑造核心文化。我們協助其進行品牌重塑與餐廳改造，包括LOGO設計、餐廳外觀改造等，成功打造獨特的日式鐵板料理品牌形象。",
+        "results": [
+          "品牌識別度提升 85%",
+          "顧客滿意度提升至 92%",
+          "營收成長 40%",
+          "媒體曝光度增加 200%"
+        ],
+        "challenges": [
+          "店面設計單調缺乏特色",
+          "品牌識別度不足",
+          "無法體現文化底蘊",
+          "缺乏日式風格氛圍"
+        ],
+        "solutions": [
+          "設計獨特LOGO，結合鐵板料理鍋鏟元素與中國風字體",
+          "改造餐廳外觀，融入日式風格與牡丹花圖樣",
+          "結合台北石牌商圈文化與新竹竹東客家人待客豪情",
+          "搭配溫暖黃光與木紋，打造舒適用餐環境"
+        ]
+      }
+    ],
+    "news_data": [
+      {
+        "id": "news-1",
+        "title": "覓食 (MISS) 榮獲2024年台灣餐飲顧問服務優質獎",
+        "subtitle": "專業服務獲得肯定，持續為餐飲業者提供優質顧問服務",
+        "excerpt": "覓食國際餐飲企業有限公司憑藉專業的餐飲顧問服務與優異的客戶滿意度，榮獲2024年台灣餐飲顧問服務優質獎。",
+        "content": "覓食國際餐飲企業有限公司憑藉專業的餐飲顧問服務與優異的客戶滿意度，榮獲2024年台灣餐飲顧問服務優質獎。這項殊榮肯定了我們在品牌規劃、商業設計與整合行銷等領域的專業能力。\n\n我們將持續秉持「讓覓食餐飲陪你一起成長，用台灣美食帶給人們笑容」的理念，為更多餐飲品牌提供專業服務，協助他們在競爭激烈的市場中脫穎而出。\n\n未來，覓食將繼續投入研發創新服務模式，結合數位科技與傳統餐飲智慧，為客戶創造更大的價值。",
+        "image": "/images/brand-story-team.webp",
+        "category": "公司榮譽",
+        "tags": ["獎項", "肯定", "專業服務"],
+        "author": "覓食團隊",
+        "publishDate": "2024-01-15",
+        "readTime": "3 分鐘",
+        "featured": true
+      },
+      {
+        "id": "news-2",
+        "title": "新服務上線：餐飲品牌數位轉型顧問服務",
+        "subtitle": "協助傳統餐飲業者擁抱數位時代，提升競爭力",
+        "excerpt": "隨著數位化時代來臨，傳統餐飲業者面臨轉型挑戰。覓食推出全新的「餐飲品牌數位轉型顧問服務」。",
+        "content": "隨著數位化時代來臨，傳統餐飲業者面臨轉型挑戰。覓食推出全新的「餐飲品牌數位轉型顧問服務」，協助業者建立線上訂餐系統、社群媒體行銷策略、客戶關係管理等數位化營運模式。\n\n這項服務包含：\n• 數位化營運診斷\n• 線上訂餐系統建置\n• 社群媒體行銷策略\n• 客戶數據分析\n• 數位化員工培訓\n\n我們相信，透過數位轉型，傳統餐飲業者能夠在保持原有特色的同時，提升營運效率與客戶體驗。",
+        "image": "/images/service-planning.webp",
+        "category": "服務更新",
+        "tags": ["數位轉型", "新服務", "科技應用"],
+        "author": "產品團隊",
+        "publishDate": "2024-01-10",
+        "readTime": "5 分鐘",
+        "featured": false
+      },
+      {
+        "id": "news-3",
+        "title": "成功案例分享：老江紅茶牛奶品牌升級成果",
+        "subtitle": "從單店經營到連鎖品牌的成功轉型之路",
+        "excerpt": "老江紅茶牛奶是我們近期完成的品牌升級專案。透過系統性的品牌重塑與視覺識別更新，成功協助老江轉型。",
+        "content": "老江紅茶牛奶是我們近期完成的品牌升級專案。透過系統性的品牌重塑、視覺識別更新與連鎖擴展策略制定，成功協助老江從高雄地區的單店經營轉型為連鎖品牌。\n\n專案成果：\n• 連鎖店數從 1 家擴展至 8 家\n• 品牌價值提升 200%\n• 營收成長 150%\n• 市場覆蓋率提升 300%\n\n這個成功案例展現了覓食在品牌升級與連鎖擴展方面的專業能力，也為其他傳統餐飲業者提供了寶貴的參考經驗。",
+        "image": "/images/case-logo-laojiang.webp",
+        "category": "成功案例",
+        "tags": ["品牌升級", "連鎖擴展", "成功案例"],
+        "author": "顧問團隊",
+        "publishDate": "2024-01-05",
+        "readTime": "4 分鐘",
+        "featured": false
+      },
+      {
+        "id": "news-4",
+        "title": "2024年餐飲趨勢預測：健康飲食與永續發展",
+        "subtitle": "洞察未來餐飲市場發展方向，協助客戶提前布局",
+        "excerpt": "根據市場研究，2024年餐飲業將呈現健康飲食與永續發展兩大趨勢。",
+        "content": "根據市場研究與消費者行為分析，2024年餐飲業將呈現健康飲食與永續發展兩大趨勢。消費者越來越重視食材來源、營養價值與環境影響。\n\n主要趨勢包括：\n• 植物性飲食需求增長\n• 有機與無添加食材\n• 低碳足跡餐飲\n• 包裝環保化\n• 營養標示透明化\n\n覓食將協助客戶順應這些趨勢，調整產品策略與行銷方向，在競爭中取得優勢。",
+        "image": "/images/service-strategy.webp",
+        "category": "市場趨勢",
+        "tags": ["趨勢預測", "健康飲食", "永續發展"],
+        "author": "研究團隊",
+        "publishDate": "2023-12-28",
+        "readTime": "6 分鐘",
+        "featured": false
+      },
+      {
+        "id": "news-5",
+        "title": "覓食團隊擴編：歡迎新成員加入",
+        "subtitle": "強化服務能力，為客戶提供更全面的解決方案",
+        "excerpt": "為了提供更優質的服務，覓食近期擴編了設計團隊與顧問團隊。",
+        "content": "為了提供更優質的服務，覓食近期擴編了設計團隊與顧問團隊。新成員來自知名設計公司與餐飲集團，擁有豐富的實務經驗。\n\n新增團隊成員：\n• 資深品牌設計師 2 名\n• 餐飲營運顧問 1 名\n• 數位行銷專員 1 名\n• 客戶服務專員 1 名\n\n團隊擴編後，我們將能夠同時處理更多專案，為客戶提供更快速、更專業的服務。同時，多元化的專業背景也讓我們能夠從不同角度為客戶解決問題。",
+        "image": "/images/brand-story-team.webp",
+        "category": "團隊動態",
+        "tags": ["團隊擴編", "新成員", "服務升級"],
+        "author": "人資團隊",
+        "publishDate": "2023-12-20",
+        "readTime": "3 分鐘",
+        "featured": false
+      },
+      {
+        "id": "news-6",
+        "title": "客戶回饋：蘭亭餐廳空間改造專案滿意度調查",
+        "subtitle": "客戶高度肯定我們的專業服務與執行能力",
+        "excerpt": "蘭亭餐廳空間改造專案完成後，我們進行了客戶滿意度調查，結果顯示客戶高度評價。",
+        "content": "蘭亭餐廳空間改造專案完成後，我們進行了客戶滿意度調查。結果顯示，客戶對我們的服務給予了高度評價，特別是在設計創意、施工品質與時程控制方面。\n\n滿意度調查結果：\n• 整體滿意度：96%\n• 設計創意：98%\n• 施工品質：95%\n• 時程控制：94%\n• 溝通協調：97%\n\n這些正面回饋激勵我們持續精進服務品質，為更多客戶創造滿意的成果。",
+        "image": "/images/case-logo-lanting.webp",
+        "category": "客戶回饋",
+        "tags": ["客戶滿意", "回饋調查", "服務品質"],
+        "author": "客戶服務團隊",
+        "publishDate": "2023-12-15",
+        "readTime": "4 分鐘",
+        "featured": false
+      }
+    ],
+    "news": {
+      "title": "覓食消息",
+      "subtitle": "最新動態與產業資訊",
+      "featured": "精選消息",
+      "all": "全部",
+      "company": "公司動態",
+      "industry": "產業資訊",
+      "tips": "經營秘訣",
+      "filterResults": "篩選結果",
+      "noResults": "找不到符合條件的消息",
+      "noResultsDescription": "請嘗試調整篩選條件，或瀏覽其他類型的消息",
+      "filter": {
+        "byCategory": "依分類篩選",
+        "byTag": "依標籤篩選",
+        "all": "全部",
+        "current": "目前篩選",
+        "clear": "清除篩選"
+      },
+      "readMore": "閱讀全文",
+      "subscription": {
+        "title": "訂閱覓食消息",
+        "subtitle": "獲取最新的餐飲產業資訊與經營秘訣",
+        "placeholder": "輸入您的電子郵件",
+        "button": "立即訂閱",
+        "privacy": "我們尊重您的隱私，不會向第三方分享您的資訊"
+      },
+      "comingSoon": {
+        "title": "更多精彩內容即將推出",
+        "subtitle": "我們正在準備更多有價值的餐飲業資訊、成功案例分享與市場趨勢分析，敬請期待！"
+      },
+      "details": {
+        "back": "返回消息列表",
+        "tags": "相關標籤",
+        "info": "文章資訊",
+        "category": "分類",
+        "publishDate": "發布日期",
+        "author": "作者：",
+        "readTime": "閱讀時間：",
+        "cta": {
+          "title": "想要了解更多？",
+          "subtitle": "聯絡我們，讓我們一起討論如何協助您的餐飲事業成長"
+        },
+        "related": "相關消息"
+      }
+    },
+    "about": {
+      "title": "關於覓食 MISS",
+      "subtitle": "我們是一群對餐旅事業充滿熱情的專業團隊，致力於協助餐飲品牌從理想到落地，創造無限可能。",
+      "introduction": {
+        "title": "公司簡介",
+        "p1": "覓食國際餐飲企業有限公司成立於2021年，由一群對餐旅事業有高度熱忱的青年所組成。",
+        "p2": "「覓食」的命名乃是以英文 Miss 的諧音作為發想，其意涵有想念、饗宴、回味無窮之意。",
+        "p3": "我們成立的使命是以台灣的本土化美食為依歸，推廣與行銷在地美食，提高台灣美食能見度。"
+      },
+      "coreValues": {
+        "title": "核心價值",
+        "value1": {
+          "title": "專業導向",
+          "description": "以專業知識和豐富經驗，為客戶提供最適合的解決方案"
+        },
+        "value2": {
+          "title": "夥伴關係",
+          "description": "與客戶建立長期夥伴關係，共同成長，共享成功"
+        },
+        "value3": {
+          "title": "創新思維",
+          "description": "持續創新，結合傳統與現代，創造獨特的餐飲體驗"
+        }
+      },
+      "history": {
+        "title": "發展歷程",
+        "event1": {
+          "title": "公司成立",
+          "description": "覓食國際餐飲企業有限公司正式成立，開始提供餐飲顧問服務"
+        },
+        "event2": {
+          "title": "服務擴展",
+          "description": "新增品牌規劃、商業設計等服務項目，服務範圍進一步擴大"
+        },
+        "event3": {
+          "title": "案例累積",
+          "description": "成功協助多個餐飲品牌轉型升級，建立豐富的成功案例"
+        },
+        "event4": {
+          "title": "持續成長",
+          "description": "持續創新服務模式，為更多餐飲品牌提供專業支援"
+        }
+      },
+      "team": {
+        "title": "我們的團隊",
+        "member1": {
+          "title": "專業顧問團隊",
+          "description": "擁有豐富餐飲產業經驗的專業顧問，為客戶提供最適合的解決方案"
+        },
+        "member2": {
+          "title": "策略規劃團隊",
+          "description": "專精於餐飲事業策略制定與市場分析，協助客戶制定長遠發展計畫"
+        },
+        "member3": {
+          "title": "設計創意團隊",
+          "description": "結合美學與實用性的設計理念，為品牌創造獨特的視覺識別"
+        }
+      },
+      "cta": {
+        "title": "想要了解更多嗎？",
+        "subtitle": "聯絡我們，讓我們一起討論如何協助您的餐飲事業成長"
+      }
+    },
+    "contact": {
+      "title": "聯絡我們",
+      "subtitle": "有任何問題或想要諮詢我們的服務嗎？歡迎隨時與我們聯絡，我們很樂意為您提供協助。",
+      "form": {
+        "title": "聯絡表單",
+        "subtitle": "填寫下方表單，我們將盡快與您聯繫",
+        "name": "姓名",
+        "firstNamePlaceholder": "請輸入您的名字",
+        "lastName": "姓氏",
+        "lastNamePlaceholder": "請輸入您的姓氏",
+        "company": "公司名稱",
+        "companyPlaceholder": "請輸入您的公司名稱",
+        "phone": "聯絡電話",
+        "phonePlaceholder": "請輸入您的聯絡電話",
+        "email": "電子信箱",
+        "emailPlaceholder": "請輸入您的電子郵件",
+        "service": "服務項目",
+        "message": "需求說明",
+        "messagePlaceholder": "請詳細描述您的需求或問題",
+        "submit": "發送訊息",
+        "submitBtn": "發送訊息",
+        "selectService": "請選擇服務項目",
+        "brandPlanning": "品牌規劃",
+        "strategyPlanning": "策略規劃",
+        "businessDiagnosis": "商業模式診斷",
+        "hrDevelopment": "人才育成",
+        "other": "其他服務"
+      },
+      "info": {
+        "title": "聯絡資訊",
+        "address": "地址",
+        "address_line1": "台北市中正區",
+        "address_line2": "羅斯福路二段168號6樓之1",
+        "phone": "電話",
+        "phone_number": "02 2559 0960",
+        "email": "信箱",
+        "email_address": "service@wowmiss.com",
+        "businessHours": "營業時間",
+        "businessHours_line1": "週一至週五：9:00 - 18:00",
+        "businessHours_line2": "週六、週日：休息",
+        "social": "關注我們"
+      },
+      "map": {
+        "title": "位置地圖"
+      },
+      "faq": {
+        "title": "常見問題",
+        "subtitle": "以下是客戶最常詢問的問題，如果您有其他疑問，歡迎隨時與我們聯絡",
+        "q1": "Q: 服務流程為何？",
+        "a1": "A: 我們會先了解您的需求，進行初步診斷，然後制定專屬的服務方案。",
+        "q2": "Q: 服務費用如何計算？",
+        "a2": "A: 費用會根據專案複雜度與服務範圍而定，我們提供客製化的報價方案。",
+        "q3": "Q: 服務期間多長？",
+        "a3": "A: 根據專案性質，服務期間從數週到數月不等，我們會與您討論最適合的時程。",
+        "q4": "Q: 如何開始合作？",
+        "a4": "A: 歡迎透過聯絡表單或電話與我們聯繫，我們會安排專人為您服務。"
+      },
+      "cta": {
+        "title": "準備好開始了嗎？",
+        "subtitle": "立即聯絡我們，讓我們一起討論如何協助您的餐飲事業成長",
+        "cta1": "立即諮詢",
+        "cta2": "查看服務"
+      }
+    },
+    "footer": {
+      "companyName": "覓食國際餐飲企業有限公司",
+      "description": "您的餐飲事業最佳夥伴。我們提供專業的餐飲顧問、品牌規劃、商業設計與整合行銷服務，協助您的品牌從理想到落地，創造無限可能。",
+      "quickLinks": "快速連結",
+      "contactInfo": "聯絡資訊",
+      "address": "地址",
+      "phone": "電話",
+      "email": "信箱",
+      "businessHours": "營業時間",
+      "copyright": "© 2024 覓食國際餐飲企業有限公司. 版權所有."
+    }
+  },
+  "en": {
+    "nav": {
+      "about": "About Us",
+      "services": "Services",
+      "cases": "Case Studies",
+      "news": "Miss News",
+      "contact": "Contact",
+      "consultation": "Get Consultation"
+    },
+    "home": {
+      "hero": {
+        "title": "Your Best Partner in Food & Beverage Business",
+        "title_line1": "Pursue What You Love",
+        "title_line2": "Work Tirelessly",
+        "subtitle": "Professional F&B consulting services to help your brand from concept to reality",
+        "cta1": "Get Consultation",
+        "cta2": "Learn More"
+      },
+      "brandStory": {
+        "title": "Brand Story",
+        "subtitle": "The Origin and Philosophy of MISS",
+        "content_p1": "It is composed of a group of young people with high enthusiasm for the hospitality industry.",
+        "content_p2": "The name 'MISS' is inspired by the homonym of the English word Miss, which implies nostalgia, feasting, and endless aftertaste.",
+        "content_p3": "The mission of 'MISS' is to focus on Taiwan's local cuisine, promote and market local food, and increase the visibility of Taiwanese cuisine.",
+        "content_p4": "Inheriting good tastes and continuing traditional culture.",
+        "content_p5": "'MISS' aims to inspire customers' love for Taiwanese food culture and to lead F&B practitioners to value catering services.",
+        "quote": "'MISS' promises to leverage the experience of the group's brands and successful cases to assist stores that want to transform, start a business, or have achieved good results but want to improve further. The marketing team also promotes local food, taking Taiwanese cuisine to the world and providing customers with a high-quality dining experience."
+      },
+      "brandVision": {
+        "title": "Brand Vision",
+        "line1": "'MISS' is dedicated to discovering Taiwanese cuisine,",
+        "line2": "through continuous innovation and brand management,",
+        "line3": "to promote and glorify Taiwan's food culture."
+      },
+      "services": {
+        "title": "Our Services",
+        "brandPlanning": "Brand Planning",
+        "brandPlanningDescription": "Professional F&B brand planning and design services",
+        "strategyPlanning": "Strategy Planning",
+        "strategyPlanningDescription": "F&B business strategy formulation and market analysis",
+        "businessDiagnosis": "Business Diagnosis",
+        "businessDiagnosisDescription": "In-depth analysis of existing business models with improvement suggestions",
+        "hrDevelopment": "Talent Development",
+        "hrDevelopmentDescription": "Professional F&B talent training and development"
+      },
+      "relatedEnterprises": {
+        "title": "Related Enterprises"
+      },
+      "cta": {
+        "title": "Ready to start your F&B business?",
+        "description": "Let's create your success story together. Contact us now for professional F&B consulting services.",
+        "cta1": "Get Consultation",
+        "cta2": "Learn More"
+      }
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "We provide comprehensive F&B consulting services, from brand building to operational management, to help your business thrive.",
+      "brandPlanning": {
+        "title": "Brand Planning",
+        "description": "Helping you establish a unique brand identity and positioning, planning your exclusive brand from 0 to 1, and creating a complete brand visual.",
+        "item1": {
+          "title": "Brand Planning",
+          "description": "Plan your exclusive brand from 0 to 1 and establish a brand visual"
+        },
+        "item2": {
+          "title": "Commercial Graphic Design",
+          "description": "Menu, poster, business card design; comprehensive brand building"
+        },
+        "item3": {
+          "title": "Uniform Design",
+          "description": "Design uniforms for F&B staff to establish a professional and friendly service image"
+        },
+        "item4": {
+          "title": "Space Design",
+          "description": "Restaurant and food truck decoration to create an attractive, comfortable, and practical environment"
+        },
+        "bottom": {
+          "p1": "We will establish a unique brand positioning for your brand and build the core concept of the brand based on the value you can provide to consumers.",
+          "p2": {
+            "line1": "Let MISS F&B grow with you",
+            "line2": "Bring smiles to people with Taiwanese cuisine"
+          }
+        }
+      },
+      "strategyPlanning": {
+        "title": "Strategy Planning",
+        "description": "In-depth analysis of market trends and competitive environments to formulate suitable business strategies, helping your F&B business stand out from the competition.",
+        "listItem1": "Market Analysis & Competitive Research",
+        "listItem2": "Business Model Design",
+        "listItem3": "Operational Strategy Formulation",
+        "listItem4": "Growth Path Planning",
+        "cardDescription": "Professional business strategy formulation and execution"
+      },
+      "businessDiagnosis": {
+        "title": "Business Diagnosis",
+        "description": "Comprehensively review your F&B business, identify problems and improvement opportunities, and provide specific improvement suggestions and implementation plans.",
+        "listItem1": "Operational Process Analysis",
+        "listItem2": "Financial Structure Review",
+        "listItem3": "Customer Experience Assessment",
+        "listItem4": "Improvement Plan Formulation",
+        "cardDescription": "Comprehensive review and improvement suggestions"
+      },
+      "hrDevelopment": {
+        "title": "Talent Development",
+        "description": "Establish a comprehensive talent training system, enhance team professional skills, and cultivate an excellent talent pool for your F&B business.",
+        "listItem1": "Employee Training Program",
+        "listItem2": "Management Skills Enhancement",
+        "listItem3": "Team Culture Building",
+        "listItem4": "Performance Management System",
+        "cardDescription": "Professional team training and management"
+      },
+      "comingSoon": "More Services Coming Soon",
+      "comingSoonDescription": "We are developing more professional F&B consulting services, including digital transformation, internationalization strategies, supply chain management, and more, to provide more comprehensive support for your business!",
+      "cta": {
+        "title": "Ready to get started?",
+        "description": "Contact us to discuss how we can help your F&B business grow.",
+        "cta1": "Get Consultation",
+        "cta2": "View Cases"
+      }
+    },
+    "cases": {
+      "title": "Case Studies",
+      "subtitle": "Success Stories",
+      "all": "All",
+      "restaurant": "Restaurant",
+      "cafe": "Cafe",
+      "bar": "Bar",
+      "bakery": "Bakery",
+      "filterResults": "Filter Results",
+      "noResults": "No matching cases found",
+      "viewDetails": "View Details",
+      "statistics": {
+        "title": "Service Statistics",
+        "projects": "Completed Projects",
+        "clients": "Served Clients",
+        "satisfaction": "Client Satisfaction",
+        "years": "Years of Service"
+      },
+      "details": {
+        "back": "Back to Case List",
+        "title": "Case Details",
+        "services": "Services Provided",
+        "challenges": "Challenges Faced",
+        "solutions": "Solutions Implemented",
+        "results": "Project Results",
+        "related": "Other Success Stories"
+      },
+      "comingSoon": "More Services Coming Soon",
+      "cta": "Get Consultation"
+    },
+    "case_data": [
+      {
+        "id": "kenting",
+        "title": "Kent Western Restaurant",
+        "subtitle": "Brand Revitalization & Space Renovation",
+        "description": "Assisted Kent Western Restaurant in brand revitalization and space renovation, transforming an old western restaurant into a modern American-style diner, creating a taste of home and a nostalgic atmosphere.",
+        "image": "/images/case-logo-kenting.webp",
+        "category": "Western Restaurant",
+        "services": ["Logo Design", "Menu Planning", "Space Design"],
+        "year": "2023",
+        "fullDescription": "Kent Western Restaurant, founded in 1975, was once the only western restaurant in Taipei's East District with live performances, exuding a strong nostalgic atmosphere. Through generational changes, the old restaurant faced closure but the owner held onto the original intention of creating a 'home' by preparing all dishes in the most American way possible. We assisted in its brand revitalization and space renovation, including logo design, menu planning, and restaurant decor, successfully transforming it into a modern American-style diner.",
+        "results": [
+          "80% improvement in brand image modernization",
+          "Customer satisfaction increased to 90%",
+          "35% revenue growth",
+          "60% increase in younger customer demographic"
+        ],
+        "challenges": [
+          "Outdated western restaurant style",
+          "Inability to attract a younger audience",
+          "Dark and old interior design",
+          "Insufficient brand recognition"
+        ],
+        "solutions": [
+          "Designed a modern logo incorporating honeycomb, heart, and family crest elements",
+          "Re-planned menu design and visual SOPs",
+          "Completely renovated the restaurant decor to create a lively and vibrant atmosphere",
+          "Established brand consistency and a modern image"
+        ]
+      },
+      {
+        "id": "lanting",
+        "title": "Lanting Restaurant",
+        "subtitle": "Space Design & Brand Identity",
+        "description": "Created a unique space design and brand identity system for Lanting Restaurant, establishing an elegant dining environment and brand image.",
+        "image": "/images/case-logo-lanting.webp",
+        "category": "Restaurant",
+        "services": ["Space Design", "Brand Identity", "Visual Design"],
+        "year": "2023",
+        "fullDescription": "Lanting Restaurant is a high-end restaurant specializing in exquisite Chinese cuisine, aiming to create a unique dining experience through the integration of space design and brand identity. Starting from the brand's philosophy, we designed a complete visual identity system and planned an elegant dining space, successfully shaping Lanting's brand character.",
+        "results": [
+          "60% increase in customer return rate",
+          "30% increase in average spending",
+          "80% improvement in brand recognition",
+          "25% improvement in space utilization"
+        ],
+        "challenges": [
+          "Indistinct brand character",
+          "Lack of consistency in space design",
+          "Cluttered visual elements",
+          "Poor customer experience"
+        ],
+        "solutions": [
+          "Established a complete brand identity system",
+          "Designed a unified spatial style",
+          "Integrated visual elements with space design",
+          "Optimized the customer dining flow"
+        ]
+      },
+      {
+        "id": "laojiang",
+        "title": "Laojiang Black Tea Milk",
+        "subtitle": "Brand Upgrade & Chain Expansion",
+        "description": "Assisted Laojiang Black Tea Milk with a brand upgrade and developed a chain expansion strategy to enhance brand value and market share.",
+        "image": "/images/case-logo-laojiang.webp",
+        "category": "Beverage",
+        "services": ["Brand Upgrade", "Chain Strategy", "Operations Planning"],
+        "year": "2023",
+        "fullDescription": "Laojiang Black Tea Milk is a well-known traditional beverage shop in Kaohsiung, aiming to expand its market influence through a brand upgrade and chain expansion. We assisted in modernizing its brand, standardizing operational procedures, and planning a chain expansion strategy, successfully helping Laojiang transition from a single store to a chain brand.",
+        "results": [
+          "Expanded from 1 to 8 chain stores",
+          "200% increase in brand value",
+          "150% growth in revenue",
+          "300% increase in market coverage"
+        ],
+        "challenges": [
+          "Traditional brand image",
+          "Lack of standardized procedures",
+          "Insufficient expansion experience",
+          "Inadequate management system"
+        ],
+        "solutions": [
+          "Designed a modern brand image",
+          "Established standardized operational procedures",
+          "Developed a chain expansion strategy",
+          "Built a comprehensive management system"
+        ]
+      },
+      {
+        "id": "sansan",
+        "title": "San San Yakiniku",
+        "subtitle": "Business Model Optimization",
+        "description": "Conducted a business model diagnosis and optimization for San San Yakiniku to improve operational efficiency and customer satisfaction.",
+        "image": "/images/case-logo-sansan.webp",
+        "category": "Yakiniku Restaurant",
+        "services": ["Business Diagnosis", "Operational Optimization", "Process Improvement"],
+        "year": "2023",
+        "fullDescription": "San San Yakiniku is an emerging Japanese barbecue restaurant looking to improve operational efficiency and customer satisfaction through business model optimization. We conducted a comprehensive business diagnosis, including analysis of operational flows, cost structure optimization, and service process improvements, successfully enhancing overall operational performance.",
+        "results": [
+          "45% improvement in operational efficiency",
+          "Customer satisfaction increased to 88%",
+          "25% improvement in cost control",
+          "30% increase in table turnover rate"
+        ],
+        "challenges": [
+          "Inefficient operational flow",
+          "Poor cost control",
+          "Service efficiency needs improvement",
+          "Lack of standardized operations"
+        ],
+        "solutions": [
+          "Established standardized operational procedures",
+          "Optimized cost structure and procurement strategy",
+          "Improved service processes and staffing",
+          "Introduced a digital operational management system"
+        ]
+      },
+      {
+        "id": "tianyuan",
+        "title": "Tianyuan Tea",
+        "subtitle": "Brand Positioning & Marketing",
+        "description": "Helped Tianyuan Tea establish clear brand positioning and develop effective marketing strategies to expand its market influence.",
+        "image": "/images/case-logo-tianyuan.webp",
+        "category": "Tea Industry",
+        "services": ["Brand Positioning", "Marketing", "Market Strategy"],
+        "year": "2023",
+        "fullDescription": "Tianyuan Tea is a traditional tea brand aiming to expand its market influence by defining its brand position and developing effective marketing strategies. We helped them establish a clear brand position, and create effective marketing strategies, including brand storytelling, target audience analysis, and marketing channel planning, successfully increasing brand awareness and market share.",
+        "results": [
+          "70% increase in brand awareness",
+          "40% growth in market share",
+          "120% growth in online sales",
+          "55% increase in customer loyalty"
+        ],
+        "challenges": [
+          "Unclear brand positioning",
+          "Lack of systematic marketing strategy",
+          "Vague target audience",
+          "Insufficient digitalization"
+        ],
+        "solutions": [
+          "Established a clear brand position and value proposition",
+          "Developed a systematic marketing and promotion strategy",
+          "Precisely targeted the customer audience",
+          "Introduced digital marketing tools and platforms"
+        ]
+      },
+      {
+        "id": "xianglian",
+        "title": "Xianglian Teppanyaki",
+        "subtitle": "Brand Revitalization & Restaurant Renovation",
+        "description": "Assisted Xianglian Teppanyaki with a brand revitalization and restaurant renovation, combining the culture of Taipei's Shipai district with the hospitality of Hsinchu's Zhudong Hakka community to create a unique Japanese teppanyaki brand.",
+        "image": "/images/xianglian-logo-large.webp",
+        "category": "Teppanyaki",
+        "services": ["Logo Design", "Restaurant Renovation", "Brand Revitalization"],
+        "year": "2023",
+        "fullDescription": "Xianglian Teppanyaki, located in Taipei's Shipai district, emphasizes seasonal ingredients and innovative cooking. The MISS team blended the hospitality of the first-generation operator's Shipai and Hsinchu Zhudong Hakka roots with creative design to shape a core culture. We assisted with brand revitalization and restaurant renovation, including logo and exterior design, successfully creating a unique Japanese teppanyaki brand image.",
+        "results": [
+          "Brand recognition increased by 85%",
+          "Customer satisfaction increased to 92%",
+          "Revenue growth of 40%",
+          "Media exposure increased by 200%"
+        ],
+        "challenges": [
+          "Monotonous and uncharacteristic storefront design",
+          "Brand recognition insufficient",
+          "Inability to reflect cultural heritage",
+          "Lack of Japanese-style ambiance"
+        ],
+        "solutions": [
+          "Designed a unique logo combining teppanyaki spatula elements with Chinese-style calligraphy",
+          "Renovated the restaurant exterior, incorporating Japanese style and peony motifs",
+          "Blended the culture of Taipei's Shipai district with the hospitality of Hsinchu's Zhudong Hakka community",
+          "Used warm yellow lighting and wood grain to create a comfortable dining environment"
+        ]
+      }
+    ],
+    "news_data": [
+      {
+        "id": "news-1",
+        "title": "MISS Honored with 2024 Taiwan F&B Consulting Service Quality Award",
+        "subtitle": "Professional service recognized, continuing to provide quality consulting for the F&B industry",
+        "excerpt": "MISS International F&B Co., Ltd. has been honored with the 2024 Taiwan F&B Consulting Service Quality Award for its professional consulting services and excellent customer satisfaction.",
+        "content": "MISS International F&B Co., Ltd. has been honored with the 2024 Taiwan F&B Consulting Service Quality Award for its professional consulting services and excellent customer satisfaction. This award recognizes our expertise in brand planning, business design, and integrated marketing.\n\nWe will continue to uphold the philosophy of 'Growing with you and bringing smiles to people with Taiwanese cuisine,' providing professional services to more F&B brands and helping them stand out in a competitive market.\n\nIn the future, MISS will continue to invest in developing innovative service models, combining digital technology with traditional culinary wisdom to create greater value for our clients.",
+        "image": "/images/brand-story-team.webp",
+        "category": "Company Honors",
+        "tags": ["Award", "Recognition", "Professional Service"],
+        "author": "MISS Team",
+        "publishDate": "2024-01-15",
+        "readTime": "3 min read",
+        "featured": true
+      },
+      {
+        "id": "news-2",
+        "title": "New Service Launch: F&B Digital Transformation Consulting",
+        "subtitle": "Helping traditional F&B businesses embrace the digital age and enhance competitiveness",
+        "excerpt": "As the digital era arrives, traditional F&B businesses face transformation challenges. MISS is launching a new 'F&B Digital Transformation Consulting Service'.",
+        "content": "As the digital era arrives, traditional F&B businesses face transformation challenges. MISS is launching a new 'F&B Digital Transformation Consulting Service' to help businesses establish online ordering systems, social media marketing strategies, customer relationship management, and other digital operational models.\n\nThis service includes:\n• Digital Operations Diagnosis\n• Online Ordering System Setup\n• Social Media Marketing Strategy\n• Customer Data Analysis\n• Digital Employee Training\n\nWe believe that through digital transformation, traditional F&B businesses can enhance operational efficiency and customer experience while maintaining their unique character.",
+        "image": "/images/service-planning.webp",
+        "category": "Service Updates",
+        "tags": ["Digital Transformation", "New Service", "Tech Application"],
+        "author": "Product Team",
+        "publishDate": "2024-01-10",
+        "readTime": "5 min read",
+        "featured": false
+      },
+      {
+        "id": "news-3",
+        "title": "Case Study: Laojiang Black Tea Milk Brand Upgrade",
+        "subtitle": "The successful transformation from a single store to a chain brand",
+        "excerpt": "Laojiang Black Tea Milk is a recent brand upgrade project we completed. Through systematic brand revitalization and visual identity updates, we successfully assisted Laojiang's transformation.",
+        "content": "Laojiang Black Tea Milk is a recent brand upgrade project we completed. Through systematic brand revitalization, visual identity updates, and chain expansion strategy development, we successfully helped Laojiang transition from a single store in Kaohsiung to a chain brand.\n\nProject Outcomes:\n• Chain stores expanded from 1 to 8\n• 200% increase in brand value\n• 150% growth in revenue\n• 300% increase in market coverage\n\nThis success story demonstrates MISS's expertise in brand upgrading and chain expansion, providing valuable insights for other traditional F&B businesses.",
+        "image": "/images/case-logo-laojiang.webp",
+        "category": "Case Studies",
+        "tags": ["Brand Upgrade", "Chain Expansion", "Success Story"],
+        "author": "Consulting Team",
+        "publishDate": "2024-01-05",
+        "readTime": "4 min read",
+        "featured": false
+      },
+      {
+        "id": "news-4",
+        "title": "2024 F&B Trends: Healthy Eating & Sustainability",
+        "subtitle": "Insight into future market trends to help clients plan ahead",
+        "excerpt": "According to market research, the F&B industry in 2024 will be characterized by two major trends: healthy eating and sustainability.",
+        "content": "Based on market research and consumer behavior analysis, the F&B industry in 2024 will be characterized by two major trends: healthy eating and sustainability. Consumers are increasingly focusing on ingredient sourcing, nutritional value, and environmental impact.\n\nKey trends include:\n• Growth in demand for plant-based diets\n• Organic and additive-free ingredients\n• Low-carbon footprint dining\n• Eco-friendly packaging\n• Transparent nutrition labeling\n\nMISS will help clients adapt to these trends by adjusting their product strategies and marketing approaches to gain a competitive edge.",
+        "image": "/images/service-strategy.webp",
+        "category": "Market Trends",
+        "tags": ["Trend Forecast", "Healthy Eating", "Sustainability"],
+        "author": "Research Team",
+        "publishDate": "2023-12-28",
+        "readTime": "6 min read",
+        "featured": false
+      },
+      {
+        "id": "news-5",
+        "title": "Team Expansion: Welcome New Members",
+        "subtitle": "Strengthening our capabilities to provide more comprehensive solutions",
+        "excerpt": "To provide even better service, MISS has recently expanded its design and consulting teams.",
+        "content": "To provide even better service, MISS has recently expanded its design and consulting teams. The new members come from renowned design firms and F&B groups, bringing a wealth of practical experience.\n\nNew team members include:\n• 2 Senior Brand Designers\n• 1 F&B Operations Consultant\n• 1 Digital Marketing Specialist\n• 1 Customer Service Specialist\n\nWith our expanded team, we can handle more projects simultaneously and provide faster, more professional services. At the same time, the diverse professional backgrounds also enable us to solve client problems from various perspectives.",
+        "image": "/images/brand-story-team.webp",
+        "category": "Team News",
+        "tags": ["Team Expansion", "New Members", "Service Upgrade"],
+        "author": "HR Team",
+        "publishDate": "2023-12-20",
+        "readTime": "3 min read",
+        "featured": false
+      },
+      {
+        "id": "news-6",
+        "title": "Customer Feedback: Lanting Restaurant Renovation Survey",
+        "subtitle": "Clients highly affirm our professional services and execution",
+        "excerpt": "After completing the Lanting Restaurant renovation project, we conducted a customer satisfaction survey, which showed high praise from the client.",
+        "content": "After completing the Lanting Restaurant renovation project, we conducted a customer satisfaction survey. The results showed that the client gave high praise to our services, especially in terms of design creativity, construction quality, and schedule control.\n\nSatisfaction Survey Results:\n• Overall Satisfaction: 96%\n• Design Creativity: 98%\n• Construction Quality: 95%\n• Schedule Control: 94%\n• Communication & Coordination: 97%\n\nThis positive feedback motivates us to continue improving our service quality and creating satisfactory results for more clients.",
+        "image": "/images/case-logo-lanting.webp",
+        "category": "Customer Feedback",
+        "tags": ["Customer Satisfaction", "Feedback Survey", "Service Quality"],
+        "author": "Customer Service Team",
+        "publishDate": "2023-12-15",
+        "readTime": "4 min read",
+        "featured": false
+      }
+    ],
+    "news": {
+      "title": "Miss News",
+      "subtitle": "Latest Updates and Industry Insights",
+      "featured": "Featured News",
+      "all": "All",
+      "company": "Company News",
+      "industry": "Industry News",
+      "tips": "Business Tips",
+      "filterResults": "Filter Results",
+      "noResults": "No matching news found",
+      "noResultsDescription": "Please try adjusting the filter conditions or browse other types of news.",
+      "filter": {
+        "byCategory": "Filter by Category",
+        "byTag": "Filter by Tag",
+        "all": "All",
+        "current": "Current Filter",
+        "clear": "Clear Filter"
+      },
+      "readMore": "Read More",
+      "subscription": {
+        "title": "Subscribe to Miss News",
+        "subtitle": "Get the latest F&B industry insights and business tips",
+        "placeholder": "Enter your email address",
+        "button": "Subscribe Now",
+        "privacy": "We respect your privacy and will not share your information with third parties."
+      },
+      "comingSoon": {
+        "title": "More Exciting Content Coming Soon",
+        "subtitle": "We are preparing more valuable industry information, case studies, and market trend analyses. Stay tuned!"
+      },
+      "details": {
+        "back": "Back to News List",
+        "tags": "Related Tags",
+        "info": "Article Information",
+        "category": "Category",
+        "publishDate": "Publish Date",
+        "author": "Author: ",
+        "readTime": "Read Time: ",
+        "cta": {
+          "title": "Want to learn more?",
+          "subtitle": "Contact us to discuss how we can help your F&B business grow."
+        },
+        "related": "Related News"
+      }
+    },
+    "about": {
+      "title": "About MISS",
+      "subtitle": "We are a passionate team dedicated to helping F&B brands turn their vision into reality.",
+      "introduction": {
+        "title": "Company Introduction",
+        "p1": "MISS International F&B Co., Ltd. was established in 2021 by a group of young professionals with a high passion for the hospitality industry.",
+        "p2": "The name 'MISS' is a homophone for the English word, signifying remembrance, feasting, and unforgettable flavors.",
+        "p3": "Our mission is to promote and market local Taiwanese cuisine, enhancing its visibility and recognition."
+      },
+      "coreValues": {
+        "title": "Core Values",
+        "value1": {
+          "title": "Professionalism",
+          "description": "Providing the most suitable solutions for clients with our professional knowledge and rich experience."
+        },
+        "value2": {
+          "title": "Partnership",
+          "description": "Building long-term partnerships with clients to grow and succeed together."
+        },
+        "value3": {
+          "title": "Innovation",
+          "description": "Continuously innovating by combining tradition with modernity to create unique dining experiences."
+        }
+      },
+      "history": {
+        "title": "Development History",
+        "event1": {
+          "title": "Company Establishment",
+          "description": "MISS International F&B Co., Ltd. was formally established, beginning to offer F&B consulting services."
+        },
+        "event2": {
+          "title": "Service Expansion",
+          "description": "Added brand planning, business design, and other services, further expanding our service scope."
+        },
+        "event3": {
+          "title": "Building Case Studies",
+          "description": "Successfully assisted multiple F&B brands in their transformation and upgrading, accumulating a wealth of success stories."
+        },
+        "event4": {
+          "title": "Continuous Growth",
+          "description": "Continuously innovating service models to provide professional support to more F&B brands."
+        }
+      },
+      "team": {
+        "title": "Our Team",
+        "member1": {
+          "title": "Professional Consulting Team",
+          "description": "Experienced consultants with extensive F&B industry knowledge, providing the best solutions for clients."
+        },
+        "member2": {
+          "title": "Strategic Planning Team",
+          "description": "Specializing in F&B business strategy and market analysis to help clients formulate long-term development plans."
+        },
+        "member3": {
+          "title": "Creative Design Team",
+          "description": "Combining aesthetics with practicality to create unique visual identities for brands."
+        }
+      },
+      "cta": {
+        "title": "Want to learn more?",
+        "subtitle": "Contact us to discuss how we can help your F&B business grow."
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "subtitle": "Let us help your F&B business",
+      "form": {
+        "title": "Contact Form",
+        "subtitle": "Fill out the form below and we will get back to you as soon as possible",
+        "name": "First Name",
+        "firstNamePlaceholder": "Enter your first name",
+        "lastName": "Last Name",
+        "lastNamePlaceholder": "Enter your last name",
+        "company": "Company Name",
+        "companyPlaceholder": "Enter your company name",
+        "phone": "Phone Number",
+        "phonePlaceholder": "Enter your phone number",
+        "email": "Email Address",
+        "emailPlaceholder": "Enter your email address",
+        "service": "Service Type",
+        "message": "Requirements",
+        "messagePlaceholder": "Describe your needs or questions in detail",
+        "submit": "Send Message",
+        "submitBtn": "Send Message",
+        "selectService": "Please select a service",
+        "brandPlanning": "Brand Planning",
+        "strategyPlanning": "Strategy Planning",
+        "businessDiagnosis": "Business Model Diagnosis",
+        "hrDevelopment": "Talent Development",
+        "other": "Other Services"
+      },
+      "info": {
+        "title": "Contact Information",
+        "address": "Address",
+        "address_line1": "6F-1, No. 168, Section 2, Roosevelt Road",
+        "address_line2": "Zhongzheng District, Taipei City",
+        "phone": "Phone",
+        "phone_number": "+886 2 2559 0960",
+        "email": "Email",
+        "email_address": "service@wowmiss.com",
+        "businessHours": "Business Hours",
+        "businessHours_line1": "Monday to Friday: 9:00 - 18:00",
+        "businessHours_line2": "Saturday, Sunday: Closed",
+        "social": "Follow Us"
+      },
+      "map": {
+        "title": "Location Map"
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Here are the most frequently asked questions from our clients. If you have other questions, feel free to contact us.",
+        "q1": "Q: What is the service process?",
+        "a1": "A: We first understand your needs, conduct initial diagnosis, then develop customized service solutions.",
+        "q2": "Q: How are service fees calculated?",
+        "a2": "A: Fees are determined based on project complexity and service scope, we provide customized pricing solutions.",
+        "q3": "Q: How long is the service period?",
+        "a3": "A: Depending on project nature, service periods range from weeks to months, we'll discuss the most suitable timeline with you.",
+        "q4": "Q: How to start cooperation?",
+        "a4": "A: Please contact us through the contact form or phone, we'll arrange dedicated personnel to serve you."
+      },
+      "cta": {
+        "title": "Ready to get started?",
+        "subtitle": "Contact us to discuss how we can help your F&B business grow",
+        "cta1": "Get Consultation",
+        "cta2": "View Services"
+      }
+    },
+    "footer": {
+      "companyName": "MISS International Food & Beverage Co., Ltd.",
+      "description": "Your best partner in food & beverage business. We provide professional F&B consulting, brand planning, business design and integrated marketing services to help your brand from concept to reality, creating infinite possibilities.",
+      "quickLinks": "Quick Links",
+      "contactInfo": "Contact Information",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "businessHours": "Business Hours",
+      "copyright": "© 2024 MISS International Food & Beverage Co., Ltd. All rights reserved."
+    }
+  }
+}

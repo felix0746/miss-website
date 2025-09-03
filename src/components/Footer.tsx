@@ -1,9 +1,12 @@
+'use client';
+
 import Link from 'next/link'
-import Image from 'next/image'
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react'
+import { useTranslation } from '@/contexts/TranslationContext'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const { t } = useTranslation()
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -16,7 +19,7 @@ export default function Footer() {
               <span className="text-lg sm:text-xl font-bold">覓食 MISS</span>
             </div>
             <p className="text-gray-300 mb-4 sm:mb-6 max-w-md text-sm sm:text-base leading-relaxed">
-              您的餐飲事業最佳夥伴。我們提供專業的餐飲顧問、品牌規劃、商業設計與整合行銷服務，協助您的品牌從理想到落地，創造無限可能。
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors p-2">
@@ -33,31 +36,31 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">快速連結</h3>
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <Link href="/about" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
-                  關於我們
+                  {t('nav.about')}
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
-                  服務項目
+                  {t('nav.services')}
                 </Link>
               </li>
               <li>
                 <Link href="/cases" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
-                  案例展示
+                  {t('nav.cases')}
                 </Link>
               </li>
               <li>
                 <Link href="/news" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
-                  最新消息
+                  {t('nav.news')}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
-                  聯絡我們
+                  {t('nav.contact')}
                 </Link>
               </li>
             </ul>
@@ -65,7 +68,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">聯絡資訊</h3>
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">{t('footer.contactInfo')}</h3>
             <div className="space-y-2 sm:space-y-3">
               <a 
                 href="tel:+886225590960" 
@@ -101,7 +104,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
-              © {currentYear} 覓食國際餐飲企業有限公司. 版權所有.
+              © {currentYear} {t('footer.copyright')}
             </p>
             <div className="flex space-x-4 sm:space-x-6">
               <Link href="/privacy" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">

@@ -1,22 +1,22 @@
+'use client'
+
 import { Metadata } from 'next';
 import Link from 'next/link'
-
-export const metadata: Metadata = {
-  title: '聯絡我們 | 覓食 MISS',
-  description: '立即與覓食 (MISS) 取得聯繫，讓我們了解您的需求。您可以透過電話、電子郵件或填寫表單與我們聯繫，我們期待與您合作。',
-};
+import { useTranslation } from '@/contexts/TranslationContext';
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="container text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            聯絡我們
+            {t('contact.title')}
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            有任何問題或想要諮詢我們的服務嗎？歡迎隨時與我們聯絡，我們很樂意為您提供協助。
+            {t('contact.subtitle')}
           </p>
         </div>
       </section>
@@ -28,8 +28,8 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="space-y-6">
               <div className="text-center sm:text-left">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">發送訊息</h2>
-                <p className="text-gray-600 text-sm sm:text-base">填寫下方表單，我們將盡快與您聯繫</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{t('contact.form.title')}</h2>
+                <p className="text-gray-600 text-sm sm:text-base">{t('contact.form.subtitle')}</p>
               </div>
               
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
@@ -42,7 +42,7 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div className="space-y-2">
                       <label htmlFor="firstName" className="block text-sm font-semibold text-gray-800">
-                        姓名 <span className="text-primary-600">*</span>
+                        {t('contact.form.name')} <span className="text-primary-600">*</span>
                       </label>
                       <input
                         type="text"
@@ -50,12 +50,12 @@ export default function Contact() {
                         name="entry.1234567890"
                         required
                         className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
-                        placeholder="請輸入您的姓名"
+                        placeholder={t('contact.form.firstNamePlaceholder')}
                       />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="lastName" className="block text-sm font-semibold text-gray-800">
-                        姓氏 <span className="text-primary-600">*</span>
+                        {t('contact.form.lastName')} <span className="text-primary-600">*</span>
                       </label>
                       <input
                         type="text"
@@ -63,14 +63,14 @@ export default function Contact() {
                         name="entry.1234567891"
                         required
                         className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
-                        placeholder="請輸入您的姓氏"
+                        placeholder={t('contact.form.lastNamePlaceholder')}
                       />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     <label htmlFor="email" className="block text-sm font-semibold text-gray-800">
-                      電子郵件 <span className="text-primary-600">*</span>
+                      {t('contact.form.email')} <span className="text-primary-600">*</span>
                     </label>
                     <input
                       type="email"
@@ -78,39 +78,39 @@ export default function Contact() {
                       name="entry.1234567892"
                       required
                       className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
-                      placeholder="請輸入您的電子郵件"
+                      placeholder={t('contact.form.emailPlaceholder')}
                     />
                   </div>
                   
                   <div className="space-y-2">
                     <label htmlFor="phone" className="block text-sm font-semibold text-gray-800">
-                      聯絡電話
+                      {t('contact.form.phone')}
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       name="entry.1234567893"
                       className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
-                      placeholder="請輸入您的聯絡電話"
+                      placeholder={t('contact.form.phonePlaceholder')}
                     />
                   </div>
                   
                   <div className="space-y-2">
                     <label htmlFor="company" className="block text-sm font-semibold text-gray-800">
-                      公司名稱
+                      {t('contact.form.company')}
                     </label>
                     <input
                       type="text"
                       id="company"
                       name="entry.1234567894"
                       className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
-                      placeholder="請輸入您的公司名稱"
+                      placeholder={t('contact.form.companyPlaceholder')}
                     />
                   </div>
                   
                   <div className="space-y-2">
                     <label htmlFor="service" className="block text-sm font-semibold text-gray-800">
-                      服務需求 <span className="text-primary-600">*</span>
+                      {t('contact.form.service')} <span className="text-primary-600">*</span>
                     </label>
                     <div className="relative">
                       <select
@@ -126,12 +126,12 @@ export default function Contact() {
                         }}
                         size={1}
                       >
-                        <option value="">請選擇服務項目</option>
-                        <option value="brand-planning">品牌規劃</option>
-                        <option value="strategy-planning">策略規劃</option>
-                        <option value="business-diagnosis">商業模式診斷</option>
-                        <option value="hr-development">人才育成</option>
-                        <option value="other">其他服務</option>
+                        <option value="">{t('contact.form.selectService')}</option>
+                        <option value="brand-planning">{t('contact.form.brandPlanning')}</option>
+                        <option value="strategy-planning">{t('contact.form.strategyPlanning')}</option>
+                        <option value="business-diagnosis">{t('contact.form.businessDiagnosis')}</option>
+                        <option value="hr-development">{t('contact.form.hrDevelopment')}</option>
+                        <option value="other">{t('contact.form.other')}</option>
                       </select>
                       <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
                         <svg className="w-6 h-6 sm:w-5 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,7 +143,7 @@ export default function Contact() {
                   
                   <div className="space-y-2">
                     <label htmlFor="message" className="block text-sm font-semibold text-gray-800">
-                      訊息內容 <span className="text-primary-600">*</span>
+                      {t('contact.form.message')} <span className="text-primary-600">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -151,7 +151,7 @@ export default function Contact() {
                       rows={5}
                       required
                       className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white resize-none"
-                      placeholder="請詳細描述您的需求或問題"
+                      placeholder={t('contact.form.messagePlaceholder')}
                     ></textarea>
                   </div>
                   
@@ -163,7 +163,7 @@ export default function Contact() {
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>
-                      發送訊息
+                      {t('contact.form.submitBtn')}
                     </span>
                   </button>
                 </form>
@@ -172,7 +172,7 @@ export default function Contact() {
             
             {/* Contact Details */}
             <div className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">聯絡資訊</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{t('contact.info.title')}</h2>
               
               <div className="space-y-4 -ml-3">
                 <a 
@@ -188,10 +188,10 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">地址</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">{t('contact.info.address')}</h3>
                     <p className="text-gray-600 text-sm sm:text-base group-hover:text-gray-700 transition-colors">
-                      台北市中正區<br />
-                      羅斯福路二段168號6樓之1
+                      {t('contact.info.address_line1')}<br />
+                      {t('contact.info.address_line2')}
                     </p>
                   </div>
                 </a>
@@ -206,9 +206,9 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-secondary-600 transition-colors">電話</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-secondary-600 transition-colors">{t('contact.info.phone')}</h3>
                     <p className="text-gray-600 text-sm sm:text-base group-hover:text-gray-700 transition-colors">
-                      02 2559 0960
+                      {t('contact.info.phone_number')}
                     </p>
                   </div>
                 </a>
@@ -223,9 +223,9 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">電子郵件</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">{t('contact.info.email')}</h3>
                     <p className="text-gray-600 text-sm sm:text-base group-hover:text-gray-700 transition-colors">
-                      service@wowmiss.com
+                      {t('contact.info.email_address')}
                     </p>
                   </div>
                 </a>
@@ -237,10 +237,10 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">營業時間</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">{t('contact.info.businessHours')}</h3>
                     <p className="text-gray-600 text-sm sm:text-base">
-                      週一至週五：9:00 - 18:00<br />
-                      週六、週日：休息
+                      {t('contact.info.businessHours_line1')}<br />
+                      {t('contact.info.businessHours_line2')}
                     </p>
                   </div>
                 </div>
@@ -248,7 +248,7 @@ export default function Contact() {
               
               {/* Social Media */}
               <div className="pt-4">
-                <h3 className="font-semibold text-gray-900 mb-3">關注我們</h3>
+                <h3 className="font-semibold text-gray-900 mb-3">{t('contact.info.social')}</h3>
                 <div className="flex space-x-4">
                   <a href="#" className="w-10 h-10 bg-primary-600 text-white rounded-lg flex items-center justify-center hover:bg-primary-700 transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -276,7 +276,7 @@ export default function Contact() {
       <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="container">
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-8 sm:mb-12">
-            位置地圖
+            {t('contact.map.title')}
           </h2>
           <div className="bg-white p-4 rounded-lg shadow-md">
             <div className="aspect-video rounded-lg overflow-hidden">
@@ -288,7 +288,7 @@ export default function Contact() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="覓食國際餐飲企業有限公司位置地圖"
+                title={t('contact.map.title')}
               ></iframe>
             </div>
           </div>
@@ -300,10 +300,10 @@ export default function Contact() {
         <div className="container">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
-              常見問題
+              {t('contact.faq.title')}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
-              以下是客戶最常詢問的問題，如果您有其他疑問，歡迎隨時與我們聯絡
+              {t('contact.faq.subtitle')}
             </p>
           </div>
           
@@ -312,7 +312,7 @@ export default function Contact() {
               <button className="w-full px-6 sm:px-8 py-5 sm:py-6 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset transition-colors duration-200">
                 <div className="flex items-center justify-between">
                   <span className="font-semibold text-gray-900 text-base sm:text-lg pr-4">
-                    如何開始與覓食合作？
+                    {t('contact.faq.q1')}
                   </span>
                   <div className="flex-shrink-0">
                     <svg className="w-6 h-6 sm:w-5 sm:h-5 text-primary-600 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -324,7 +324,7 @@ export default function Contact() {
               <div className="px-6 sm:px-8 pb-6 sm:pb-8">
                 <div className="border-t border-gray-100 pt-4 sm:pt-5">
                   <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    您可以透過我們的聯絡表單、電話或電子郵件與我們聯絡。我們會安排專人與您討論需求，並提供適合的服務方案。
+                    {t('contact.faq.a1')}
                   </p>
                 </div>
               </div>
@@ -334,7 +334,7 @@ export default function Contact() {
               <button className="w-full px-6 sm:px-8 py-5 sm:py-6 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset transition-colors duration-200">
                 <div className="flex items-center justify-between">
                   <span className="font-semibold text-gray-900 text-base sm:text-lg pr-4">
-                    服務費用如何計算？
+                    {t('contact.faq.q2')}
                   </span>
                   <div className="flex-shrink-0">
                     <svg className="w-6 h-6 sm:w-5 sm:h-5 text-primary-600 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -346,7 +346,7 @@ export default function Contact() {
               <div className="px-6 sm:px-8 pb-6 sm:pb-8">
                 <div className="border-t border-gray-100 pt-4 sm:pt-5">
                   <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    服務費用會根據專案規模、複雜度和所需時間來評估。我們會提供詳細的報價單，確保費用透明合理。
+                    {t('contact.faq.a2')}
                   </p>
                 </div>
               </div>
@@ -356,7 +356,7 @@ export default function Contact() {
               <button className="w-full px-6 sm:px-8 py-5 sm:py-6 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset transition-colors duration-200">
                 <div className="flex items-center justify-between">
                   <span className="font-semibold text-gray-900 text-base sm:text-lg pr-4">
-                    專案執行時間大約多久？
+                    {t('contact.faq.q3')}
                   </span>
                   <div className="flex-shrink-0">
                     <svg className="w-6 h-6 sm:w-5 sm:h-5 text-primary-600 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -368,7 +368,7 @@ export default function Contact() {
               <div className="px-6 sm:px-8 pb-6 sm:pb-8">
                 <div className="border-t border-gray-100 pt-4 sm:pt-5">
                   <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    專案執行時間會根據服務內容和複雜度而定，一般從數週到數個月不等。我們會在專案開始前提供詳細的時程規劃。
+                    {t('contact.faq.a3')}
                   </p>
                 </div>
               </div>
@@ -378,26 +378,26 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="container text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
-            準備好開始了嗎？
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
+            {t('contact.cta.title')}
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-white mb-6 sm:mb-8 max-w-2xl mx-auto">
-            立即聯絡我們，讓我們一起討論如何協助您的餐飲事業成長
+          <p className="text-base sm:text-lg lg:text-xl text-white mb-5 sm:mb-6 max-w-2xl mx-auto">
+            {t('contact.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-white text-primary-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
+              className="bg-white text-primary-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
             >
-              立即諮詢
+              {t('contact.cta.cta1')}
             </Link>
             <Link
               href="/services"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
             >
-              查看服務
+              {t('contact.cta.cta2')}
             </Link>
           </div>
         </div>
