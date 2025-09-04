@@ -23,9 +23,6 @@ const nextConfig: NextConfig = {
   
   // 編譯優化
   swcMinify: true,
-  
-  // 輸出優化
-  output: 'standalone',
 };
 
 export default nextConfig;
