@@ -4,6 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useTranslation } from '@/contexts/TranslationContext'
+import AnimatedSection from '@/components/AnimatedSection'
+import AnimatedCard from '@/components/AnimatedCard'
+import AnimatedText from '@/components/AnimatedText'
 
 // Define a type for a single case
 interface Case {
@@ -41,12 +44,16 @@ export default function Cases() {
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="container text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            {t('cases.title')}
-          </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            {t('cases.subtitle')}
-          </p>
+          <AnimatedText>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              {t('cases.title')}
+            </h1>
+          </AnimatedText>
+          <AnimatedText delay={0.2}>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              {t('cases.subtitle')}
+            </p>
+          </AnimatedText>
         </div>
       </section>
 
@@ -151,8 +158,9 @@ export default function Cases() {
           )}
           {filteredCases.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {filteredCases.map((caseItem) => (
-              <div key={caseItem.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl active:shadow-xl transition-all duration-300 group active:scale-95 sm:active:scale-100">
+              {filteredCases.map((caseItem, index) => (
+              <AnimatedCard key={caseItem.id} delay={index * 0.1}>
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl active:shadow-xl transition-all duration-300 group active:scale-95 sm:active:scale-100">
                 {/* Case Image */}
                 <div className="relative h-48 sm:h-56 overflow-hidden">
                   <Image
@@ -206,7 +214,8 @@ export default function Cases() {
                     {t('cases.viewDetails')}
                   </Link>
                 </div>
-              </div>
+                </div>
+              </AnimatedCard>
               ))}
             </div>
           ) : (
