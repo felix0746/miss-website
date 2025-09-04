@@ -31,7 +31,7 @@ export default function AnimatedCard({
         delay,
         ease: 'easeOut'
       }}
-      className={className}
+      className={`bg-transparent ${className}`}
     >
       {children}
     </motion.div>
