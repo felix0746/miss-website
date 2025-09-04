@@ -2,9 +2,26 @@
 
 import { useTranslation } from '@/contexts/TranslationContext';
 import Link from 'next/link';
+import { useState, useRef } from 'react';
 
 export default function Contact() {
   const { t } = useTranslation();
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleIframeLoad = () => {
+    if (isSubmitted) {
+      alert('感謝您的留言！我們會盡快回覆您。');
+      if (formRef.current) {
+        formRef.current.reset();
+      }
+      setIsSubmitted(false); // Reset for next submission
+    }
+  };
+
+  const handleSubmit = () => {
+    setIsSubmitted(true);
+  };
 
   return (
     <main className="min-h-screen bg-white">
@@ -32,11 +49,21 @@ export default function Contact() {
               </div>
               
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
-                <form 
+                {/* 隱藏的 iframe 用於接收表單提交 */}
+                <iframe 
+                  name="hidden_iframe" 
+                  id="hidden_iframe" 
+                  style={{ display: 'none' }}
+                  onLoad={handleIframeLoad}
+                ></iframe>
+                
+                <form
+                  ref={formRef}
                   action="https://docs.google.com/forms/d/e/1FAIpQLSfEy_6Y5jVXwEspjDhSfsrRCnS0hN0BuTOFg_9f1KdmygHSMw/formResponse"
                   method="POST"
-                  target="_blank"
+                  target="hidden_iframe"
                   className="space-y-5 sm:space-y-6"
+                  onSubmit={handleSubmit}
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div className="space-y-2">
@@ -46,7 +73,7 @@ export default function Contact() {
                       <input
                         type="text"
                         id="firstName"
-                        name="entry.1234567890"
+                        name="entry.2005620554"
                         required
                         className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
                         placeholder={t('contact.form.firstNamePlaceholder')}
@@ -59,7 +86,7 @@ export default function Contact() {
                       <input
                         type="text"
                         id="lastName"
-                        name="entry.1234567891"
+                        name="entry.1386234295"
                         required
                         className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
                         placeholder={t('contact.form.lastNamePlaceholder')}
@@ -74,7 +101,7 @@ export default function Contact() {
                     <input
                       type="email"
                       id="email"
-                      name="entry.1234567892"
+                      name="entry.1318009696"
                       required
                       className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
                       placeholder={t('contact.form.emailPlaceholder')}
@@ -88,7 +115,7 @@ export default function Contact() {
                     <input
                       type="tel"
                       id="phone"
-                      name="entry.1234567893"
+                      name="entry.575045837"
                       className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
                       placeholder={t('contact.form.phonePlaceholder')}
                     />
@@ -101,7 +128,7 @@ export default function Contact() {
                     <input
                       type="text"
                       id="company"
-                      name="entry.1234567894"
+                      name="entry.1320678025"
                       className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
                       placeholder={t('contact.form.companyPlaceholder')}
                     />
@@ -114,7 +141,7 @@ export default function Contact() {
                     <div className="relative">
                       <select
                         id="service"
-                        name="entry.1234567895"
+                        name="entry.1048357643"
                         required
                         className="w-full px-4 py-4 sm:py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 bg-gray-50 focus:bg-white appearance-none cursor-pointer pr-12 text-base sm:text-sm"
                         style={{ 
@@ -146,7 +173,7 @@ export default function Contact() {
                     </label>
                     <textarea
                       id="message"
-                      name="entry.1234567896"
+                      name="entry.319358868"
                       rows={5}
                       required
                       className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white resize-none"
