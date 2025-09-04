@@ -14,14 +14,16 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section with Background Image */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden" style={{ contain: 'layout' }}>
         <div className="absolute inset-0 z-0">
         <Image
             src="/images/banner.webp"
             alt="追求你所熱愛 努力不懈"
             fill
             className="object-cover"
-          priority
+            priority
+            sizes="100vw"
+            quality={85}
         />
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         </div>
@@ -155,6 +157,9 @@ export default function Home() {
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg w-full"
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                quality={85}
               />
             </div>
           </div>
@@ -167,7 +172,7 @@ export default function Home() {
           <AnimatedText>
             <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">{t('home.services.title')}</h2>
           </AnimatedText>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto" style={{ contain: 'layout' }}>
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -251,6 +256,9 @@ export default function Home() {
                   alt="覓食國際餐飲企業有限公司 Logo"
                   fill
                   className="object-contain"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 80px, 100px"
+                  quality={90}
                 />
               </div>
             </a>
@@ -262,6 +270,9 @@ export default function Home() {
                   alt="香連鐵板燒 Logo"
                   fill
                   className="object-contain"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 80px, 100px"
+                  quality={90}
                 />
               </div>
             </a>

@@ -5,7 +5,12 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { TranslationProvider } from '@/contexts/TranslationContext'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial']
+})
 
 export const metadata: Metadata = {
   // 標題範本，%s 會被子頁面的標題取代
@@ -89,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-TW" className="scroll-smooth">
+    <html lang="zh-TW" className={`${inter.className} scroll-smooth`}>
       <head>
         {/* Favicon */}
         <link rel="icon" type="image/webp" href="/miss-favicon.webp?v=3" />
@@ -97,6 +102,14 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/miss-favicon.webp?v=3" />
         <link rel="icon" type="image/x-icon" href="/miss-favicon.ico?v=3" />
         <link rel="icon" href="/miss-favicon.ico?v=3" />
+        
+        {/* 預載入關鍵資源 */}
+        <link rel="preload" href="/images/banner.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/images/MISS.webp" as="image" type="image/webp" />
+        
+        {/* DNS 預解析 */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         
         {/* JSON-LD 結構化資料 */}
         <script
