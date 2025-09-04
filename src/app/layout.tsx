@@ -21,11 +21,8 @@ export const metadata: Metadata = {
 
   // 網站圖示
   icons: {
-    icon: [
-      { url: '/favicon-16x16.webp', sizes: '16x16', type: 'image/webp' },
-      { url: '/favicon-32x32.webp', sizes: '32x32', type: 'image/webp' },
-    ],
-    shortcut: '/favicon-16x16.webp',
+    icon: '/images/MISS.webp',
+    shortcut: '/images/MISS.webp',
     apple: '/images/MISS.webp',
   },
   
@@ -95,10 +92,10 @@ export default function RootLayout({
     <html lang="zh-TW" className="scroll-smooth">
       <head>
         {/* Favicon */}
-        <link rel="icon" href="/favicon-16x16.webp" type="image/webp" sizes="16x16" />
-        <link rel="icon" href="/favicon-32x32.webp" type="image/webp" sizes="32x32" />
-        <link rel="shortcut icon" href="/favicon-16x16.webp" type="image/webp" />
-        <link rel="apple-touch-icon" href="/images/MISS.webp" sizes="180x180" />
+        <link rel="icon" type="image/webp" href="/images/MISS.webp?v=2" />
+        <link rel="shortcut icon" type="image/webp" href="/images/MISS.webp?v=2" />
+        <link rel="apple-touch-icon" href="/images/MISS.webp?v=2" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
         
         {/* JSON-LD 結構化資料 */}
         <script
