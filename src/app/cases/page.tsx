@@ -7,6 +7,8 @@ import { useTranslation } from '@/contexts/TranslationContext'
 import AnimatedSection from '@/components/AnimatedSection'
 import AnimatedCard from '@/components/AnimatedCard'
 import AnimatedText from '@/components/AnimatedText'
+import MobileCard from '@/components/MobileCard'
+import { useSwipeDetection } from '@/components/MobileInteractions'
 
 // Define a type for a single case
 interface Case {
@@ -24,6 +26,12 @@ export default function Cases() {
   const { t, languageData, currentLanguage, isLoading } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('全部')
   const [selectedService, setSelectedService] = useState('')
+  
+  // 滑動檢測
+  const swipeHandlers = useSwipeDetection(
+    () => setSelectedCategory('全部'), // 左滑重置
+    () => setSelectedService('') // 右滑重置
+  )
 
   const cases: Case[] = !isLoading && languageData[currentLanguage]?.case_data 
     ? (languageData[currentLanguage].case_data as Case[]) 
@@ -40,7 +48,7 @@ export default function Cases() {
   })
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white" {...swipeHandlers}>
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="container text-center">
@@ -160,7 +168,8 @@ export default function Cases() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {filteredCases.map((caseItem, index) => (
               <AnimatedCard key={caseItem.id} delay={index * 0.1}>
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl active:shadow-xl transition-all duration-300 group active:scale-95 sm:active:scale-100">
+                <MobileCard>
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl active:shadow-xl transition-all duration-300 group active:scale-95 sm:active:scale-100">
                 {/* Case Image */}
                 <div className="relative h-48 sm:h-56 overflow-hidden">
                   <Image
@@ -214,7 +223,8 @@ export default function Cases() {
                     {t('cases.viewDetails')}
                   </Link>
                 </div>
-                </div>
+                  </div>
+                </MobileCard>
               </AnimatedCard>
               ))}
             </div>
