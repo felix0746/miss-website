@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   // 網站圖示
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/MISS.webp', sizes: 'any' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    shortcut: '/images/MISS.webp',
+    apple: '/images/MISS.webp',
   },
   
   // Open Graph (社群分享)
@@ -94,6 +94,11 @@ export default function RootLayout({
   return (
     <html lang="zh-TW" className="scroll-smooth">
       <head>
+        {/* Favicon */}
+        <link rel="icon" href="/images/MISS.webp" type="image/webp" />
+        <link rel="shortcut icon" href="/images/MISS.webp" type="image/webp" />
+        <link rel="apple-touch-icon" href="/images/MISS.webp" />
+        
         {/* JSON-LD 結構化資料 */}
         <script
           type="application/ld+json"
