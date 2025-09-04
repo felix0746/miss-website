@@ -73,11 +73,12 @@ export default function MobileMenu() {
 
       {/* 選單內容 */}
       <div 
-        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 flex flex-col transition-transform duration-300 ease-in-out lg:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="p-6 pt-20">
+        {/* 可滾動的內容區域 */}
+        <div className="flex-grow overflow-y-auto p-6 pt-20">
           {/* Logo */}
           <div className="mb-8">
             <div className="w-20 h-20 mx-auto mb-4 relative group">
@@ -139,17 +140,17 @@ export default function MobileMenu() {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* CTA 按鈕 */}
-          <div className="mt-6 pt-4 border-t border-gray-200">
-            <Link
-              href="/contact"
-              className="block w-full bg-primary-600 text-white text-center py-3 px-4 rounded-lg font-semibold transition-all duration-200 hover:bg-primary-700 active:scale-95"
-              onClick={() => setIsOpen(false)}
-            >
-              {t('nav.consultation')}
-            </Link>
-          </div>
+        {/* 固定的 CTA 按鈕 */}
+        <div className="flex-shrink-0 p-6 border-t border-gray-200">
+          <Link
+            href="/contact"
+            className="block w-full bg-primary-600 text-white text-center py-3 px-4 rounded-lg font-semibold transition-all duration-200 hover:bg-primary-700 active:scale-95"
+            onClick={() => setIsOpen(false)}
+          >
+            {t('nav.consultation')}
+          </Link>
         </div>
       </div>
 
