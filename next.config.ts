@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['framer-motion'],
   },
   
+  // 現代瀏覽器支援
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
   // 圖片優化
   images: {
     formats: ['image/webp', 'image/avif'],

@@ -22,12 +22,12 @@ export default function Home() {
             className="object-cover"
             priority
             sizes="100vw"
-            quality={85}
+            quality={75}
         />
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         </div>
         
-        <div className="relative z-10 text-center text-white px-6 sm:px-4 max-w-4xl mx-auto">
+                  <div className="relative z-10 text-center text-white px-6 sm:px-4 max-w-4xl mx-auto" style={{ minHeight: '400px' }}>
           <AnimatedSection delay={0.2}>
             <div className="mb-6 sm:mb-6">
               <div className="inline-block px-6 sm:px-6 py-4 sm:py-4 bg-white/98 backdrop-blur-lg rounded-3xl shadow-2xl border-2 border-white/80 transform transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:bg-white">
@@ -158,7 +158,7 @@ export default function Home() {
                 className="rounded-lg shadow-lg w-full"
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                quality={85}
+                quality={75}
               />
             </div>
           </div>
@@ -257,7 +257,7 @@ export default function Home() {
                   className="object-contain"
                   loading="lazy"
                   sizes="(max-width: 768px) 80px, 100px"
-                  quality={90}
+                  quality={75}
                 />
               </div>
             </a>
@@ -271,7 +271,7 @@ export default function Home() {
                   className="object-contain"
                   loading="lazy"
                   sizes="(max-width: 768px) 80px, 100px"
-                  quality={90}
+                  quality={75}
                 />
               </div>
             </a>

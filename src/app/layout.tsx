@@ -5,12 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { TranslationProvider } from '@/contexts/TranslationContext'
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  fallback: ['system-ui', 'arial']
-})
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   // 標題範本，%s 會被子頁面的標題取代
@@ -107,9 +102,12 @@ export default function RootLayout({
         <link rel="preload" href="/images/banner.webp" as="image" type="image/webp" />
         <link rel="preload" href="/images/MISS.webp" as="image" type="image/webp" />
         
-        {/* DNS 預解析 */}
+        {/* DNS 預解析和預連接 */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="preconnect" href="//fonts.googleapis.com" crossOrigin="" />
+        <link rel="preconnect" href="//fonts.gstatic.com" crossOrigin="" />
+        
         
         {/* JSON-LD 結構化資料 */}
         <script
