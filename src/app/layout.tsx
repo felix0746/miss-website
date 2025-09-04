@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
   // 網站圖示
   icons: {
-    icon: '/images/MISS.webp',
-    shortcut: '/images/MISS.webp',
-    apple: '/images/MISS.webp',
+    icon: '/miss-favicon.webp',
+    shortcut: '/miss-favicon.webp',
+    apple: '/miss-favicon.webp',
   },
   
   // Open Graph (社群分享)
@@ -92,10 +92,11 @@ export default function RootLayout({
     <html lang="zh-TW" className="scroll-smooth">
       <head>
         {/* Favicon */}
-        <link rel="icon" type="image/webp" href="/images/MISS.webp?v=2" />
-        <link rel="shortcut icon" type="image/webp" href="/images/MISS.webp?v=2" />
-        <link rel="apple-touch-icon" href="/images/MISS.webp?v=2" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+        <link rel="icon" type="image/webp" href="/miss-favicon.webp?v=3" />
+        <link rel="shortcut icon" type="image/webp" href="/miss-favicon.webp?v=3" />
+        <link rel="apple-touch-icon" href="/miss-favicon.webp?v=3" />
+        <link rel="icon" type="image/x-icon" href="/miss-favicon.ico?v=3" />
+        <link rel="icon" href="/miss-favicon.ico?v=3" />
         
         {/* JSON-LD 結構化資料 */}
         <script
