@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
   // 性能優化
   experimental: {
     optimizePackageImports: ['framer-motion'],
-    optimizeCss: true,
   },
   
   // 圖片優化
@@ -21,8 +20,7 @@ const nextConfig: NextConfig = {
   // 壓縮和優化
   compress: true,
   
-  // 編譯優化
-  swcMinify: true,
+  // 編譯優化 (Next.js 15 已預設啟用)
 };
 
 export default nextConfig;

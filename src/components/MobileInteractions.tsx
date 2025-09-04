@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 // 觸控回饋 Hook
 export function useTouchFeedback() {

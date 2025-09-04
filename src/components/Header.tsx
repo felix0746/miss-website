@@ -1,9 +1,7 @@
 'use client'
 
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, Globe } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import MobileMenu from './MobileMenu';
 import { useTranslation } from '@/contexts/TranslationContext';

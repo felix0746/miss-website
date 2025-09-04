@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslation } from '@/contexts/TranslationContext'
 import AnimatedSection from '@/components/AnimatedSection'
-import AnimatedCard from '@/components/AnimatedCard'
 import AnimatedText from '@/components/AnimatedText'
 import { motion } from 'framer-motion'
 
