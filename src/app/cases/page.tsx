@@ -286,9 +286,10 @@ export default function Cases() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             {t('home.cta.title')}
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-white mb-5 sm:mb-6 max-w-2xl mx-auto px-4">
-            {t('home.cta.description')}
-          </p>
+          <p 
+            className="text-base sm:text-lg md:text-xl text-white mb-5 sm:mb-6 max-w-2xl mx-auto px-4"
+            dangerouslySetInnerHTML={{ __html: t('home.cta.description') }}
+          />
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 relative z-10">
             <Link
               href="/contact"
