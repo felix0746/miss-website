@@ -181,7 +181,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.brandPlanning')}</h3>
-                <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.brandPlanningDescription')}</p>
+                <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.brandPlanningDescription')}</p>
               </a>
             </motion.div>
             
@@ -198,7 +198,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.strategyPlanning')}</h3>
-                <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.strategyPlanningDescription')}</p>
+                <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.strategyPlanningDescription')}</p>
               </a>
             </motion.div>
             
@@ -215,7 +215,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.businessDiagnosis')}</h3>
-                <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.businessDiagnosisDescription')}</p>
+                <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.businessDiagnosisDescription')}</p>
               </a>
             </motion.div>
             
@@ -232,7 +232,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.hrDevelopment')}</h3>
-                <p className="text-gray-600 text-xs sm:text-sm md:text-base">{t('home.services.hrDevelopmentDescription')}</p>
+                <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.hrDevelopmentDescription')}</p>
               </a>
             </motion.div>
           </div>

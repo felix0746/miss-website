@@ -36,8 +36,10 @@ export default function MobileMenu() {
     <>
       {/* 漢堡選單按鈕 */}
       <button
-        className="lg:hidden relative z-50 p-2 rounded-lg transition-all duration-300"
+        className="lg:hidden relative z-50 p-3 rounded-lg transition-all duration-300 min-h-[44px] min-w-[44px]"
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? '關閉選單' : '開啟選單'}
+        aria-expanded={isOpen}
         {...touchProps}
         style={{
           transform: isTouching ? 'scale(0.95)' : 'scale(1)',
@@ -91,17 +93,18 @@ export default function MobileMenu() {
               {/* 裝飾性光暈效果 */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-transparent to-secondary-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
             </div>
-            <p className="text-center text-gray-600 text-sm">覓食國際餐飲企業有限公司</p>
+            <p className="text-center text-gray-800 text-sm font-medium">覓食國際餐飲企業有限公司</p>
           </div>
 
           {/* 選單項目 */}
-          <nav className="space-y-2">
+          <nav className="space-y-2" role="navigation" aria-label="主要導覽">
             {menuItems.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block py-4 px-4 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-all duration-200 font-medium"
+                className="block py-4 px-4 rounded-lg text-gray-800 hover:bg-primary-50 hover:text-primary-700 transition-all duration-200 font-medium min-h-[48px] flex items-center"
                 onClick={() => setIsOpen(false)}
+                aria-label={`前往${item.label}頁面`}
                 style={{
                   animationDelay: `${index * 0.1}s`,
                   animation: isOpen ? 'slideInRight 0.3s ease-out forwards' : 'none'
@@ -115,7 +118,7 @@ export default function MobileMenu() {
           {/* 語言切換器 */}
           <div className="mt-6 pt-4 border-t border-gray-200">
             <div className="bg-gray-50 rounded-xl p-3">
-              <div className="text-xs font-medium text-gray-500 mb-2 px-1">語言選擇</div>
+              <div className="text-xs font-semibold text-gray-700 mb-2 px-1">語言選擇</div>
               <div className="flex gap-2">
                 {[
                   { code: 'zh-TW', name: '繁體中文', flag: '🇹🇼' },
@@ -127,10 +130,12 @@ export default function MobileMenu() {
                       setCurrentLanguage(language.code as 'zh-TW' | 'en');
                       setIsOpen(false);
                     }}
-                    className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    aria-label={`切換到${language.name}`}
+                    aria-pressed={currentLanguage === language.code}
+                    className={`flex-1 flex items-center justify-center gap-2 px-3 py-3 rounded-lg text-sm font-medium transition-all duration-200 min-h-[44px] ${
                       currentLanguage === language.code
                         ? 'bg-primary-500 text-white shadow-md'
-                        : 'bg-white text-gray-600 hover:bg-primary-50 hover:text-primary-600 border border-gray-200'
+                        : 'bg-white text-gray-800 hover:bg-primary-50 hover:text-primary-700 border border-gray-300'
                     }`}
                   >
                     <span className="text-base">{language.flag}</span>
@@ -146,8 +151,9 @@ export default function MobileMenu() {
         <div className="flex-shrink-0 p-6 border-t border-gray-200">
           <Link
             href="/contact"
-            className="block w-full bg-primary-600 text-white text-center py-3 px-4 rounded-lg font-semibold transition-all duration-200 hover:bg-primary-700 active:scale-95"
+            className="block w-full bg-primary-600 text-white text-center py-4 px-4 rounded-lg font-semibold transition-all duration-200 hover:bg-primary-700 active:scale-95 min-h-[48px] flex items-center justify-center"
             onClick={() => setIsOpen(false)}
+            aria-label="前往聯絡我們頁面進行諮詢"
           >
             {t('nav.consultation')}
           </Link>
