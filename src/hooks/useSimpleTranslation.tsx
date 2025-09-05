@@ -2,8 +2,13 @@
 
 import { useState, useEffect } from 'react';
 
+// A more precise type for nested translation objects that allows arrays
+type NestedTranslations = {
+  [key: string]: string | NestedTranslations | unknown[];
+};
+
 interface LanguageData {
-  [key: string]: any;
+  [key: string]: NestedTranslations;
 }
 
 let globalLanguageData: LanguageData = {};
@@ -81,10 +86,10 @@ export function useSimpleTranslation() {
     }
     try {
       const keys = key.split('.');
-      let result: any = languageData[currentLanguage];
+      let result: string | NestedTranslations | unknown[] | undefined = languageData[currentLanguage];
       for (const k of keys) {
         if (typeof result === 'object' && result !== null && !Array.isArray(result)) {
-          result = result[k];
+          result = (result as NestedTranslations)[k];
         } else {
           return key;
         }
