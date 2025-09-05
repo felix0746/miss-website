@@ -65,7 +65,7 @@ export default function Cases() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 sm:py-12 bg-gray-50">
+      <section className="py-6 sm:py-8 md:py-10 lg:py-12 bg-gray-50">
         <div className="container">
           <div className="space-y-6">
             {/* Category Filter */}
@@ -122,7 +122,7 @@ export default function Cases() {
       </section>
 
       {/* Cases Grid */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20">
+      <section className="py-6 sm:py-8 md:py-10 lg:py-12">
         <div className="container">
           {/* Filter Status */}
           {(selectedCategory !== '全部' || selectedService !== '') && (
@@ -255,7 +255,7 @@ export default function Cases() {
       </section>
 
       {/* Success Statistics */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
+      <section className="py-6 sm:py-8 md:py-10 lg:py-12 bg-gray-50">
         <div className="container">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -299,7 +299,7 @@ export default function Cases() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-primary-600 to-secondary-600">
+      <section className="py-6 sm:py-8 md:py-10 lg:py-12 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="container text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             {t('home.cta.title')}

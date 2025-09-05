@@ -114,64 +114,6 @@ export default function Services() {
             </div>
           </div>
 
-          {/* Strategy Planning */}
-          <div id="strategy" className="mb-16 sm:mb-20">
-            <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 md:p-12">
-              <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('services.strategyPlanning.title')}</h2>
-                <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
-                  {t('services.strategyPlanning.description')}
-                </p>
-              </div>
-              
-              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-                <div className="space-y-4 sm:space-y-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 bg-secondary-100 rounded-lg flex items-center justify-center">
-                      <svg className="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">{t('services.strategyPlanning.title')}</h3>
-                  </div>
-                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                    {t('services.strategyPlanning.description')}
-                  </p>
-                  <ul className="space-y-2 text-gray-600 text-sm sm:text-base">
-                    <li className="flex items-start gap-2">
-                      <span className="text-secondary-600 mt-1">✓</span>
-                      {t('services.strategyPlanning.listItem1')}
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-secondary-600 mt-1">✓</span>
-                      {t('services.strategyPlanning.listItem2')}
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-secondary-600 mt-1">✓</span>
-                      {t('services.strategyPlanning.listItem3')}
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-secondary-600 mt-1">✓</span>
-                      {t('services.strategyPlanning.listItem4')}
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="relative">
-                  <div className="bg-gradient-to-br from-secondary-50 to-primary-50 rounded-lg shadow-lg p-8 sm:p-12 text-center">
-                    <div className="w-24 h-24 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-md">
-                      <svg className="w-12 h-12 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{t('services.strategyPlanning.title')}</h3>
-                    <p className="text-gray-600">{t('services.strategyPlanning.cardDescription')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Business Diagnosis */}
           <div id="diagnosis" className="mb-16 sm:mb-20">
             <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 md:p-12">
@@ -224,6 +166,64 @@ export default function Services() {
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{t('services.businessDiagnosis.title')}</h3>
                     <p className="text-gray-600">{t('services.businessDiagnosis.cardDescription')}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Strategy Planning */}
+          <div id="strategy" className="mb-16 sm:mb-20">
+            <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 md:p-12">
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('services.strategyPlanning.title')}</h2>
+                <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
+                  {t('services.strategyPlanning.description')}
+                </p>
+              </div>
+              
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 bg-secondary-100 rounded-lg flex items-center justify-center">
+                      <svg className="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">{t('services.strategyPlanning.title')}</h3>
+                  </div>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                    {t('services.strategyPlanning.description')}
+                  </p>
+                  <ul className="space-y-2 text-gray-600 text-sm sm:text-base">
+                    <li className="flex items-start gap-2">
+                      <span className="text-secondary-600 mt-1">✓</span>
+                      {t('services.strategyPlanning.listItem1')}
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-secondary-600 mt-1">✓</span>
+                      {t('services.strategyPlanning.listItem2')}
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-secondary-600 mt-1">✓</span>
+                      {t('services.strategyPlanning.listItem3')}
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-secondary-600 mt-1">✓</span>
+                      {t('services.strategyPlanning.listItem4')}
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="relative">
+                  <div className="bg-gradient-to-br from-secondary-50 to-primary-50 rounded-lg shadow-lg p-8 sm:p-12 text-center">
+                    <div className="w-24 h-24 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-md">
+                      <svg className="w-12 h-12 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{t('services.strategyPlanning.title')}</h3>
+                    <p className="text-gray-600">{t('services.strategyPlanning.cardDescription')}</p>
                   </div>
                 </div>
               </div>
@@ -312,7 +312,7 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-primary-600 to-secondary-600">
+      <section className="py-6 sm:py-8 md:py-10 lg:py-12 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="container text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
             {t('services.cta.title')}

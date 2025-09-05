@@ -586,7 +586,7 @@
     },
     "footer": {
       "companyName": "覓食國際餐飲企業有限公司",
-      "description": "您的餐飲事業最佳夥伴。我們提供專業的餐飲顧問、品牌規劃、商業設計與整合行銷服務，協助您的品牌從理想到落地，創造無限可能。",
+      "description": "您的餐飲事業最佳夥伴。我們提供專業的餐飲顧問、品牌規劃、商業設計與整合行銷服務，協助您的品牌從理想到落地，<br />創造無限可能。",
       "quickLinks": "快速連結",
       "contactInfo": "聯絡資訊",
       "address": "地址",
@@ -1183,7 +1183,7 @@
     },
     "footer": {
       "companyName": "MISS International Food & Beverage Co., Ltd.",
-      "description": "Your best partner in food & beverage business. We provide professional F&B consulting, brand planning, business design and integrated marketing services to help your brand from concept to reality, creating infinite possibilities.",
+      "description": "Your best partner in food & beverage business. We provide professional F&B consulting, brand planning, business design and integrated marketing services to help your brand from concept to reality, <br />creating infinite possibilities.",
       "quickLinks": "Quick Links",
       "contactInfo": "Contact Information",
       "address": "Address",

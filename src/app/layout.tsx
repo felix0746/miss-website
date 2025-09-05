@@ -1,11 +1,18 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import '../styles/mobile-optimization.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { TranslationProvider } from '@/contexts/TranslationContext'
+import PerformanceMonitor from '@/components/PerformanceMonitor'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap', // 優化字體載入
+  preload: true,
+  fallback: ['system-ui', 'arial']
+})
 
 export const metadata: Metadata = {
   // 標題範本，%s 會被子頁面的標題取代
@@ -98,6 +105,13 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="/miss-favicon.ico?v=3" />
         <link rel="icon" href="/miss-favicon.ico?v=3" />
         
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#dc2626" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="覓食 MISS" />
+        
         {/* 預載入關鍵資源 */}
         <link rel="preload" href="/images/banner.webp" as="image" type="image/webp" />
         <link rel="preload" href="/images/MISS.webp" as="image" type="image/webp" />
@@ -135,6 +149,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <TranslationProvider>
+          <PerformanceMonitor />
           <Header />
           <main>{children}</main>
           <Footer />

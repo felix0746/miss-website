@@ -18,9 +18,10 @@ export default function Footer() {
             <div className="mb-4 sm:mb-6">
               <span className="text-lg sm:text-xl font-bold">覓食 MISS</span>
             </div>
-            <p className="text-gray-300 mb-4 sm:mb-6 max-w-md text-sm sm:text-base leading-relaxed">
-              {t('footer.description')}
-            </p>
+            <p
+              className="text-gray-300 mb-4 sm:mb-6 max-w-md text-sm sm:text-base leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: t('footer.description') }}
+            />
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors p-2">
                 <Facebook className="w-5 h-5" />

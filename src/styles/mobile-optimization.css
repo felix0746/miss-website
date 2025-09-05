@@ -1,0 +1,97 @@
+/* 手機版效能優化 CSS */
+
+/* 減少重繪和重排 */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 優化動畫效能 */
+@media (max-width: 768px) {
+  /* 減少複雜動畫 */
+  .animate-pulse {
+    animation-duration: 2s;
+  }
+  
+  /* 優化transform動畫 */
+  .group-hover\\:scale-105:hover {
+    transform: scale(1.02); /* 減少縮放幅度 */
+  }
+  
+  /* 減少陰影效果 */
+  .shadow-lg {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-xl {
+    box-shadow: 0 8px 10px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 優化滾動效能 */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* 減少模糊效果 */
+  .backdrop-blur-sm {
+    backdrop-filter: blur(2px);
+  }
+  
+  .backdrop-blur-lg {
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* 優化圖片載入 */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* 減少不必要的動畫 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 優化觸控反饋 */
+@media (max-width: 768px) {
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* 增加觸控目標大小 */
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* 優化字體載入 */
+@font-face {
+  font-display: swap;
+}
+
+/* 減少GPU層 */
+.gpu-optimized {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* 優化滾動容器 */
+.scroll-container {
+  contain: layout style paint;
+  overflow: hidden;
+}
+
+.scroll-content {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
