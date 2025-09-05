@@ -1,9 +1,6 @@
 'use client';
 
 import Image from 'next/image'
-
-// 強制動態渲染，避免服務端預渲染問題
-export const dynamic = 'force-dynamic'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { useEffect, useState } from 'react';
@@ -43,15 +40,12 @@ export default function CaseDetail({ params }: PageProps) {
   
   useEffect(() => {
     if (!isLoading && languageData[currentLanguage]?.case_data && id) {
-      const allCasesData = languageData[currentLanguage].case_data;
-      if (Array.isArray(allCasesData)) {
-        const allCases = allCasesData as (CaseDetailData & { id: string })[];
-        const currentCase = allCases.find((c) => c.id === id);
-        if (currentCase) {
-          setCaseData(currentCase);
-        } else {
-          notFound();
-        }
+      const allCases = languageData[currentLanguage].case_data as (CaseDetailData & { id: string })[];
+      const currentCase = allCases.find((c) => c.id === id);
+      if (currentCase) {
+        setCaseData(currentCase);
+      } else {
+        notFound();
       }
     }
   }, [isLoading, currentLanguage, languageData, id]);

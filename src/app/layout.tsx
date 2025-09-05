@@ -4,8 +4,8 @@ import './globals.css'
 import '../styles/mobile-optimization.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+// TranslationProvider removed - using useSimpleTranslation instead
 import PerformanceMonitor from '@/components/PerformanceMonitor'
-import MobilePerformanceOptimizer from '@/components/MobilePerformanceOptimizer'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -96,43 +96,59 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-TW" suppressHydrationWarning>
+    <html lang="zh-TW" className={`${inter.className} scroll-smooth`}>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        {/* Favicon */}
+        <link rel="icon" type="image/webp" href="/miss-favicon.webp?v=3" />
+        <link rel="shortcut icon" type="image/webp" href="/miss-favicon.webp?v=3" />
+        <link rel="apple-touch-icon" href="/miss-favicon.webp?v=3" />
+        <link rel="icon" type="image/x-icon" href="/miss-favicon.ico?v=3" />
+        <link rel="icon" href="/miss-favicon.ico?v=3" />
+        
+        {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#ffffff" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <style dangerouslySetInnerHTML={{ __html: `
-          /* Hero Section Styles */
-          .hero-text { font-size: 2.25rem; font-weight: 800; color: white; }
-          @media (min-width: 640px) { .hero-text { font-size: 3rem; } }
-          @media (min-width: 1024px) { .hero-text { font-size: 4rem; } }
-          /* Section Title Styles */
-          .section-title { font-size: 1.875rem; font-weight: 700; }
-          @media (min-width: 768px) { .section-title { font-size: 2.25rem; } }
-          /* Primary Button Styles */
-          .primary-button { 
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 0.5rem;
-            background-color: #4f46e5; 
-            color: white;
-            transition: background-color 0.2s;
-          }
-          .primary-button:hover { background-color: #4338ca; }
-        ` }} />
+        <meta name="theme-color" content="#dc2626" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="覓食 MISS" />
+        
+        {/* 預載入關鍵資源 */}
+        <link rel="preload" href="/images/banner.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/images/MISS.webp" as="image" type="image/webp" />
+        
+        {/* DNS 預解析和預連接 */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="preconnect" href="//fonts.googleapis.com" crossOrigin="" />
+        <link rel="preconnect" href="//fonts.gstatic.com" crossOrigin="" />
+        
+        
+        {/* JSON-LD 結構化資料 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "覓食 MISS - 餐飲顧問",
+              "url": "https://miss-website-nextjs-psi.vercel.app/",
+              "logo": "https://miss-website-nextjs-psi.vercel.app/images/MISS.webp",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+886-937-618-817",
+                "contactType": "Customer Service"
+              },
+              "sameAs": [
+                // "https://www.facebook.com/your-profile",
+                // "https://www.instagram.com/your-profile/",
+                // "https://www.linkedin.com/company/your-profile"
+              ]
+            })
+          }}
+        />
       </head>
-      <body 
-        className={`${inter.className} bg-gray-50 antialiased`}
-        suppressHydrationWarning
-      >
+      <body className={inter.className}>
         <PerformanceMonitor />
-        <MobilePerformanceOptimizer />
         <Header />
         <main>{children}</main>
         <Footer />

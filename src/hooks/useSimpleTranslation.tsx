@@ -50,11 +50,12 @@ export function useSimpleTranslation() {
           return;
         }
 
-        const response = await fetch(`/locales/${currentLanguage}.json`);
+        const response = await fetch('/languages.json');
         if (!response.ok) {
-          throw new Error(`Failed to load ${currentLanguage}.json`);
+          throw new Error('Failed to load languages.json');
         }
-        const data = await response.json();
+        const allLanguageData = await response.json();
+        const data = allLanguageData[currentLanguage];
         
         globalLanguageData = { ...globalLanguageData, [currentLanguage]: data };
         setLanguageData(globalLanguageData);

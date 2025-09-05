@@ -6,54 +6,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 關鍵渲染路徑優化 */
-.hero-section {
-  contain: layout style paint;
-  will-change: transform;
-}
-
-/* 圖片載入優化 */
-img {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-/* 手機版專用優化 */
-@media (max-width: 768px) {
-  /* 減少動畫複雜度 */
-  * {
-    animation-duration: 0.2s !important;
-    transition-duration: 0.2s !important;
-  }
-  
-  /* 優化滾動效能 */
-  .overflow-x-auto {
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    contain: layout style paint;
-  }
-  
-  /* 減少陰影和模糊效果 */
-  .shadow-lg {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .shadow-xl {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 優化觸控反饋 */
-  .touch-manipulation {
-    touch-action: manipulation;
-  }
-  
-  /* 增加觸控目標大小 */
-  a, button {
-    min-height: 44px;
-    min-width: 44px;
-  }
-}
-
 /* 優化動畫效能 */
 @media (max-width: 768px) {
   /* 減少複雜動畫 */
@@ -123,9 +75,7 @@ img {
 
 /* 優化字體載入 */
 @font-face {
-  font-family: 'Inter';
   font-display: swap;
-  src: local('Inter');
 }
 
 /* 減少GPU層 */

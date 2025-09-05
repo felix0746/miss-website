@@ -3,10 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSimpleTranslation as useTranslation } from '@/hooks/useSimpleTranslation'
-import SimpleAnimatedSection from '@/components/SimpleAnimatedSection'
-
-// 強制動態渲染，避免服務端預渲染問題
-export const dynamic = 'force-dynamic'
+import AnimatedSection from '@/components/AnimatedSection'
+import AnimatedText from '@/components/AnimatedText'
+import { motion } from 'framer-motion'
+import OptimizedImage from '@/components/OptimizedImage'
+import MobileOptimizedMotion from '@/components/MobileOptimizedMotion'
 
 export default function Home() {
   const { t } = useTranslation();
@@ -16,35 +17,33 @@ export default function Home() {
       {/* Hero Section with Background Image */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden" style={{ contain: 'layout' }}>
         <div className="absolute inset-0 z-0">
-          <Image
+        <Image
             src="/images/banner.webp"
             alt="追求你所熱愛 努力不懈"
             fill
             className="object-cover"
-            priority
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-            quality={90}
+          priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+            quality={85}
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-            loading="eager"
-          />
+        />
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         </div>
         
         <div className="relative z-10 text-center text-white px-6 sm:px-4 max-w-4xl mx-auto" style={{ minHeight: '400px' }}>
-          <SimpleAnimatedSection delay={0.2}>
-            <div className="mb-6 sm:mb-6">
-              <div className="inline-block px-6 sm:px-6 py-4 sm:py-4 bg-white/98 backdrop-blur-lg rounded-3xl shadow-2xl border-2 border-white/80 transform transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:bg-white">
-                <div className="relative">
-                  {/* Logo Container */}
-                  <div className="w-24 h-20 sm:w-24 sm:h-20 relative mx-auto group">
-                    <Image
-                      src="/images/MISS.webp"
-                      alt="覓食 MISS Logo"
-                      fill
-                      className="object-contain drop-shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-2xl"
-                    />
-                  </div>
+          <AnimatedSection delay={0.2}>
+          <div className="mb-6 sm:mb-6">
+            <div className="inline-block px-6 sm:px-6 py-4 sm:py-4 bg-white/98 backdrop-blur-lg rounded-3xl shadow-2xl border-2 border-white/80 transform transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:bg-white">
+              <div className="relative">
+                {/* Logo Container */}
+                <div className="w-24 h-20 sm:w-24 sm:h-20 relative mx-auto group">
+                  <Image
+                    src="/images/MISS.webp"
+                    alt="覓食 MISS Logo"
+                    fill
+                    className="object-contain drop-shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-2xl"
+                  />
                   {/* Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-transparent to-secondary-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                 </div>
@@ -57,42 +56,43 @@ export default function Home() {
                 <div className="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-secondary-500/30 rounded-full animate-pulse delay-300"></div>
               </div>
             </div>
-          </SimpleAnimatedSection>
+          </div>
+          </AnimatedSection>
           
-          <SimpleAnimatedSection delay={0.4}>
-            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-3 md:mb-4 leading-tight">
-              {t('home.hero.title_line1')}
-              <span className="block text-gradient mt-2 sm:mt-1">{t('home.hero.title_line2')}</span>
-            </h1>
-          </SimpleAnimatedSection>
+          <AnimatedText delay={0.4}>
+          <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-3 md:mb-4 leading-tight">
+            {t('home.hero.title_line1')}
+            <span className="block text-gradient mt-2 sm:mt-1">{t('home.hero.title_line2')}</span>
+          </h1>
+          </AnimatedText>
           
-          <SimpleAnimatedSection delay={0.6}>
-            <p className="text-base sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-4 md:mb-6 max-w-3xl mx-auto leading-relaxed px-1">
-              {t('home.hero.subtitle')}
-            </p>
-          </SimpleAnimatedSection>
+          <AnimatedText delay={0.6}>
+          <p className="text-base sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-4 md:mb-6 max-w-3xl mx-auto leading-relaxed px-1">
+            {t('home.hero.subtitle')}
+          </p>
+          </AnimatedText>
           
-          <SimpleAnimatedSection delay={0.8}>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-3 justify-center px-2 sm:px-4">
-              <Link
-                href="/contact"
-                className="bg-primary-600 hover:bg-primary-700 text-white font-semibold text-base sm:text-base px-8 sm:px-6 py-4 sm:py-3 rounded-xl transition-colors w-full sm:w-32 min-h-[48px] sm:min-h-[44px] inline-flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl"
-              >
-                {t('home.hero.cta1')}
-              </Link>
-              <Link
-                href="/services"
-                className="bg-white hover:bg-gray-100 text-gray-900 font-semibold text-base sm:text-base px-8 sm:px-6 py-4 sm:py-3 rounded-xl transition-colors w-full sm:w-32 min-h-[48px] sm:min-h-[44px] inline-flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl"
-              >
-                {t('home.hero.cta2')}
-              </Link>
-            </div>
-          </SimpleAnimatedSection>
+          <AnimatedSection delay={0.8}>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-3 justify-center px-2 sm:px-4">
+            <Link
+              href="/contact"
+              className="bg-primary-600 hover:bg-primary-700 text-white font-semibold text-base sm:text-base px-8 sm:px-6 py-4 sm:py-3 rounded-xl transition-colors w-full sm:w-32 min-h-[48px] sm:min-h-[44px] inline-flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl"
+            >
+              {t('home.hero.cta1')}
+            </Link>
+            <Link
+              href="/services"
+              className="bg-white hover:bg-gray-100 text-gray-900 font-semibold text-base sm:text-base px-8 sm:px-6 py-4 sm:py-3 rounded-xl transition-colors w-full sm:w-32 min-h-[48px] sm:min-h-[44px] inline-flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl"
+            >
+              {t('home.hero.cta2')}
+            </Link>
+          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Brand Story Section */}
-      <SimpleAnimatedSection className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50" delay={0.2}>
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="container">
           <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">{t('home.brandStory.title')}</h2>
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -101,16 +101,16 @@ export default function Home() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
                 {t('home.brandStory.content_p1')}
               </p>
-              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
                 {t('home.brandStory.content_p2')}
               </p>
-              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
                 {t('home.brandStory.content_p3')}
               </p>
-              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
                 {t('home.brandStory.content_p4')}
               </p>
-              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
                 {t('home.brandStory.content_p5')}
               </p>
             </div>
@@ -134,115 +134,117 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </SimpleAnimatedSection>
+      </section>
 
       {/* Brand Vision Section */}
-      <SimpleAnimatedSection className="py-8 sm:py-12 md:py-16 lg:py-20" delay={0.4}>
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             <div className="space-y-4 sm:space-y-6 text-center lg:text-left">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">{t('home.brandVision.title')}</h2>
               <p className="text-gray-600 text-lg sm:text-xl md:text-2xl leading-relaxed">
-                {t('home.brandVision.subtitle')}
+                {t('home.brandVision.line1')}<br className="hidden sm:block"/>
+                {t('home.brandVision.line2')}<br className="hidden sm:block"/>
+                {t('home.brandVision.line3')}
               </p>
-              <div className="space-y-4 sm:space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary-600 text-xl">🎯</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('home.brandVision.vision1.title')}</h3>
-                    <p className="text-gray-600 text-sm sm:text-base">{t('home.brandVision.vision1.description')}</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-secondary-600 text-xl">🚀</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('home.brandVision.vision2.title')}</h3>
-                    <p className="text-gray-600 text-sm sm:text-base">{t('home.brandVision.vision2.description')}</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary-600 text-xl">💡</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{t('home.brandVision.vision3.title')}</h3>
-                    <p className="text-gray-600 text-sm sm:text-base">{t('home.brandVision.vision3.description')}</p>
-                  </div>
-                </div>
-              </div>
             </div>
             
             <div className="relative">
-              <Image
-                src="/images/brand-vision-image.webp"
-                alt="品牌願景"
+            <Image
+                src="/images/philosophy-image.webp"
+                alt="多樣化的台灣美食"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-xl w-full"
+                className="rounded-lg shadow-lg w-full"
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                quality={75}
               />
             </div>
           </div>
         </div>
-      </SimpleAnimatedSection>
+      </section>
 
       {/* Services Section */}
-      <SimpleAnimatedSection className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50" delay={0.6}>
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="section-title text-2xl sm:text-3xl mb-4 text-gray-800">
-              {t('home.services.title')}
-            </h2>
-            <div className="w-16 h-0.5 bg-primary-500 mx-auto rounded-full"></div>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            <SimpleAnimatedSection delay={0.2}>
+          <AnimatedText>
+          <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">{t('home.services.title')}</h2>
+          </AnimatedText>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto" style={{ contain: 'layout' }}>
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+            >
+              <a href="/services#planning" className="block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.brandPlanning')}</h3>
+              <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.brandPlanningDescription')}</p>
+            </a>
+          </motion.div>
+            
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
+            >
               <a href="/services#strategy" className="block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.strategyPlanning')}</h3>
-                <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.strategyPlanningDescription')}</p>
-              </a>
-            </SimpleAnimatedSection>
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.strategyPlanning')}</h3>
+              <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.strategyPlanningDescription')}</p>
+            </a>
+          </motion.div>
             
-            <SimpleAnimatedSection delay={0.3}>
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
+            >
               <a href="/services#diagnosis" className="block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.businessDiagnosis')}</h3>
-                <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.businessDiagnosisDescription')}</p>
-              </a>
-            </SimpleAnimatedSection>
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.businessDiagnosis')}</h3>
+              <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.businessDiagnosisDescription')}</p>
+            </a>
+          </motion.div>
             
-            <SimpleAnimatedSection delay={0.4}>
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
+            >
               <a href="https://believe-in-goodness-website.vercel.app/" target="_blank" rel="noopener noreferrer" className="block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.hrDevelopment')}</h3>
-                <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.hrDevelopmentDescription')}</p>
-              </a>
-            </SimpleAnimatedSection>
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                </svg>
+              </div>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.hrDevelopment')}</h3>
+              <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.hrDevelopmentDescription')}</p>
+            </a>
+          </motion.div>
           </div>
         </div>
-      </SimpleAnimatedSection>
+      </section>
 
       {/* Related Enterprises Section */}
-      <SimpleAnimatedSection className="py-8 sm:py-12 md:py-16 lg:py-20" delay={0.8}>
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="section-title text-2xl sm:text-3xl mb-4 text-gray-800">
@@ -254,14 +256,18 @@ export default function Home() {
           {/* Mobile: Horizontal Scroll */}
           <div className="block sm:hidden">
             <div className="flex gap-4 overflow-x-auto pb-4 px-4 -mx-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-              <SimpleAnimatedSection delay={0.1}>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group flex-shrink-0 w-20">
+              <MobileOptimizedMotion 
+                className="flex-shrink-0 w-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                simpleAnimation={true}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
                   <div className="w-16 h-16 mx-auto relative mb-2">
-                    <Image
+                    <OptimizedImage
                       src="/images/MISS.webp"
                       alt="覓食國際餐飲企業有限公司 Logo"
-                      fill
-                      className="object-contain"
                       sizes="(max-width: 640px) 80px, 100px"
                       quality={80}
                     />
@@ -270,130 +276,614 @@ export default function Home() {
                     覓食國際
                   </h3>
                 </a>
-              </SimpleAnimatedSection>
+              </MobileOptimizedMotion>
               
-              <SimpleAnimatedSection delay={0.2}>
-                <a href="http://www.sltpanyaki.com.tw/front/bin/home.phtml" target="_blank" rel="noopener noreferrer" className="block text-center group flex-shrink-0 w-20">
-                  <div className="w-16 h-16 mx-auto relative mb-2">
+              <motion.div 
+                className="flex-shrink-0 w-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <a href="http://www.sltpanyaki.com.tw/front/bin/home.phtml" target="_blank" rel="noopener noreferrer" className="block text-center group">
+                  <motion.div 
+                    className="w-16 h-16 mx-auto relative mb-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <Image
                       src="/images/SLT.webp"
-                      alt="SLT 鐵板燒 Logo"
+                      alt="香連鐵板燒 Logo"
                       fill
                       className="object-contain"
-                      sizes="(max-width: 640px) 80px, 100px"
-                      quality={80}
+                      loading="lazy"
+                      sizes="80px"
+                      quality={75}
                     />
-                  </div>
+                  </motion.div>
                   <h3 className="text-xs font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
-                    SLT 鐵板燒
+                    香連鐵板燒
                   </h3>
                 </a>
-              </SimpleAnimatedSection>
+              </motion.div>
               
-              <SimpleAnimatedSection delay={0.3}>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group flex-shrink-0 w-20">
-                  <div className="w-16 h-16 mx-auto relative mb-2">
+              <motion.div 
+                className="flex-shrink-0 w-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
+                  <motion.div 
+                    className="w-16 h-16 mx-auto relative mb-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <Image
-                      src="/images/other-enterprise.webp"
-                      alt="其他企業 Logo"
+                      src="/images/CCT.webp"
+                      alt="周照子 Logo"
                       fill
                       className="object-contain"
-                      sizes="(max-width: 640px) 80px, 100px"
-                      quality={80}
+                      loading="lazy"
+                      sizes="80px"
+                      quality={75}
                     />
-                  </div>
+                  </motion.div>
                   <h3 className="text-xs font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
-                    其他企業
+                    周照子
                   </h3>
                 </a>
-              </SimpleAnimatedSection>
+              </motion.div>
+              
+              <motion.div 
+                className="flex-shrink-0 w-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
+                  <motion.div 
+                    className="w-16 h-16 mx-auto relative mb-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src="/images/GM.webp"
+                      alt="甘妹弄堂 Logo"
+                      fill
+                      className="object-contain"
+                      loading="lazy"
+                      sizes="80px"
+                      quality={75}
+                    />
+                  </motion.div>
+                  <h3 className="text-xs font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    甘妹弄堂
+                  </h3>
+                </a>
+              </motion.div>
+              
+              <motion.div 
+                className="flex-shrink-0 w-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
+                  <motion.div 
+                    className="w-16 h-16 mx-auto relative mb-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src="/images/FW.webp"
+                      alt="扶旺號 Logo"
+                      fill
+                      className="object-contain"
+                      loading="lazy"
+                      sizes="80px"
+                      quality={75}
+                    />
+                  </motion.div>
+                  <h3 className="text-xs font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    扶旺號
+                  </h3>
+                </a>
+              </motion.div>
+              
+              <motion.div 
+                className="flex-shrink-0 w-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
+                  <motion.div 
+                    className="w-16 h-16 mx-auto relative mb-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src="/images/SW.webp"
+                      alt="小旺號 Logo"
+                      fill
+                      className="object-contain"
+                      loading="lazy"
+                      sizes="80px"
+                      quality={75}
+                    />
+                  </motion.div>
+                  <h3 className="text-xs font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    小旺號
+                  </h3>
+                </a>
+              </motion.div>
+              
+              <motion.div 
+                className="flex-shrink-0 w-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
+                  <motion.div 
+                    className="w-16 h-16 mx-auto relative mb-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src="/images/WY.webp"
+                      alt="威宇 Logo"
+                      fill
+                      className="object-contain"
+                      loading="lazy"
+                      sizes="80px"
+                      quality={75}
+                    />
+                  </motion.div>
+                  <h3 className="text-xs font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    威宇
+                  </h3>
+                </a>
+              </motion.div>
+              
+              <motion.div 
+                className="flex-shrink-0 w-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
+                  <motion.div 
+                    className="w-16 h-16 mx-auto relative mb-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src="/images/CY.webp"
+                      alt="喫尤 Logo"
+                      fill
+                      className="object-contain"
+                      loading="lazy"
+                      sizes="80px"
+                      quality={75}
+                    />
+                  </motion.div>
+                  <h3 className="text-xs font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    喫尤
+                  </h3>
+                </a>
+              </motion.div>
+              
+              <motion.div 
+                className="flex-shrink-0 w-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
+                  <motion.div 
+                    className="w-16 h-16 mx-auto relative mb-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src="/images/MAZU.webp"
+                      alt="麻煮 Logo"
+                      fill
+                      className="object-contain"
+                      loading="lazy"
+                      sizes="80px"
+                      quality={75}
+                    />
+                  </motion.div>
+                  <h3 className="text-xs font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    麻煮
+                  </h3>
+                </a>
+              </motion.div>
+              
+              <motion.div 
+                className="flex-shrink-0 w-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.0 }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
+                  <motion.div 
+                    className="w-16 h-16 mx-auto relative mb-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src="/images/yd.webp"
+                      alt="炎弟 Logo"
+                      fill
+                      className="object-contain"
+                      loading="lazy"
+                      sizes="80px"
+                      quality={75}
+                    />
+                  </motion.div>
+                  <h3 className="text-xs font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    炎弟
+                  </h3>
+                </a>
+              </motion.div>
+            </div>
+            {/* Scroll Indicator */}
+            <div className="flex justify-center mt-2">
+              <div className="flex space-x-1">
+                <div className="w-2 h-2 bg-primary-300 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-primary-200 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-2 h-2 bg-primary-100 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+              </div>
             </div>
           </div>
-          
-          {/* Desktop: Grid Layout */}
-          <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
-            <SimpleAnimatedSection delay={0.1}>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
-                <div className="w-20 h-20 mx-auto relative mb-4">
-                  <Image
-                    src="/images/MISS.webp"
-                    alt="覓食國際餐飲企業有限公司 Logo"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 80px, 100px"
-                    quality={80}
-                  />
-                </div>
-                <h3 className="text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors">
-                  覓食國際
-                </h3>
-              </a>
-            </SimpleAnimatedSection>
-            
-            <SimpleAnimatedSection delay={0.2}>
-              <a href="http://www.sltpanyaki.com.tw/front/bin/home.phtml" target="_blank" rel="noopener noreferrer" className="block text-center group">
-                <div className="w-20 h-20 mx-auto relative mb-4">
-                  <Image
-                    src="/images/SLT.webp"
-                    alt="SLT 鐵板燒 Logo"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 80px, 100px"
-                    quality={80}
-                  />
-                </div>
-                <h3 className="text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors">
-                  SLT 鐵板燒
-                </h3>
-              </a>
-            </SimpleAnimatedSection>
-            
-            <SimpleAnimatedSection delay={0.3}>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
-                <div className="w-20 h-20 mx-auto relative mb-4">
-                  <Image
-                    src="/images/other-enterprise.webp"
-                    alt="其他企業 Logo"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 80px, 100px"
-                    quality={80}
-                  />
-                </div>
-                <h3 className="text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors">
-                  其他企業
-                </h3>
-              </a>
-            </SimpleAnimatedSection>
-          </div>
-        </div>
-      </SimpleAnimatedSection>
 
-      {/* CTA Section */}
-      <SimpleAnimatedSection className="py-8 sm:py-12 md:py-16 lg:py-20 bg-primary-600" delay={1.0}>
+          {/* Desktop: Grid Layout */}
+          <motion.div 
+            className="hidden sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.1
+                }
+              }
+            }}
+          >
+              
+              <motion.div 
+                className="p-1 sm:p-4 md:p-5 sm:bg-white sm:rounded-lg sm:shadow-sm sm:hover:shadow-md transition-all duration-300 group sm:border sm:border-gray-100 sm:hover:border-primary-200"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center">
+                  <motion.div 
+                    className="w-8 h-8 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto relative group-hover:scale-105 transition-transform duration-300 mb-1 sm:mb-3"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                <Image
+                  src="/images/MISS.webp"
+                  alt="覓食國際餐飲企業有限公司 Logo"
+                  fill
+                  className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
+                      quality={75}
+                    />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    覓食國際
+                  </h3>
+                </a>
+              </motion.div>
+            
+              <motion.div 
+                className="p-1 sm:p-4 md:p-5 sm:bg-white sm:rounded-lg sm:shadow-sm sm:hover:shadow-md transition-all duration-300 group sm:border sm:border-gray-100 sm:hover:border-primary-200"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                <a href="http://www.sltpanyaki.com.tw/front/bin/home.phtml" target="_blank" rel="noopener noreferrer" className="block text-center">
+                  <motion.div 
+                    className="w-8 h-8 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto relative group-hover:scale-105 transition-transform duration-300 mb-1 sm:mb-3"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                <Image
+                  src="/images/SLT.webp"
+                  alt="香連鐵板燒 Logo"
+                  fill
+                  className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
+                      quality={75}
+                />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    香連鐵板燒
+                  </h3>
+                </a>
+              </motion.div>
+            
+              <motion.div 
+                className="p-1 sm:p-4 md:p-5 sm:bg-white sm:rounded-lg sm:shadow-sm sm:hover:shadow-md transition-all duration-300 group sm:border sm:border-gray-100 sm:hover:border-primary-200"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center">
+                  <motion.div 
+                    className="w-8 h-8 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto relative group-hover:scale-105 transition-transform duration-300 mb-1 sm:mb-3"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                <Image
+                  src="/images/CCT.webp"
+                  alt="周照子 Logo"
+                  fill
+                  className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
+                      quality={75}
+                />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    周照子
+                  </h3>
+                </a>
+              </motion.div>
+
+              <motion.div 
+                className="p-1 sm:p-4 md:p-5 sm:bg-white sm:rounded-lg sm:shadow-sm sm:hover:shadow-md transition-all duration-300 group sm:border sm:border-gray-100 sm:hover:border-primary-200"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center">
+                  <motion.div 
+                    className="w-8 h-8 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto relative group-hover:scale-105 transition-transform duration-300 mb-1 sm:mb-3"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                <Image
+                  src="/images/GM.webp"
+                  alt="甘妹弄堂 Logo"
+                  fill
+                  className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
+                      quality={75}
+                />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    甘妹弄堂
+                  </h3>
+                </a>
+              </motion.div>
+
+              <motion.div 
+                className="p-1 sm:p-4 md:p-5 sm:bg-white sm:rounded-lg sm:shadow-sm sm:hover:shadow-md transition-all duration-300 group sm:border sm:border-gray-100 sm:hover:border-primary-200"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center">
+                  <motion.div 
+                    className="w-8 h-8 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto relative group-hover:scale-105 transition-transform duration-300 mb-1 sm:mb-3"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                <Image
+                  src="/images/FW.webp"
+                  alt="扶旺號 Logo"
+                  fill
+                  className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
+                      quality={75}
+                />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    扶旺號
+                  </h3>
+                </a>
+              </motion.div>
+
+              <motion.div 
+                className="p-1 sm:p-4 md:p-5 sm:bg-white sm:rounded-lg sm:shadow-sm sm:hover:shadow-md transition-all duration-300 group sm:border sm:border-gray-100 sm:hover:border-primary-200"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center">
+                  <motion.div 
+                    className="w-8 h-8 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto relative group-hover:scale-105 transition-transform duration-300 mb-1 sm:mb-3"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                <Image
+                  src="/images/SW.webp"
+                  alt="小旺號 Logo"
+                  fill
+                  className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
+                      quality={75}
+                />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    小旺號
+                  </h3>
+                </a>
+              </motion.div>
+
+              <motion.div 
+                className="p-1 sm:p-4 md:p-5 sm:bg-white sm:rounded-lg sm:shadow-sm sm:hover:shadow-md transition-all duration-300 group sm:border sm:border-gray-100 sm:hover:border-primary-200"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center">
+                  <motion.div 
+                    className="w-8 h-8 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto relative group-hover:scale-105 transition-transform duration-300 mb-1 sm:mb-3"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+          <Image
+                  src="/images/WY.webp"
+                  alt="威宇 Logo"
+                  fill
+                  className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
+                      quality={75}
+                />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    威宇
+                  </h3>
+                </a>
+              </motion.div>
+
+              <motion.div 
+                className="p-1 sm:p-4 md:p-5 sm:bg-white sm:rounded-lg sm:shadow-sm sm:hover:shadow-md transition-all duration-300 group sm:border sm:border-gray-100 sm:hover:border-primary-200"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center">
+                  <motion.div 
+                    className="w-8 h-8 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto relative group-hover:scale-105 transition-transform duration-300 mb-1 sm:mb-3"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+          <Image
+                  src="/images/CY.webp"
+                  alt="喫尤 Logo"
+                  fill
+                  className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
+                      quality={75}
+                />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    喫尤
+                  </h3>
+                </a>
+              </motion.div>
+
+              <motion.div 
+                className="p-1 sm:p-4 md:p-5 sm:bg-white sm:rounded-lg sm:shadow-sm sm:hover:shadow-md transition-all duration-300 group sm:border sm:border-gray-100 sm:hover:border-primary-200"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center">
+                  <motion.div 
+                    className="w-8 h-8 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto relative group-hover:scale-105 transition-transform duration-300 mb-1 sm:mb-3"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+          <Image
+                  src="/images/MAZU.webp"
+                  alt="麻煮 Logo"
+                  fill
+                  className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
+                      quality={75}
+                />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    麻煮
+                  </h3>
+                </a>
+              </motion.div>
+
+              <motion.div 
+                className="p-1 sm:p-4 md:p-5 sm:bg-white sm:rounded-lg sm:shadow-sm sm:hover:shadow-md transition-all duration-300 group sm:border sm:border-gray-100 sm:hover:border-primary-200"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center">
+                  <motion.div 
+                    className="w-8 h-8 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto relative group-hover:scale-105 transition-transform duration-300 mb-1 sm:mb-3"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src="/images/yd.webp"
+                      alt="炎弟 Logo"
+                      fill
+                      className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
+                      quality={75}
+                    />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
+                    炎弟
+                  </h3>
+                </a>
+              </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+                  {/* CTA Section */}
+      <section className="py-6 sm:py-8 md:py-10 lg:py-12 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="container text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             {t('home.cta.title')}
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-            {t('home.cta.subtitle')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <p 
+            className="text-base sm:text-lg md:text-xl text-white mb-5 sm:mb-6 max-w-2xl mx-auto px-4"
+            dangerouslySetInnerHTML={{ __html: t('home.cta.description') }}
+          />
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 relative z-10">
             <Link
               href="/contact"
-              className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center"
+              className="bg-white text-primary-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
             >
-              {t('home.cta.primary')}
+              {t('home.cta.cta1')}
             </Link>
             <Link
               href="/services"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold transition-colors w-full sm:w-auto min-h-[44px] sm:min-h-[48px] inline-flex items-center justify-center cursor-pointer"
             >
-              {t('home.cta.secondary')}
+              {t('home.cta.cta2')}
             </Link>
           </div>
-        </div>
-      </SimpleAnimatedSection>
+    </div>
+      </section>
     </main>
   )
 }

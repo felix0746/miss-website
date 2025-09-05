@@ -1,9 +1,6 @@
 'use client';
 
 import Image from 'next/image'
-
-// 強制動態渲染，避免服務端預渲染問題
-export const dynamic = 'force-dynamic'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { useEffect, useState } from 'react';
@@ -45,10 +42,11 @@ export default function NewsDetail({
 
   useEffect(() => {
     if (!isLoading && languageData[currentLanguage]?.news_data && id) {
-      const allNewsData = languageData[currentLanguage].news_data;
-      if (Array.isArray(allNewsData)) {
-        const allNews = allNewsData as (NewsDetailData & { id: string })[];
-        const currentNews = allNews.find((n) => n.id === id);
+      const allNews = languageData[currentLanguage].news_data;
+      if (Array.isArray(allNews)) {
+        const currentNews = allNews.find((n: unknown) => 
+          typeof n === 'object' && n !== null && 'id' in n && (n as NewsDetailData).id === id
+        ) as NewsDetailData | undefined;
         if (currentNews) {
           setNewsData(currentNews);
         } else {
@@ -59,10 +57,13 @@ export default function NewsDetail({
   }, [isLoading, currentLanguage, languageData, id]);
 
   if (isLoading || !newsData) {
-    return <div>{t('news.loading')}</div>;
+    return <div>Loading...</div>; // You can replace this with a proper loading spinner
   }
 
   const contentParagraphs = newsData.content.split('\n\n').filter(paragraph => paragraph.trim());
+  const allNews = Array.isArray(languageData[currentLanguage]?.news_data) 
+    ? languageData[currentLanguage].news_data 
+    : [];
 
   return (
     <main className="min-h-screen bg-white">
@@ -217,41 +218,39 @@ export default function NewsDetail({
             {t('news.details.related')}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {(() => {
-              const allNewsData = languageData[currentLanguage]?.news_data;
-              if (Array.isArray(allNewsData)) {
-                const allNewsArray = allNewsData as (NewsDetailData & { id: string })[];
-                return allNewsArray
-                  .filter((item) => item.id !== id)
-                  .slice(0, 3)
-                  .map((item) => (
-                    <Link
-                      key={item.id}
-                      href={`/news/${item.id}`}
-                      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow group"
-                    >
-                      <div className="relative h-40 overflow-hidden">
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                      <div className="p-4">
-                        <h3 className="font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                          {item.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm mb-2">{item.subtitle}</p>
-                        <span className="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
-                          {item.category}
-                        </span>
-                      </div>
-                    </Link>
-                  ));
-              }
-              return null;
-            })()}
+            {allNews
+              .filter((item: unknown) => 
+                typeof item === 'object' && item !== null && 'id' in item && (item as NewsDetailData).id !== id
+              )
+              .slice(0, 3)
+              .map((item: unknown) => {
+                const newsItem = item as NewsDetailData;
+                return (
+                <Link
+                  key={newsItem.id}
+                  href={`/news/${newsItem.id}`}
+                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow group"
+                >
+                  <div className="relative h-40 overflow-hidden">
+                    <Image
+                      src={newsItem.image}
+                      alt={newsItem.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                      {newsItem.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-2">{newsItem.subtitle}</p>
+                    <span className="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                      {newsItem.category}
+                    </span>
+                  </div>
+                </Link>
+                );
+              })}
           </div>
         </div>
       </section>

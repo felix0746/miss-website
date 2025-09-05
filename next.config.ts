@@ -6,15 +6,10 @@ const nextConfig: NextConfig = {
   
   // 性能優化
   experimental: {
-    optimizePackageImports: ['react-responsive'],
+    optimizePackageImports: ['framer-motion'],
     optimizeCss: true, // 啟用CSS優化
     webVitalsAttribution: ['CLS', 'LCP'], // 監控關鍵效能指標
-    // 手機版優化
-    optimizeServerReact: true,
   },
-  
-  // 外部包配置（Next.js 15 新格式）
-  serverExternalPackages: ['framer-motion'],
   
   // 現代瀏覽器支援
   compiler: {
