@@ -101,6 +101,18 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
 }
 
 export function useTranslation() {
+  // 確保只在客戶端環境中運行
+  if (typeof window === 'undefined') {
+    // 在服務端渲染時返回默認值
+    return {
+      currentLanguage: 'zh-TW',
+      setCurrentLanguage: () => {},
+      t: (key: string) => key,
+      languageData: {},
+      isLoading: true
+    };
+  }
+  
   const context = useContext(TranslationContext);
   if (context === undefined) {
     throw new Error('useTranslation must be used within a TranslationProvider');
