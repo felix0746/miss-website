@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import { useTranslation } from '@/contexts/TranslationContext'
+import { useSimpleTranslation as useTranslation } from '@/hooks/useSimpleTranslation'
 
 // 強制動態渲染，避免服務端預渲染問題
 export const dynamic = 'force-dynamic'
