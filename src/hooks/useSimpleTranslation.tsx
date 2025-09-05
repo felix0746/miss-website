@@ -14,11 +14,13 @@ interface LanguageData {
 let globalLanguageData: LanguageData = {};
 let globalCurrentLanguage = 'zh-TW';
 let globalIsLoading = true;
+let globalUpdateTrigger = 0;
 
 export function useSimpleTranslation() {
   const [currentLanguage, setCurrentLanguageState] = useState(globalCurrentLanguage);
   const [languageData, setLanguageData] = useState<LanguageData>(globalLanguageData);
   const [isLoading, setIsLoading] = useState(globalIsLoading);
+  const [updateTrigger, setUpdateTrigger] = useState(globalUpdateTrigger);
 
   useEffect(() => {
     // 確保只在客戶端環境中執行
@@ -30,6 +32,22 @@ export function useSimpleTranslation() {
       globalCurrentLanguage = savedLanguage;
       setCurrentLanguageState(savedLanguage);
     }
+  }, []);
+
+  // 監聽語言變化事件
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setCurrentLanguageState(globalCurrentLanguage);
+      setLanguageData({ ...globalLanguageData });
+      setIsLoading(globalIsLoading);
+    };
+
+    // 監聽自定義事件
+    window.addEventListener('languageChanged', handleLanguageChange);
+    
+    return () => {
+      window.removeEventListener('languageChanged', handleLanguageChange);
+    };
   }, []);
 
   useEffect(() => {
@@ -44,7 +62,7 @@ export function useSimpleTranslation() {
       try {
         // 檢查是否已經加載過這個語言的數據
         if (globalLanguageData[currentLanguage]) {
-          setLanguageData(globalLanguageData);
+          setLanguageData({ ...globalLanguageData });
           setIsLoading(false);
           globalIsLoading = false;
           return;
@@ -58,7 +76,7 @@ export function useSimpleTranslation() {
         const data = allLanguageData[currentLanguage];
         
         globalLanguageData = { ...globalLanguageData, [currentLanguage]: data };
-        setLanguageData(globalLanguageData);
+        setLanguageData({ ...globalLanguageData });
         
         document.documentElement.lang = currentLanguage;
       } catch (error) {
@@ -79,6 +97,24 @@ export function useSimpleTranslation() {
     }
     globalCurrentLanguage = language;
     setCurrentLanguageState(language);
+    
+    // 強制重新加載語言數據
+    if (globalLanguageData[language]) {
+      setLanguageData({ ...globalLanguageData });
+    } else {
+      // 如果新語言數據不存在，觸發重新加載
+      setIsLoading(true);
+      globalIsLoading = true;
+    }
+    
+    // 觸發所有組件重新渲染
+    globalUpdateTrigger += 1;
+    setUpdateTrigger(globalUpdateTrigger);
+    
+    // 觸發自定義事件通知所有組件
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('languageChanged'));
+    }
   };
 
   const t = (key: string): string => {
