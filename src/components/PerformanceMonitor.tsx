@@ -49,9 +49,24 @@ export default function PerformanceMonitor() {
       }
     };
 
-    // 使用 reportWebVitals 函數（避免未使用警告）
-    // 這裡可以添加實際的 Web Vitals 監控邏輯
-    // reportWebVitals({ name: 'LCP', value: 0 });
+    // 實際使用 reportWebVitals 函數
+    if (typeof window !== 'undefined' && 'performance' in window) {
+      // 監控 LCP
+      const observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.entryType === 'largest-contentful-paint') {
+            reportWebVitals({ name: 'LCP', value: entry.startTime });
+          }
+        }
+      });
+      
+      try {
+        observer.observe({ entryTypes: ['largest-contentful-paint'] });
+      } catch (error) {
+        // 某些瀏覽器可能不支援
+        console.warn('Performance Observer not supported:', error);
+      }
+    }
 
     // 監控資源載入時間
     const monitorResourceTiming = () => {

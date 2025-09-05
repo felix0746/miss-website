@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, MotionProps, type TargetAndTransition, type Transition } from 'framer-motion';
+import { motion, MotionProps, type Transition } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 
 interface MobileOptimizedMotionProps extends MotionProps {
