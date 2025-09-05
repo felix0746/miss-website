@@ -42,18 +42,21 @@ export default function NewsDetail({
 
   useEffect(() => {
     if (!isLoading && languageData[currentLanguage]?.news_data && id) {
-      const allNews = languageData[currentLanguage].news_data;
-      const currentNews = allNews.find((n: NewsDetailData) => n.id === id);
-      if (currentNews) {
-        setNewsData(currentNews);
-      } else {
-        notFound();
+      const allNewsData = languageData[currentLanguage].news_data;
+      if (Array.isArray(allNewsData)) {
+        const allNews = allNewsData as (NewsDetailData & { id: string })[];
+        const currentNews = allNews.find((n) => n.id === id);
+        if (currentNews) {
+          setNewsData(currentNews);
+        } else {
+          notFound();
+        }
       }
     }
   }, [isLoading, currentLanguage, languageData, id]);
 
   if (isLoading || !newsData) {
-    return <div>Loading...</div>; // You can replace this with a proper loading spinner
+    return <div>{t('news.loading')}</div>;
   }
 
   const contentParagraphs = newsData.content.split('\n\n').filter(paragraph => paragraph.trim());
@@ -212,34 +215,41 @@ export default function NewsDetail({
             {t('news.details.related')}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {allNews
-              .filter((item: NewsDetailData) => item.id !== id)
-              .slice(0, 3)
-              .map((item: NewsDetailData) => (
-                <Link
-                  key={item.id}
-                  href={`/news/${item.id}`}
-                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow group"
-                >
-                  <div className="relative h-40 overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-2">{item.subtitle}</p>
-                    <span className="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
-                      {item.category}
-                    </span>
-                  </div>
-                </Link>
-              ))}
+            {(() => {
+              const allNewsData = languageData[currentLanguage]?.news_data;
+              if (Array.isArray(allNewsData)) {
+                const allNewsArray = allNewsData as (NewsDetailData & { id: string })[];
+                return allNewsArray
+                  .filter((item) => item.id !== id)
+                  .slice(0, 3)
+                  .map((item) => (
+                    <Link
+                      key={item.id}
+                      href={`/news/${item.id}`}
+                      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow group"
+                    >
+                      <div className="relative h-40 overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm mb-2">{item.subtitle}</p>
+                        <span className="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                          {item.category}
+                        </span>
+                      </div>
+                    </Link>
+                  ));
+              }
+              return null;
+            })()}
           </div>
         </div>
       </section>

@@ -40,12 +40,15 @@ export default function CaseDetail({ params }: PageProps) {
   
   useEffect(() => {
     if (!isLoading && languageData[currentLanguage]?.case_data && id) {
-      const allCases = languageData[currentLanguage].case_data as (CaseDetailData & { id: string })[];
-      const currentCase = allCases.find((c) => c.id === id);
-      if (currentCase) {
-        setCaseData(currentCase);
-      } else {
-        notFound();
+      const allCasesData = languageData[currentLanguage].case_data;
+      if (Array.isArray(allCasesData)) {
+        const allCases = allCasesData as (CaseDetailData & { id: string })[];
+        const currentCase = allCases.find((c) => c.id === id);
+        if (currentCase) {
+          setCaseData(currentCase);
+        } else {
+          notFound();
+        }
       }
     }
   }, [isLoading, currentLanguage, languageData, id]);
