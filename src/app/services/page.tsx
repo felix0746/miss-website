@@ -5,7 +5,7 @@ import Image from 'next/image'
 // 強制動態渲染，避免服務端預渲染問題
 export const dynamic = 'force-dynamic'
 import Link from 'next/link'
-import { useTranslation } from '@/contexts/TranslationContext';
+import { useSimpleTranslation as useTranslation } from '@/hooks/useSimpleTranslation';
 
 export default function Services() {
   const { t } = useTranslation();

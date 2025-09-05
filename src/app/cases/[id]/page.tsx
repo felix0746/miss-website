@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { useEffect, useState } from 'react';
-import { useTranslation } from '@/contexts/TranslationContext';
+import { useSimpleTranslation as useTranslation } from '@/hooks/useSimpleTranslation';
 
 interface CaseDetailData {
   id: string;

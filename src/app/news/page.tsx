@@ -6,7 +6,7 @@ import Image from 'next/image'
 export const dynamic = 'force-dynamic'
 import Link from 'next/link'
 import { useState } from 'react'
-import { useTranslation } from '@/contexts/TranslationContext'
+import { useSimpleTranslation as useTranslation } from '@/hooks/useSimpleTranslation'
 
 // Define a type for a single news item
 interface News {
