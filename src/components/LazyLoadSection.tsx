@@ -12,9 +12,9 @@ interface LazyLoadSectionProps {
   disableOnMobile?: boolean;
   // 動畫配置
   animation?: {
-    initial?: any;
-    animate?: any;
-    transition?: any;
+    initial?: Record<string, unknown>;
+    animate?: Record<string, unknown>;
+    transition?: Record<string, unknown>;
   };
 }
 

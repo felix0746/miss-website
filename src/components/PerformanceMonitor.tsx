@@ -19,7 +19,7 @@ export default function PerformanceMonitor() {
     if (!isMobile) return;
 
     // 監控 Core Web Vitals
-    const reportWebVitals = (metric: any) => {
+    const reportWebVitals = (metric: { name: string; value: number }) => {
       const metrics: PerformanceMetrics = {};
       
       switch (metric.name) {
@@ -64,7 +64,11 @@ export default function PerformanceMonitor() {
     // 監控記憶體使用
     const monitorMemory = () => {
       if ('memory' in performance) {
-        const memory = (performance as any).memory;
+        const memory = (performance as Record<string, unknown>).memory as {
+          usedJSHeapSize: number;
+          totalJSHeapSize: number;
+          jsHeapSizeLimit: number;
+        };
         const memoryUsage = {
           used: memory.usedJSHeapSize,
           total: memory.totalJSHeapSize,

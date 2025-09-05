@@ -4,7 +4,7 @@ import { Suspense, lazy, ComponentType, useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 interface DynamicImportProps {
-  component: () => Promise<{ default: ComponentType<any> }>;
+  component: () => Promise<{ default: ComponentType<Record<string, unknown>> }>;
   fallback?: React.ReactNode;
   // 手機版是否延遲載入
   delayOnMobile?: boolean;

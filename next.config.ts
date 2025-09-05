@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
   compress: true,
   
   // 手機版效能優化
-  swcMinify: true, // 使用SWC進行更快的壓縮
+  // swcMinify 在 Next.js 15 中已預設啟用，無需明確設定
   
   // 預載入優化
   async headers() {
