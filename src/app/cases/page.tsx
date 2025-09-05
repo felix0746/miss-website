@@ -4,6 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useTranslation } from '@/contexts/TranslationContext'
+
+// 強制動態渲染，避免服務端預渲染問題
+export const dynamic = 'force-dynamic'
 import AnimatedCard from '@/components/AnimatedCard'
 import AnimatedText from '@/components/AnimatedText'
 import MobileCard from '@/components/MobileCard'

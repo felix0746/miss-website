@@ -60,7 +60,6 @@ export default function NewsDetail({
   }
 
   const contentParagraphs = newsData.content.split('\n\n').filter(paragraph => paragraph.trim());
-  const allNews = languageData[currentLanguage]?.news_data || [];
 
   return (
     <main className="min-h-screen bg-white">
