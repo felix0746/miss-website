@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react'
-import { useTranslation } from '@/contexts/TranslationContext'
+import { useSimpleTranslation as useTranslation } from '@/hooks/useSimpleTranslation'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()

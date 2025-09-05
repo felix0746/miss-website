@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import LanguageSwitcher from './LanguageSwitcher';
 import MobileMenu from './MobileMenu';
-import { useTranslation } from '@/contexts/TranslationContext';
+import { useSimpleTranslation as useTranslation } from '@/hooks/useSimpleTranslation';
 
 const navigation = [
   { nameKey: 'nav.about', href: '/about' },

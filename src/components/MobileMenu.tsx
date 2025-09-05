@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useTranslation } from '@/contexts/TranslationContext'
+import { useSimpleTranslation as useTranslation } from '@/hooks/useSimpleTranslation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTouchFeedback } from './MobileInteractions'

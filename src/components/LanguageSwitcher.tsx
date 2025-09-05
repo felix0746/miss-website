@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Globe } from 'lucide-react';
-import { useTranslation } from '@/contexts/TranslationContext';
+import { useSimpleTranslation as useTranslation } from '@/hooks/useSimpleTranslation';
 
 interface LanguageSwitcherProps {
   isMobile?: boolean;
