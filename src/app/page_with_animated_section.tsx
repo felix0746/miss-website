@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSimpleTranslation as useTranslation } from '@/hooks/useSimpleTranslation'
-import SimpleAnimatedSection from '@/components/SimpleAnimatedSection'
+import AnimatedSection from '@/components/AnimatedSection'
 
 // 強制動態渲染，避免服務端預渲染問題
 export const dynamic = 'force-dynamic'
@@ -52,36 +52,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section with CSS Animation */}
-      <SimpleAnimatedSection className="py-16 bg-gray-50" delay={0.2}>
+      {/* About Section with AnimatedSection */}
+      <AnimatedSection className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">{t('about.title')}</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
             {t('about.description')}
           </p>
         </div>
-      </SimpleAnimatedSection>
-
-      {/* Services Section with CSS Animation */}
-      <SimpleAnimatedSection className="py-16 bg-white" delay={0.4}>
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">{t('services.title')}</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-4">{t('services.item1.title')}</h3>
-              <p className="text-gray-600">{t('services.item1.description')}</p>
-            </div>
-            <div className="text-center p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-4">{t('services.item2.title')}</h3>
-              <p className="text-gray-600">{t('services.item2.description')}</p>
-            </div>
-            <div className="text-center p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-4">{t('services.item3.title')}</h3>
-              <p className="text-gray-600">{t('services.item3.description')}</p>
-            </div>
-          </div>
-        </div>
-      </SimpleAnimatedSection>
+      </AnimatedSection>
     </main>
   )
 }
