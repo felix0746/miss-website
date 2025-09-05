@@ -22,32 +22,23 @@ interface TranslationContextType {
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined);
 
 export function TranslationProvider({ children }: { children: ReactNode }) {
-  // 在服務端渲染時提供默認值
-  if (typeof window === 'undefined') {
-    return (
-      <TranslationContext.Provider value={{
-        currentLanguage: 'zh-TW',
-        setCurrentLanguage: () => {},
-        t: (key: string) => key,
-        languageData: {},
-        isLoading: true
-      }}>
-        {children}
-      </TranslationContext.Provider>
-    );
-  }
-
   const [currentLanguage, setCurrentLanguageState] = useState('zh-TW');
   const [languageData, setLanguageData] = useState<LanguageData>({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // 確保只在客戶端環境中執行
+    if (typeof window === 'undefined') return;
+    
     // On mount, read language from localStorage
     const savedLanguage = localStorage.getItem('language') || 'zh-TW';
     setCurrentLanguageState(savedLanguage);
   }, []);
 
   useEffect(() => {
+    // 確保只在客戶端環境中執行
+    if (typeof window === 'undefined') return;
+    
     async function loadLanguageData() {
       if (!currentLanguage) return;
       setIsLoading(true);
@@ -69,7 +60,10 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   }, [currentLanguage]);
 
   const setCurrentLanguage = (language: string) => {
-    localStorage.setItem('language', language);
+    // 確保只在客戶端環境中執行
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', language);
+    }
     setCurrentLanguageState(language);
   };
 
