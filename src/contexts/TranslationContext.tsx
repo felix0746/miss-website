@@ -110,9 +110,31 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
 }
 
 export function useTranslation() {
-  const context = useContext(TranslationContext);
-  if (context === undefined) {
-    throw new Error('useTranslation must be used within a TranslationProvider');
+  try {
+    const context = useContext(TranslationContext);
+    if (context === undefined) {
+      // 在服務端渲染時提供默認值，而不是拋出錯誤
+      if (typeof window === 'undefined') {
+        return {
+          currentLanguage: 'zh-TW',
+          setCurrentLanguage: () => {},
+          t: (key: string) => key,
+          languageData: {},
+          isLoading: true
+        };
+      }
+      throw new Error('useTranslation must be used within a TranslationProvider');
+    }
+    return context;
+  } catch (error) {
+    // 如果 useContext 失敗，返回默認值
+    console.warn('useTranslation error:', error);
+    return {
+      currentLanguage: 'zh-TW',
+      setCurrentLanguage: () => {},
+      t: (key: string) => key,
+      languageData: {},
+      isLoading: true
+    };
   }
-  return context;
 }
