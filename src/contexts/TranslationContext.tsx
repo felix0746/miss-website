@@ -23,6 +23,9 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // 檢查是否在瀏覽器環境
+    if (typeof window === 'undefined') return;
+
     // 從 localStorage 讀取保存的語言設定
     const savedLanguage = localStorage.getItem('selectedLanguage');
     if (savedLanguage) {
@@ -43,6 +46,9 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
+    // 檢查是否在瀏覽器環境
+    if (typeof window === 'undefined') return;
+
     // 保存語言設定到 localStorage
     localStorage.setItem('selectedLanguage', currentLanguage);
     // 更新 HTML lang 屬性
