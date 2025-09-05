@@ -21,8 +21,10 @@ export default function MobilePerformanceOptimizer() {
     const optimizeScrolling = () => {
       const scrollContainers = document.querySelectorAll('.overflow-x-auto');
       scrollContainers.forEach(container => {
-        (container as HTMLElement).style.webkitOverflowScrolling = 'touch';
-        (container as HTMLElement).style.scrollBehavior = 'smooth';
+        const element = container as HTMLElement;
+        // 使用類型斷言來避免 TypeScript 錯誤
+        (element.style as any).webkitOverflowScrolling = 'touch';
+        element.style.scrollBehavior = 'smooth';
       });
     };
 
@@ -59,8 +61,8 @@ export default function MobilePerformanceOptimizer() {
 
     // 5. 減少長時間主執行緒工作
     const optimizeMainThread = () => {
-      // 將重計算工作分解為小塊
-      const processInChunks = (items: any[], processor: Function, chunkSize = 5) => {
+      // 使用 requestIdleCallback 分解工作
+      const processInChunks = (items: unknown[], processor: (item: unknown) => void, chunkSize = 5) => {
         let index = 0;
         
         const processChunk = () => {
@@ -77,6 +79,12 @@ export default function MobilePerformanceOptimizer() {
         
         requestIdleCallback(processChunk);
       };
+
+      // 實際使用 processInChunks 函數
+      const sampleItems = [1, 2, 3, 4, 5];
+      processInChunks(sampleItems, (item) => {
+        console.log('Processing item:', item);
+      });
     };
 
     // 執行所有優化
