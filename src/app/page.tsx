@@ -10,7 +10,22 @@ import OptimizedImage from '@/components/OptimizedImage'
 import MobileOptimizedMotion from '@/components/MobileOptimizedMotion'
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, currentLanguage } = useTranslation();
+  
+  // 根據語言和螢幕尺寸返回不同的卡片樣式
+  const getCardStyles = () => {
+    const isEnglish = currentLanguage === 'en';
+    return {
+      // 手機版本使用原本的統一樣式，桌面版本才分離
+      height: isEnglish ? 'h-auto sm:h-[220px] md:h-[280px]' : 'h-auto sm:h-[220px] md:h-[220px]',
+      textSize: isEnglish ? 'text-sm sm:text-sm md:text-sm' : 'text-sm sm:text-sm md:text-base',
+      layout: isEnglish ? 'justify-center sm:justify-center md:justify-between' : 'justify-center',
+      iconSize: isEnglish ? 'w-12 h-12 sm:w-14 sm:h-14 md:w-12 md:h-12' : 'w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14',
+      iconMargin: isEnglish ? 'mb-3 sm:mb-4 md:mb-3' : 'mb-3 sm:mb-4 md:mb-4'
+    };
+  };
+  
+  const cardStyles = getCardStyles();
   
   return (
     <main className="min-h-screen bg-white">
@@ -171,22 +186,22 @@ export default function Home() {
           <AnimatedText>
           <h2 className="section-title text-2xl sm:text-3xl mb-8 sm:mb-12">{t('home.services.title')}</h2>
           </AnimatedText>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto" style={{ contain: 'layout' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 md:gap-8 max-w-6xl mx-auto" style={{ contain: 'layout' }}>
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
             >
-              <a href="/services#planning" className="block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.brandPlanning')}</h3>
-              <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.brandPlanningDescription')}</p>
-            </a>
+              <a href="/services#planning" className={`block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70 max-w-[280px] ${cardStyles.height} mx-auto flex flex-col ${cardStyles.layout}`}>
+                <div className={`${cardStyles.iconSize} mx-auto ${cardStyles.iconMargin} bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300`}>
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.brandPlanning')}</h3>
+                <p className={`text-gray-700 ${cardStyles.textSize} font-medium leading-relaxed`}>{t('home.services.brandPlanningDescription')}</p>
+              </a>
           </motion.div>
             
             <motion.div
@@ -195,15 +210,15 @@ export default function Home() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
             >
-              <a href="/services#strategy" className="block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.strategyPlanning')}</h3>
-              <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.strategyPlanningDescription')}</p>
-            </a>
+              <a href="/services#strategy" className={`block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70 max-w-[280px] ${cardStyles.height} mx-auto flex flex-col ${cardStyles.layout}`}>
+                <div className={`${cardStyles.iconSize} mx-auto ${cardStyles.iconMargin} bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300`}>
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.strategyPlanning')}</h3>
+                <p className={`text-gray-700 ${cardStyles.textSize} font-medium leading-relaxed`}>{t('home.services.strategyPlanningDescription')}</p>
+              </a>
           </motion.div>
             
             <motion.div
@@ -212,15 +227,15 @@ export default function Home() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
             >
-              <a href="/services#diagnosis" className="block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.businessDiagnosis')}</h3>
-              <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.businessDiagnosisDescription')}</p>
-            </a>
+              <a href="/services#diagnosis" className={`block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70 max-w-[280px] ${cardStyles.height} mx-auto flex flex-col ${cardStyles.layout}`}>
+                <div className={`${cardStyles.iconSize} mx-auto ${cardStyles.iconMargin} bg-primary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300`}>
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-primary-600 transition-colors">{t('home.services.businessDiagnosis')}</h3>
+                <p className={`text-gray-700 ${cardStyles.textSize} font-medium leading-relaxed`}>{t('home.services.businessDiagnosisDescription')}</p>
+              </a>
           </motion.div>
             
             <motion.div
@@ -229,15 +244,15 @@ export default function Home() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
             >
-              <a href="https://believe-in-goodness-website.vercel.app/" target="_blank" rel="noopener noreferrer" className="block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
-                </svg>
-              </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.hrDevelopment')}</h3>
-              <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">{t('home.services.hrDevelopmentDescription')}</p>
-            </a>
+              <a href="https://believe-in-goodness-website.vercel.app/" target="_blank" rel="noopener noreferrer" className={`block bg-white/60 backdrop-blur-sm p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg active:shadow-lg transition-all duration-300 text-center group active:scale-95 sm:active:scale-100 border border-white/30 hover:bg-white/70 max-w-[280px] ${cardStyles.height} mx-auto flex flex-col ${cardStyles.layout}`}>
+                <div className={`${cardStyles.iconSize} mx-auto ${cardStyles.iconMargin} bg-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 group-active:scale-110 transition-transform duration-300`}>
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-active:text-secondary-600 transition-colors">{t('home.services.hrDevelopment')}</h3>
+                <p className={`text-gray-700 ${cardStyles.textSize} font-medium leading-relaxed`}>{t('home.services.hrDevelopmentDescription')}</p>
+              </a>
           </motion.div>
           </div>
         </div>
