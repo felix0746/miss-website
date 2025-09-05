@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, MotionProps } from 'framer-motion';
+import { motion, MotionProps, type TargetAndTransition, type Transition } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 
 interface MobileOptimizedMotionProps extends MotionProps {
@@ -27,12 +27,12 @@ export default function MobileOptimizedMotion({
   }
 
   // 簡化動畫配置（手機版優化）
-  const optimizedProps = isMobile && simpleAnimation ? {
+  const optimizedProps: MotionProps = isMobile && simpleAnimation ? {
     ...props,
     transition: {
       duration: 0.3, // 更短的動畫時間
       ease: "easeOut"
-    },
+    } as Transition,
     // 減少複雜的動畫效果
     whileHover: undefined,
     whileTap: undefined,

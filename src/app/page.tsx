@@ -264,19 +264,14 @@ export default function Home() {
                 simpleAnimation={true}
               >
                 <a href="#" target="_blank" rel="noopener noreferrer" className="block text-center group">
-                  <motion.div 
-                    className="w-16 h-16 mx-auto relative mb-2"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                <OptimizedImage
-                  src="/images/MISS.webp"
-                  alt="覓食國際餐飲企業有限公司 Logo"
-                  sizes="(max-width: 640px) 80px, 100px"
-                  quality={80}
-                />
-                  </motion.div>
+                  <div className="w-16 h-16 mx-auto relative mb-2">
+                    <OptimizedImage
+                      src="/images/MISS.webp"
+                      alt="覓食國際餐飲企業有限公司 Logo"
+                      sizes="(max-width: 640px) 80px, 100px"
+                      quality={80}
+                    />
+                  </div>
                   <h3 className="text-xs font-medium text-gray-700 group-hover:text-primary-600 transition-colors leading-tight">
                     覓食國際
                   </h3>
