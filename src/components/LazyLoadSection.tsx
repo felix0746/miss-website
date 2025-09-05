@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, type TargetAndTransition, type Transition } from 'framer-motion';
 
 interface LazyLoadSectionProps {
   children: React.ReactNode;
@@ -12,9 +12,9 @@ interface LazyLoadSectionProps {
   disableOnMobile?: boolean;
   // 動畫配置
   animation?: {
-    initial?: Record<string, unknown>;
-    animate?: Record<string, unknown>;
-    transition?: Record<string, unknown>;
+    initial?: TargetAndTransition | boolean;
+    animate?: TargetAndTransition | boolean;
+    transition?: Transition;
   };
 }
 
@@ -25,9 +25,9 @@ export default function LazyLoadSection({
   rootMargin = '50px',
   disableOnMobile = false,
   animation = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
+    initial: { opacity: 0, y: 20 } as TargetAndTransition,
+    animate: { opacity: 1, y: 0 } as TargetAndTransition,
+    transition: { duration: 0.5 } as Transition
   }
 }: LazyLoadSectionProps) {
   const [isVisible, setIsVisible] = useState(false);

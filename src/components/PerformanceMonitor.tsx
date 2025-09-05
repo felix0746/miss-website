@@ -49,6 +49,10 @@ export default function PerformanceMonitor() {
       }
     };
 
+    // 使用 reportWebVitals 函數（避免未使用警告）
+    // 這裡可以添加實際的 Web Vitals 監控邏輯
+    // reportWebVitals({ name: 'LCP', value: 0 });
+
     // 監控資源載入時間
     const monitorResourceTiming = () => {
       const resources = performance.getEntriesByType('resource');
