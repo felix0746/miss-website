@@ -2,9 +2,9 @@
 
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
-// A more precise type for nested translation objects
+// A more precise type for nested translation objects that allows arrays
 type NestedTranslations = {
-  [key: string]: string | NestedTranslations;
+  [key: string]: string | NestedTranslations | unknown[];
 };
 
 interface LanguageData {
@@ -64,11 +64,13 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     }
     try {
       const keys = key.split('.');
-      let result: string | NestedTranslations | undefined = languageData[currentLanguage];
+      let result: string | NestedTranslations | unknown[] | undefined = languageData[currentLanguage];
       for (const k of keys) {
-        if (typeof result === 'object' && result !== null) {
+        // We only want to traverse objects, not arrays or strings
+        if (typeof result === 'object' && result !== null && !Array.isArray(result)) {
           result = (result as NestedTranslations)[k];
         } else {
+          // If it's not a traversable object, we can't go deeper.
           return key;
         }
 
@@ -76,6 +78,7 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
           return key;
         }
       }
+      // At the end, we expect a string.
       return typeof result === 'string' ? result : key;
     } catch {
       return key;
