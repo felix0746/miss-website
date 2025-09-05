@@ -1,15 +1,12 @@
-'use client';
-
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { ReactNode, createContext, useContext } from 'react';
 
 interface LanguageData {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: Record<string, any>;
+  [key: string]: any;
 }
 
 interface TranslationContextType {
   currentLanguage: string;
-  setCurrentLanguage: (lang: string) => void;
+  setCurrentLanguage: (language: string) => void;
   t: (key: string) => string;
   languageData: LanguageData;
   isLoading: boolean;
@@ -18,76 +15,17 @@ interface TranslationContextType {
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined);
 
 export function TranslationProvider({ children }: { children: ReactNode }) {
-  const [currentLanguage, setCurrentLanguage] = useState('zh-TW');
-  const [languageData, setLanguageData] = useState<LanguageData>({});
-  const [isLoading, setIsLoading] = useState(typeof window === 'undefined');
-
-  useEffect(() => {
-    // 檢查是否在瀏覽器環境
-    if (typeof window === 'undefined') return;
-
-    // 從 localStorage 讀取保存的語言設定
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage) {
-      setCurrentLanguage(savedLanguage);
-    }
-
-    // 載入語言資料
-    fetch('/languages.json')
-      .then(response => response.json())
-      .then(data => {
-        setLanguageData(data);
-        setIsLoading(false);
-      })
-      .catch(error => {
-        console.error('Error loading language data:', error);
-        setIsLoading(false);
-      });
-  }, []);
-
-  useEffect(() => {
-    // 檢查是否在瀏覽器環境
-    if (typeof window === 'undefined') return;
-
-    // 保存語言設定到 localStorage
-    localStorage.setItem('selectedLanguage', currentLanguage);
-    // 更新 HTML lang 屬性
-    document.documentElement.lang = currentLanguage;
-  }, [currentLanguage]);
-
-  const t = (key: string): string => {
-    if (isLoading || !languageData[currentLanguage]) {
-      return key; // Return key if data is loading or not available
-    }
-
-    try {
-      // Use reduce to safely traverse the nested object path
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const value = key.split('.').reduce((obj: any, k: string) => {
-        if (obj && typeof obj === 'object' && k in obj) {
-          // Move to the next level in the object
-          return obj[k];
-        }
-        // If at any point the key is not found, throw an error to exit
-        throw new Error(`Translation key not found: ${key}`);
-      }, languageData[currentLanguage]);
-
-      // If the final value is a string, return it, otherwise return the key
-      return typeof value === 'string' ? value : key;
-    } catch {
-      // If the key path is invalid, return the original key
-      return key;
-    }
+  // 伺服器端永遠使用預設語言
+  const serverContextValue: TranslationContextType = {
+    currentLanguage: 'zh-TW',
+    setCurrentLanguage: () => {}, // 伺服器端不需要這個功能
+    t: (key: string) => key, // 伺服器端直接返回 key
+    languageData: {},
+    isLoading: true, // 在伺服器端永遠是加載中狀態
   };
 
   return (
-    <TranslationContext.Provider value={{
-      currentLanguage,
-      setCurrentLanguage,
-      t,
-      languageData,
-      isLoading
-    }}>
+    <TranslationContext.Provider value={serverContextValue}>
       {children}
     </TranslationContext.Provider>
   );
@@ -96,16 +34,6 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
 export function useTranslation() {
   const context = useContext(TranslationContext);
   if (context === undefined) {
-    // 在服務端渲染時提供默認值
-    if (typeof window === 'undefined') {
-      return {
-        currentLanguage: 'zh-TW',
-        setCurrentLanguage: () => {},
-        t: (key: string) => key,
-        languageData: {},
-        isLoading: true
-      };
-    }
     throw new Error('useTranslation must be used within a TranslationProvider');
   }
   return context;
