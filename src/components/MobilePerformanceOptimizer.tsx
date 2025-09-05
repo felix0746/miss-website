@@ -22,9 +22,11 @@ export default function MobilePerformanceOptimizer() {
       const scrollContainers = document.querySelectorAll('.overflow-x-auto');
       scrollContainers.forEach(container => {
         const element = container as HTMLElement;
-        // 使用類型斷言來避免 TypeScript 錯誤
-        (element.style as any).webkitOverflowScrolling = 'touch';
-        element.style.scrollBehavior = 'smooth';
+        // 使用 Object.assign 來避免 TypeScript 錯誤
+        Object.assign(element.style, {
+          webkitOverflowScrolling: 'touch',
+          scrollBehavior: 'smooth'
+        });
       });
     };
 
