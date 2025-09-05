@@ -2,8 +2,13 @@
 
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
+// A more precise type for nested translation objects
+type NestedTranslations = {
+  [key: string]: string | NestedTranslations;
+};
+
 interface LanguageData {
-  [key: string]: any;
+  [key: string]: NestedTranslations;
 }
 
 interface TranslationContextType {
@@ -59,14 +64,19 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     }
     try {
       const keys = key.split('.');
-      let result = languageData[currentLanguage];
+      let result: string | NestedTranslations | undefined = languageData[currentLanguage];
       for (const k of keys) {
-        result = result?.[k];
+        if (typeof result === 'object' && result !== null) {
+          result = (result as NestedTranslations)[k];
+        } else {
+          return key;
+        }
+
         if (result === undefined) {
           return key;
         }
       }
-      return result || key;
+      return typeof result === 'string' ? result : key;
     } catch {
       return key;
     }
