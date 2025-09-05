@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { TranslationProvider } from '@/contexts/TranslationContext'
 import PerformanceMonitor from '@/components/PerformanceMonitor'
+import MobilePerformanceOptimizer from '@/components/MobilePerformanceOptimizer'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -112,9 +113,31 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="覓食 MISS" />
         
-        {/* 預載入關鍵資源 */}
+        {/* 預載入關鍵資源 - 優化載入順序 */}
         <link rel="preload" href="/images/banner.webp" as="image" type="image/webp" />
         <link rel="preload" href="/images/MISS.webp" as="image" type="image/webp" />
+        
+        {/* 關鍵CSS內聯 - 減少轉譯封鎖 */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .hero-section { 
+              background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+              min-height: 100vh;
+            }
+            .section-title {
+              font-weight: 700;
+              line-height: 1.2;
+            }
+            .btn-primary {
+              background: #dc2626;
+              transition: all 0.3s ease;
+            }
+            .btn-primary:hover {
+              background: #b91c1c;
+              transform: translateY(-2px);
+            }
+          `
+        }} />
         
         {/* DNS 預解析和預連接 */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
@@ -150,6 +173,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <TranslationProvider>
           <PerformanceMonitor />
+          <MobilePerformanceOptimizer />
           <Header />
           <main>{children}</main>
           <Footer />

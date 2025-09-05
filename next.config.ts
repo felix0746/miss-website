@@ -6,9 +6,12 @@ const nextConfig: NextConfig = {
   
   // 性能優化
   experimental: {
-    optimizePackageImports: ['framer-motion'],
+    optimizePackageImports: ['framer-motion', 'react-responsive'],
     optimizeCss: true, // 啟用CSS優化
     webVitalsAttribution: ['CLS', 'LCP'], // 監控關鍵效能指標
+    // 手機版優化
+    optimizeServerReact: true,
+    serverComponentsExternalPackages: ['framer-motion'],
   },
   
   // 現代瀏覽器支援
