@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import '../styles/mobile-optimization.css'
-import { TranslationProvider } from '@/contexts/TranslationContext'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PerformanceMonitor from '@/components/PerformanceMonitor'
@@ -132,13 +131,11 @@ export default function RootLayout({
         className={`${inter.className} bg-gray-50 antialiased`}
         suppressHydrationWarning
       >
-        <TranslationProvider>
-          <PerformanceMonitor />
-          <MobilePerformanceOptimizer />
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </TranslationProvider>
+        <PerformanceMonitor />
+        <MobilePerformanceOptimizer />
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
