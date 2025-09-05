@@ -20,7 +20,7 @@ const TranslationContext = createContext<TranslationContextType | undefined>(und
 export function TranslationProvider({ children }: { children: ReactNode }) {
   const [currentLanguage, setCurrentLanguage] = useState('zh-TW');
   const [languageData, setLanguageData] = useState<LanguageData>({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(typeof window === 'undefined');
 
   useEffect(() => {
     // 檢查是否在瀏覽器環境

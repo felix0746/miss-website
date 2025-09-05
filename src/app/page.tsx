@@ -18,10 +18,10 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden" style={{ contain: 'layout' }}>
         <div className="absolute inset-0 z-0">
         <Image
-          src="/images/banner.webp"
-          alt="追求你所熱愛 努力不懈"
-          fill
-          className="object-cover"
+            src="/images/banner.webp"
+            alt="追求你所熱愛 努力不懈"
+            fill
+            className="object-cover"
           priority
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
           quality={90}
@@ -579,11 +579,11 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Image
-                      src="/images/MISS.webp"
-                      alt="覓食國際餐飲企業有限公司 Logo"
-                      fill
-                      className="object-contain"
+                <Image
+                  src="/images/MISS.webp"
+                  alt="覓食國際餐飲企業有限公司 Logo"
+                  fill
+                  className="object-contain"
                       loading="lazy"
                       sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"
                       quality={75}

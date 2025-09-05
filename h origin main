@@ -1,0 +1,37 @@
+warning: in the working copy of 'src/app/page.tsx', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/app/page.tsx b/src/app/page.tsx[m
+[1mindex ed40899..8bd8e87 100644[m
+[1m--- a/src/app/page.tsx[m
+[1m+++ b/src/app/page.tsx[m
+[36m@@ -18,10 +18,10 @@[m [mexport default function Home() {[m
+       <section className="relative h-screen flex items-center justify-center overflow-hidden" style={{ contain: 'layout' }}>[m
+         <div className="absolute inset-0 z-0">[m
+         <Image[m
+[31m-          src="/images/banner.webp"[m
+[31m-          alt="追求你所熱愛 努力不懈"[m
+[31m-          fill[m
+[31m-          className="object-cover"[m
+[32m+[m[32m            src="/images/banner.webp"[m
+[32m+[m[32m            alt="追求你所熱愛 努力不懈"[m
+[32m+[m[32m            fill[m
+[32m+[m[32m            className="object-cover"[m
+           priority[m
+           sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"[m
+           quality={90}[m
+[36m@@ -579,11 +579,11 @@[m [mexport default function Home() {[m
+                     whileHover={{ scale: 1.05 }}[m
+                     transition={{ duration: 0.2 }}[m
+                   >[m
+[31m-                    <Image[m
+[31m-                      src="/images/MISS.webp"[m
+[31m-                      alt="覓食國際餐飲企業有限公司 Logo"[m
+[31m-                      fill[m
+[31m-                      className="object-contain"[m
+[32m+[m[32m                <Image[m
+[32m+[m[32m                  src="/images/MISS.webp"[m
+[32m+[m[32m                  alt="覓食國際餐飲企業有限公司 Logo"[m
+[32m+[m[32m                  fill[m
+[32m+[m[32m                  className="object-contain"[m
+                       loading="lazy"[m
+                       sizes="(max-width: 640px) 40px, (max-width: 768px) 80px, 100px"[m
+                       quality={75}[m
