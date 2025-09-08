@@ -2,42 +2,43 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://miss-website-nextjs-psi.vercel.app'
+  const currentDate = new Date()
   
   // 靜態頁面
   const staticPages = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 1,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/cases`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/news`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
@@ -47,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const caseIds = ['kenting', 'lanting', 'laojiang', 'xianglian', 'sansan', 'tianyuan']
   const casePages = caseIds.map((id) => ({
     url: `${baseUrl}/cases/${id}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }))
@@ -56,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const newsIds = ['news-1', 'news-2', 'news-3', 'news-4', 'news-5', 'news-6']
   const newsPages = newsIds.map((id) => ({
     url: `${baseUrl}/news/${id}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }))

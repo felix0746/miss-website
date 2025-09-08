@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: 'zh_TW',
     images: [
       {
-        url: 'https://miss-website-nextjs-psi.vercel.app/og-image.png', // 建議建立一個 1200x630 的圖片
+        url: 'https://miss-website-nextjs-psi.vercel.app/images/banner.webp', // 暫時使用現有圖片
         width: 1200,
         height: 630,
         alt: '覓食 MISS - 餐飲顧問',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '覓食 MISS - 您的餐飲事業最佳夥伴',
     description: '專業餐飲顧問服務，提供品牌規劃、商業設計與整合行銷，助您的餐飲事業邁向成功。',
-    images: ['https://miss-website-nextjs-psi.vercel.app/twitter-image.png'], // 建議建立一個 1200x675 的圖片
+    images: ['https://miss-website-nextjs-psi.vercel.app/images/banner.webp'], // 暫時使用現有圖片
     creator: '@MISS_Consulting', // 您的 Twitter 帳號
   },
 
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   },
 
   // 讓 PWA (漸進式網路應用) 體驗更好
-  manifest: '/site.webmanifest',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({

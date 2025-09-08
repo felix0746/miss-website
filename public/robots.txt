@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# 允許所有搜尋引擎爬取所有內容
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# 網站地圖位置
+Sitemap: https://miss-website-nextjs-psi.vercel.app/sitemap.xml
+
+# 爬取延遲（毫秒）
+Crawl-delay: 1
