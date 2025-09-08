@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   // 關閉Vercel的預設行為
   poweredByHeader: false,
   
+  // 隱藏 Vercel 品牌標識
+  generateEtags: false,
+  
   // 性能優化
   experimental: {
     optimizePackageImports: ['framer-motion'],

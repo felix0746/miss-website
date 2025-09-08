@@ -81,6 +81,13 @@ export const metadata: Metadata = {
     },
   },
 
+  // 隱藏 Vercel 品牌標識
+  other: {
+    'X-Powered-By': '覓食 MISS',
+    'X-Frame-Options': 'DENY',
+    'X-Content-Type-Options': 'nosniff',
+  },
+
   // Google Search Console 驗證
   verification: {
     google: 'wry9ix6DEHAyH4l-rcrpVhbVGC8mXgO_hFMEOj412BI',
