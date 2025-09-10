@@ -112,6 +112,9 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="/miss-favicon.ico?v=3" />
         <link rel="icon" href="/miss-favicon.ico?v=3" />
         
+        {/* Viewport 設定 - 各裝置相容性關鍵 */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+        
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#dc2626" />
