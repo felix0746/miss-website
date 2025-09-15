@@ -240,31 +240,31 @@
       },
       {
         "id": "sansan",
-        "title": "三三燒肉",
-        "subtitle": "商業模式優化",
-        "description": "為三三燒肉進行商業模式診斷與優化，提升營運效率與顧客滿意度。",
+        "title": "三三活力早餐",
+        "subtitle": "早餐品牌重塑與優化",
+        "description": "為三三活力早餐進行品牌重塑與營運優化，打造現代化早餐品牌形象。",
         "image": "/images/case-logo-sansan.webp",
-        "category": "燒肉店",
-        "services": ["商業診斷", "營運優化", "流程改善"],
+        "category": "早餐店",
+        "services": ["品牌重塑", "LOGO設計", "營運優化"],
         "year": "2023",
-        "fullDescription": "三三燒肉是一家新興的日式燒肉店，希望透過商業模式優化來提升營運效率與顧客滿意度。我們協助其進行全面的商業診斷，包括營運流程分析、成本結構優化、服務流程改善等，成功提升了整體營運效能。",
+        "fullDescription": "三三活力早餐是一家新興的現代化早餐店，希望透過品牌重塑與營運優化來提升品牌形象與顧客滿意度。我們協助其進行全面的品牌重塑，包括LOGO設計、視覺識別系統建立、營運流程優化等，成功打造現代化早餐品牌形象。",
         "results": [
-          "營運效率提升 45%",
-          "顧客滿意度提升至 88%",
-          "成本控制改善 25%",
-          "翻桌率提升 30%"
+          "品牌識別度提升 60%",
+          "顧客滿意度提升至 92%",
+          "營業額成長 40%",
+          "年輕客群增加 50%"
         ],
         "challenges": [
-          "營運流程不順暢",
-          "成本控制不佳",
-          "服務效率有待提升",
-          "缺乏標準化作業"
+          "品牌形象不夠現代化",
+          "視覺識別系統不完整",
+          "無法吸引年輕族群",
+          "缺乏品牌差異化"
         ],
         "solutions": [
-          "建立標準化營運流程",
-          "優化成本結構與採購策略",
-          "改善服務流程與人員配置",
-          "導入數位化營運管理系統"
+          "設計現代化LOGO與視覺識別",
+          "建立完整的品牌識別系統",
+          "優化店面空間設計與氛圍營造",
+          "制定品牌行銷策略與推廣方案"
         ]
       },
       {
@@ -837,31 +837,31 @@
       },
       {
         "id": "sansan",
-        "title": "San San Yakiniku",
-        "subtitle": "Business Model Optimization",
-        "description": "Conducted a business model diagnosis and optimization for San San Yakiniku to improve operational efficiency and customer satisfaction.",
+        "title": "San San Energy Breakfast",
+        "subtitle": "Breakfast Brand Revitalization & Optimization",
+        "description": "Conducted brand revitalization and operational optimization for San San Energy Breakfast to create a modern breakfast brand image.",
         "image": "/images/case-logo-sansan.webp",
-        "category": "Yakiniku Restaurant",
-        "services": ["Business Diagnosis", "Operational Optimization", "Process Improvement"],
+        "category": "Breakfast Restaurant",
+        "services": ["Brand Revitalization", "Logo Design", "Operational Optimization"],
         "year": "2023",
-        "fullDescription": "San San Yakiniku is an emerging Japanese barbecue restaurant looking to improve operational efficiency and customer satisfaction through business model optimization. We conducted a comprehensive business diagnosis, including analysis of operational flows, cost structure optimization, and service process improvements, successfully enhancing overall operational performance.",
+        "fullDescription": "San San Energy Breakfast is an emerging modern breakfast restaurant looking to improve brand image and customer satisfaction through brand revitalization and operational optimization. We conducted a comprehensive brand revitalization, including logo design, visual identity system establishment, and operational process optimization, successfully creating a modern breakfast brand image.",
         "results": [
-          "45% improvement in operational efficiency",
-          "Customer satisfaction increased to 88%",
-          "25% improvement in cost control",
-          "30% increase in table turnover rate"
+          "60% improvement in brand recognition",
+          "Customer satisfaction increased to 92%",
+          "40% growth in revenue",
+          "50% increase in young customer base"
         ],
         "challenges": [
-          "Inefficient operational flow",
-          "Poor cost control",
-          "Service efficiency needs improvement",
-          "Lack of standardized operations"
+          "Brand image not modern enough",
+          "Incomplete visual identity system",
+          "Unable to attract young demographics",
+          "Lack of brand differentiation"
         ],
         "solutions": [
-          "Established standardized operational procedures",
-          "Optimized cost structure and procurement strategy",
-          "Improved service processes and staffing",
-          "Introduced a digital operational management system"
+          "Designed modern logo and visual identity",
+          "Established comprehensive brand identity system",
+          "Optimized store space design and atmosphere",
+          "Developed brand marketing strategy and promotion plans"
         ]
       },
       {
