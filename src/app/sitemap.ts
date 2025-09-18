@@ -4,10 +4,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://miss-website-nextjs-psi.vercel.app'
   const currentDate = new Date()
   
-  // 靜態頁面
+  // 靜態頁面 - 確保 URL 格式正確
   const staticPages = [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 1,
